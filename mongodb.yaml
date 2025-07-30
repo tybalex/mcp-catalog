@@ -1,0 +1,181 @@
+name: MongoDB Local
+description: |
+  # MongoDB Local MCP Server
+
+  A Model Context Protocol server for interacting with MongoDB Databases.
+
+  <a name="getting-started"></a>
+
+  ## 🚀 Prerequisites
+
+  - A MongoDB connection string, **_the Server will not start unless configured_**.
+    - If you have a MongoDB connection string, you can use it directly to connect to your MongoDB instance.
+    - If you want to use MongoDB Atlas Cloud Service, use the *MongoDB Atlas MCP Server* instead.
+
+  ## 🛠️ Supported Tools
+
+  ### Tool List
+
+  #### MongoDB Database Tools
+
+  - `connect` - Connect to a MongoDB instance
+  - `find` - Run a find query against a MongoDB collection
+  - `aggregate` - Run an aggregation against a MongoDB collection
+  - `count` - Get the number of documents in a MongoDB collection
+  - `insert-one` - Insert a single document into a MongoDB collection
+  - `insert-many` - Insert multiple documents into a MongoDB collection
+  - `create-index` - Create an index for a MongoDB collection
+  - `update-one` - Update a single document in a MongoDB collection
+  - `update-many` - Update multiple documents in a MongoDB collection
+  - `rename-collection` - Rename a MongoDB collection
+  - `delete-one` - Delete a single document from a MongoDB collection
+  - `delete-many` - Delete multiple documents from a MongoDB collection
+  - `drop-collection` - Remove a collection from a MongoDB database
+  - `drop-database` - Remove a MongoDB database
+  - `list-databases` - List all databases for a MongoDB connection
+  - `list-collections` - List all collections for a given database
+  - `collection-indexes` - Describe the indexes for a collection
+  - `collection-schema` - Describe the schema for a collection
+  - `collection-storage-size` - Get the size of a collection in MB
+  - `db-stats` - Return statistics about a MongoDB database
+
+  ## Configuration
+
+  ### Configuration Options
+
+  | CLI Option              | Environment Variable              | Default    | Description                                                                                                                                                   |
+  | ----------------------- | --------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `apiClientId`           | `MDB_MCP_API_CLIENT_ID`           | <not set>  | Atlas API client ID for authentication. Required for running Atlas tools.                                                                                     |
+  | `apiClientSecret`       | `MDB_MCP_API_CLIENT_SECRET`       | <not set>  | Atlas API client secret for authentication. Required for running Atlas tools.                                                                                 |
+  | `connectionString`      | `MDB_MCP_CONNECTION_STRING`       | <not set>  | MongoDB connection string for direct database connections. Optional, if not set, you'll need to call the `connect` tool before interacting with MongoDB data. |
+  | `loggers`               | `MDB_MCP_LOGGERS`                 | disk,mcp   | Comma separated values, possible values are `mcp`, `disk` and `stderr`. See [Logger Options](#logger-options) for details.                                    |
+  | `logPath`               | `MDB_MCP_LOG_PATH`                | see note\* | Folder to store logs.                                                                                                                                         |
+  | `disabledTools`         | `MDB_MCP_DISABLED_TOOLS`          | <not set>  | An array of tool names, operation types, and/or categories of tools that will be disabled.                                                                    |
+  | `readOnly`              | `MDB_MCP_READ_ONLY`               | false      | When set to true, only allows read, connect, and metadata operation types, disabling create/update/delete operations.                                         |
+  | `indexCheck`            | `MDB_MCP_INDEX_CHECK`             | false      | When set to true, enforces that query operations must use an index, rejecting queries that perform a collection scan.                                         |
+  | `telemetry`             | `MDB_MCP_TELEMETRY`               | enabled    | When set to disabled, disables telemetry collection.                                                                                                          |
+  | `transport`             | `MDB_MCP_TRANSPORT`               | stdio      | Either 'stdio' or 'http'.                                                                                                                                     |
+  | `httpPort`              | `MDB_MCP_HTTP_PORT`               | 3000       | Port number.                                                                                                                                                  |
+  | `httpHost`              | `MDB_MCP_HTTP_HOST`               | 127.0.0.1  | Host to bind the http server.                                                                                                                                 |
+  | `idleTimeoutMs`         | `MDB_MCP_IDLE_TIMEOUT_MS`         | 600000     | Idle timeout for a client to disconnect (only applies to http transport).                                                                                     |
+  | `notificationTimeoutMs` | `MDB_MCP_NOTIFICATION_TIMEOUT_MS` | 540000     | Notification timeout for a client to be aware of diconnect (only applies to http transport).                                                                  |
+
+  #### Logger Options
+
+  The `loggers` configuration option controls where logs are sent. You can specify one or more logger types as a comma-separated list. The available options are:
+
+  - `mcp`: Sends logs to the MCP client (if supported by the client/transport).
+  - `disk`: Writes logs to disk files. Log files are stored in the log path (see `logPath` above).
+  - `stderr`: Outputs logs to standard error (stderr), useful for debugging or when running in containers.
+
+  **Default:** `disk,mcp` (logs are written to disk and sent to the MCP client).
+
+  You can combine multiple loggers, e.g. `--loggers disk stderr` or `export MDB_MCP_LOGGERS="mcp,stderr"`.
+
+  ##### Example: Set logger via environment variable
+
+  ```shell
+  export MDB_MCP_LOGGERS="disk,stderr"
+  ```
+
+  ##### Example: Set logger via command-line argument
+
+  ```shell
+  npx -y mongodb-mcp-server@latest --loggers mcp stderr
+  ```
+
+  ##### Log File Location
+
+  When using the `disk` logger, log files are stored in:
+
+  - **Windows:** `%LOCALAPPDATA%\mongodb\mongodb-mcp\.app-logs`
+  - **macOS/Linux:** `~/.mongodb/mongodb-mcp/.app-logs`
+
+  You can override the log directory with the `logPath` option.
+
+  #### Disabled Tools
+
+  You can disable specific tools or categories of tools by using the `disabledTools` option. This option accepts an array of strings,
+  where each string can be a tool name, operation type, or category.
+
+  The way the array is constructed depends on the type of configuration method you use:
+
+  - For **environment variable** configuration, use a comma-separated string: `export MDB_MCP_DISABLED_TOOLS="create,update,delete,atlas,collectionSchema"`.
+  - For **command-line argument** configuration, use a space-separated string: `--disabledTools create update delete atlas collectionSchema`.
+
+  Categories of tools:
+
+  - `atlas` - MongoDB Atlas tools, such as list clusters, create cluster, etc.
+  - `mongodb` - MongoDB database tools, such as find, aggregate, etc.
+
+  Operation types:
+
+  - `create` - Tools that create resources, such as create cluster, insert document, etc.
+  - `update` - Tools that update resources, such as update document, rename collection, etc.
+  - `delete` - Tools that delete resources, such as delete document, drop collection, etc.
+  - `read` - Tools that read resources, such as find, aggregate, list clusters, etc.
+  - `metadata` - Tools that read metadata, such as list databases, list collections, collection schema, etc.
+  - `connect` - Tools that allow you to connect or switch the connection to a MongoDB instance. If this is disabled, you will need to provide a connection string through the config when starting the server.
+
+  #### Read-Only Mode
+
+  The `readOnly` configuration option allows you to restrict the MCP server to only use tools with "read", "connect", and "metadata" operation types. When enabled, all tools that have "create", "update" or "delete" operation types will not be registered with the server.
+
+  This is useful for scenarios where you want to provide access to MongoDB data for analysis without allowing any modifications to the data or infrastructure.
+
+  You can enable read-only mode using:
+
+  - **Environment variable**: `export MDB_MCP_READ_ONLY=true`
+  - **Command-line argument**: `--readOnly`
+
+  When read-only mode is active, you'll see a message in the server logs indicating which tools were prevented from registering due to this restriction.
+
+  #### Index Check Mode
+
+  The `indexCheck` configuration option allows you to enforce that query operations must use an index. When enabled, queries that perform a collection scan will be rejected to ensure better performance.
+
+  This is useful for scenarios where you want to ensure that database queries are optimized.
+
+  You can enable index check mode using:
+
+  - **Environment variable**: `export MDB_MCP_INDEX_CHECK=true`
+  - **Command-line argument**: `--indexCheck`
+
+  When index check mode is active, you'll see an error message if a query is rejected due to not using an index.
+
+  #### Telemetry
+
+  The `telemetry` configuration option allows you to disable telemetry collection. When enabled, the MCP server will collect usage data and send it to MongoDB.
+
+  You can disable telemetry using:
+
+  - **Environment variable**: `export MDB_MCP_TELEMETRY=disabled`
+  - **Command-line argument**: `--telemetry disabled`
+  - **DO_NOT_TRACK environment variable**: `export DO_NOT_TRACK=1`
+
+  ## 🤝Contributing
+
+  Interested in contributing? Great! Please check our [Contributing Guide](CONTRIBUTING.md) for guidelines on code contributions, standards, adding new tools, and troubleshooting information.
+
+metadata:
+  categories: Databases,Data & Analytics,Verified
+icon: https://avatars.githubusercontent.com/u/45120?s=48&v=4
+repoURL: https://github.com/mongodb-js/mongodb-mcp-server
+env:
+  - key: MDB_MCP_CONNECTION_STRING
+    name: MongoDB Connection String
+    required: true
+    sensitive: false
+    description: The connection string for your MongoDB database.
+  # - key: MDB_MCP_READ_ONLY ## TODO: need dynamic args support, see issue https://github.com/obot-platform/obot/issues/3619 feature request 1
+  #   name: MongoDB Read Only
+  #   required: false
+  #   sensitive: false
+  #   description: Whether to run the MongoDB MCP server in read-only mode, default is false.
+args:
+  - -y
+  - mongodb-mcp-server
+  - --connectionString
+  - ${MDB_MCP_CONNECTION_STRING}
+  - --readOnly
+command: npx
