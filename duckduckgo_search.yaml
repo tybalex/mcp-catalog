@@ -2,13 +2,11 @@ name: DuckDuckGo Search
 description: |
   # DuckDuckGo Search MCP Server
 
-  [![smithery badge](https://smithery.ai/badge/@nickclyde/duckduckgo-mcp-server)](https://smithery.ai/server/@nickclyde/duckduckgo-mcp-server)
+
 
   A Model Context Protocol (MCP) server that provides web search capabilities through DuckDuckGo, with additional features for content fetching and parsing.
 
-  <a href="https://glama.ai/mcp/servers/phcus2gcpn">
-    <img width="380" height="200" src="https://glama.ai/mcp/servers/phcus2gcpn/badge" alt="DuckDuckGo Server MCP server" />
-  </a>
+
 
   ## Features
 
@@ -70,24 +68,21 @@ description: |
   - Detailed logging through MCP context
   - Graceful degradation on rate limits or timeouts
 
-  ## Contributing
-
-  Issues and pull requests are welcome! Some areas for potential improvement:
-
-  - Additional search parameters (region, language, etc.)
-  - Enhanced content parsing options
-  - Caching layer for frequently accessed content
-  - Additional rate limiting strategies
-
-  ## License
-
-  This project is licensed under the MIT License.
-
 metadata:
-  categories: Retrieval & Search, SaaS & API Integrations,Verified
+  categories: Retrieval & Search, SaaS & API Integrations
 icon: https://img.icons8.com/?size=100&id=63778&format=png&color=000000
 repoURL: https://github.com/nickclyde/duckduckgo-mcp-server
 env: []
 args:
   - duckduckgo-mcp-server
 command: uvx
+toolPreview:
+  - name: search
+    description: Search DuckDuckGo and return formatted results.
+    params:
+      query: The search query string
+      max_results: Optional maximum number of results to return (default 10)
+  - name: fetch_content
+    description: Fetch and parse content from a webpage URL.
+    params:
+      url: The webpage URL to fetch content from

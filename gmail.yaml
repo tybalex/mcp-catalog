@@ -196,9 +196,7 @@ description: |
   - **No Local Storage**: Sensitive data not stored locally
   - **HTTPS Support**: Full HTTPS support for production deployments
 
-  ## 📄 License
 
-  This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
   ---
 
@@ -212,7 +210,7 @@ description: |
   </div>
 
 metadata:
-  categories: Business,Gmail,Verified
+  categories: Business
   allow-multiple: "true"
 icon: https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000
 repoURL: https://mcp-oauth-proxy.onrender.com/mcp

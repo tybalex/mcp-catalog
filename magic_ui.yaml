@@ -15,6 +15,12 @@ description: |
   - **SVGL Integration**: Access to a vast collection of professional brand assets and logos
   - **Component Enhancement**: Improve existing components with advanced features and animations (Coming Soon)
 
+  ## 🚀 Getting Started
+
+  **Generate API Key**:
+  - Visit [21st.dev Magic Console](https://21st.dev/magic/console)
+  - Generate a new API key
+
   ## 🎯 How It Works
 
   1. **Tell Agent What You Need**
@@ -32,12 +38,6 @@ description: |
     - Components are automatically added to your project
     - Start using your new UI components right away
     - All components are fully customizable
-
-  ## 🚀 Getting Started
-
-  **Generate API Key**:
-  - Visit [21st.dev Magic Console](https://21st.dev/magic/console)
-  - Generate a new API key
 
   ## ❓ FAQ
 
@@ -61,55 +61,12 @@ description: |
 
   Magic AI Agent can handle components of varying complexity, from simple buttons to complex interactive forms. However, for best results, we recommend breaking down very complex UIs into smaller, manageable components.
 
-  ## 🛠️ Development
-
-  ### Project Structure
-
-  ```
-  mcp/
-  ├── app/
-  │   └── components/     # Core UI components
-  ├── types/             # TypeScript type definitions
-  ├── lib/              # Utility functions
-  └── public/           # Static assets
-  ```
-
-  ### Key Components
-
-  - `IdeInstructions`: Setup instructions for different IDEs
-  - `ApiKeySection`: API key management interface
-  - `WelcomeOnboarding`: Onboarding flow for new users
-
-  ## 🤝 Contributing
-
-  We welcome contributions! Please join our [Discord community](https://discord.gg/Qx4rFunHfm) and provide feedback to help improve Magic Agent. The source code is available on [GitHub](https://github.com/serafimcloud/21st).
-
-  ## 👥 Community & Support
-
-  - [Discord Community](https://discord.gg/Qx4rFunHfm) - Join our active community
-  - [Twitter](https://x.com/serafimcloud) - Follow us for updates
-
   ## ⚠️ Beta Notice
 
   Magic Agent is currently in beta. All features are free during this period. We appreciate your feedback and patience as we continue to improve the platform.
 
-  ## 📝 License
-
-  MIT License
-
-  ## 🙏 Acknowledgments
-
-  - Thanks to our beta testers and community members
-  - Special thanks to the Cursor, Windsurf, and Cline teams for their collaboration
-  - Integration with [21st.dev](https://21st.dev) for component inspiration
-  - [SVGL](https://svgl.app) for logo and brand asset integration
-
-  ---
-
-  For more information, join our [Discord community](https://discord.gg/Qx4rFunHfm) or visit [21st.dev/magic](https://21st.dev/magic).
-
 metadata:
-  categories: Developer Tools, UI & Design, Verified
+  categories: Developer Tools, UI & Design
 icon: https://avatars.githubusercontent.com/u/199367026?s=200&v=4
 repoURL: https://github.com/21st-dev/magic-mcp
 env:
@@ -122,3 +79,28 @@ args:
   - -y
   - '@21st-dev/magic@latest'
 command: npx
+toolPreview:
+  - name: 21st_magic_component_builder
+    description: Use this tool when the user requests a new UI component—e.g., mentions /ui, /21 /21st, or asks for a button, input, dialog, table, form, banner, card, or other React component.
+    params:
+      absolutePathToCurrentFile: Absolute path to the current file to which we want to apply changes
+      absolutePathToProjectDirectory: Absolute path to the project root directory
+      message: Full users message
+      searchQuery: Generate a search query for 21st.dev (library for searching UI components) to find a UI component that matches the user's message. Must be a two-four words max or phrase
+      standaloneRequestQuery: You need to formulate what component user wants to create, based on his message, possbile chat histroy and a place where he makes the request.Extract additional context about what should be done to create a ui component/page based on the user's message, search query, and conversation history, files. Don't halucinate and be on point.
+  - name: logo_search
+    description: Search and return logos in specified format (JSX, TSX, SVG). Supports single and multiple logo searches with category filtering.
+    params:
+      format: Output format (JSX, TSX, or SVG)
+      queries: List of company names to search for logos
+  - name: 21st_magic_component_inspiration
+    description: Use this tool when the user wants to see component, get inspiration, or /21st fetch data and previews from 21st.dev. This tool returns the JSON data of matching components without generating new code.
+    params:
+      message: Full users message
+      searchQuery: Search query for 21st.dev (library for searching UI components) to find a UI component that matches the user's message. Must be a two-four words max or phrase
+  - name: 21st_magic_component_refiner
+    description: Use this tool when the user requests to re-design/refine/improve current UI component with /ui or /21 commands, or when context is about improving, or refining UI for a React component or molecule (NOT for big pages).
+    params:
+      absolutePathToRefiningFile: Absolute path to the file that needs to be refined
+      context: Extract the specific UI elements and aspects that need improvement based on user messages, code, and conversation history. Identify exactly which components (buttons, forms, modals, etc.) the user is referring to and what aspects (styling, layout, responsiveness, etc.) they want to enhance.
+      userMessage: Full user's message about UI refinement

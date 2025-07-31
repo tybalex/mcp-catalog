@@ -41,41 +41,44 @@ description: |
 
   Versions `8.x` and `9.x` are officially supported. Earlier versions may partially work, at your own risk and with no guarantees made.
 
-  ## Required Environment Variables
+  ## Configuration Options
 
+  ### Required
   - `ES_URL`: Your Elasticsearch instance URL
+
+  ### Authentication (choose one method)
+
+  **Option 1: API Key Authentication (Recommended)**
   - `ES_API_KEY`: Your Elasticsearch API key
-  - `ES_USERNAME`: Your Elasticsearch username
+
+  **Option 2: Username/Password Authentication**
+  - `ES_USERNAME`: Your Elasticsearch username  
   - `ES_PASSWORD`: Your Elasticsearch password
 
-  Either `ES_API_KEY` or `ES_USERNAME` and `ES_PASSWORD` must be provided.
-
-  If `ES_API_KEY` is provided, `ES_USERNAME` and `ES_PASSWORD` are ignored.
-
-  If `ES_API_KEY` is not provided, `ES_USERNAME` and `ES_PASSWORD` must be provided.
+  **Note**: If both authentication methods are provided, API key takes precedence and username/password will be ignored.
 
 metadata:
-  categories: Databases,Verified
+  categories: Databases
 icon: https://avatars.githubusercontent.com/u/6764390?v=4
 repoURL: https://github.com/elastic/mcp-server-elasticsearch
 env:
   - key: ES_URL
-    name: Elasticsearch URL
+    name: ES_URL
     required: true
     sensitive: false
     description: Your Elasticsearch instance URL
   - key: ES_API_KEY
-    name: Elasticsearch API Key
+    name: ES_API_KEY
     required: false
     sensitive: true
     description: Elasticsearch API key for authentication
   - key: ES_USERNAME
-    name: Elasticsearch Username
+    name: ES_USERNAME
     required: false
     sensitive: true
     description: Elasticsearch username for basic authentication
   - key: ES_PASSWORD
-    name: Elasticsearch Password
+    name: ES_PASSWORD
     required: false
     sensitive: true
     description: Elasticsearch password for basic authentication

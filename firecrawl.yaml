@@ -14,14 +14,10 @@ description: |
 
   ## Configuration
 
-  ### Environment Variables
+  - `FIRECRAWL_API_KEY`: Your Firecrawl API key
+    - Required when using cloud API (default)
 
-  #### Required for Cloud API
-
-    - `FIRECRAWL_API_KEY`: Your Firecrawl API key
-      - Required when using cloud API (default)
-
-  ### Rate Limiting and Batch Processing
+  ## Rate Limiting and Batch Processing
 
   The server utilizes Firecrawl's built-in rate limiting and batch processing capabilities:
 
@@ -485,18 +481,8 @@ description: |
   }
   ```
 
-  ### Thanks to contributors
-
-  Thanks to [@vrknetha](https://github.com/vrknetha), [@cawstudios](https://caw.tech) for the initial implementation!
-
-  Thanks to MCP.so and Klavis AI for hosting and [@gstarwd](https://github.com/gstarwd), [@xiangkaiz](https://github.com/xiangkaiz) and [@zihaolin96](https://github.com/zihaolin96) for integrating our server.
-
-  ### License
-
-  MIT License - see [LICENSE](https://raw.githubusercontent.com/mendableai/firecrawl-mcp-server/refs/heads/main/LICENSE) file for details
-
 metadata:
-  categories: Retrieval & Search,Automation & Browsers,Science & Research,Verified
+  categories: Retrieval & Search,Automation & Browsers,Science & Research
   source: vendor
 icon: https://avatars.githubusercontent.com/u/135057108?v=4
 repoURL: https://github.com/mendableai/firecrawl-mcp-server

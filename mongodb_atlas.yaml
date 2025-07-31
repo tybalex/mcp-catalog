@@ -26,7 +26,7 @@ description: |
     - Enter name, description and expiration for your service account (e.g., "MCP, MCP Server Access, 7 days")
     - **Assign only the minimum permissions needed for your use case.**
       - See [Atlas API Permissions](#atlas-api-permissions) for details.
-    - Click "Create"
+    - Click `Create`
 
   To learn more about Service Accounts, check the [MongoDB Atlas documentation](https://www.mongodb.com/docs/atlas/api/service-accounts-overview/).
 
@@ -104,70 +104,6 @@ description: |
   - `collection-storage-size` - Get the size of a collection in MB
   - `db-stats` - Return statistics about a MongoDB database
 
-  ## Configuration
-
-  ### Configuration Options
-
-  | CLI Option              | Environment Variable              | Default    | Description                                                                                                                                                   |
-  | ----------------------- | --------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `apiClientId`           | `MDB_MCP_API_CLIENT_ID`           | <not set>  | Atlas API client ID for authentication. Required for running Atlas tools.                                                                                     |
-  | `apiClientSecret`       | `MDB_MCP_API_CLIENT_SECRET`       | <not set>  | Atlas API client secret for authentication. Required for running Atlas tools.                                                                                 |
-  | `connectionString`      | `MDB_MCP_CONNECTION_STRING`       | <not set>  | MongoDB connection string for direct database connections. Optional, if not set, you'll need to call the `connect` tool before interacting with MongoDB data. |
-  | `loggers`               | `MDB_MCP_LOGGERS`                 | disk,mcp   | Comma separated values, possible values are `mcp`, `disk` and `stderr`. See [Logger Options](#logger-options) for details.                                    |
-  | `logPath`               | `MDB_MCP_LOG_PATH`                | see note\* | Folder to store logs.                                                                                                                                         |
-  | `disabledTools`         | `MDB_MCP_DISABLED_TOOLS`          | <not set>  | An array of tool names, operation types, and/or categories of tools that will be disabled.                                                                    |
-  | `readOnly`              | `MDB_MCP_READ_ONLY`               | false      | When set to true, only allows read, connect, and metadata operation types, disabling create/update/delete operations.                                         |
-  | `indexCheck`            | `MDB_MCP_INDEX_CHECK`             | false      | When set to true, enforces that query operations must use an index, rejecting queries that perform a collection scan.                                         |
-  | `telemetry`             | `MDB_MCP_TELEMETRY`               | enabled    | When set to disabled, disables telemetry collection.                                                                                                          |
-  | `transport`             | `MDB_MCP_TRANSPORT`               | stdio      | Either 'stdio' or 'http'.                                                                                                                                     |
-  | `httpPort`              | `MDB_MCP_HTTP_PORT`               | 3000       | Port number.                                                                                                                                                  |
-  | `httpHost`              | `MDB_MCP_HTTP_HOST`               | 127.0.0.1  | Host to bind the http server.                                                                                                                                 |
-  | `idleTimeoutMs`         | `MDB_MCP_IDLE_TIMEOUT_MS`         | 600000     | Idle timeout for a client to disconnect (only applies to http transport).                                                                                     |
-  | `notificationTimeoutMs` | `MDB_MCP_NOTIFICATION_TIMEOUT_MS` | 540000     | Notification timeout for a client to be aware of diconnect (only applies to http transport).                                                                  |
-
-  #### Logger Options
-
-  The `loggers` configuration option controls where logs are sent. You can specify one or more logger types as a comma-separated list. The available options are:
-
-  - `mcp`: Sends logs to the MCP client (if supported by the client/transport).
-  - `disk`: Writes logs to disk files. Log files are stored in the log path (see `logPath` above).
-  - `stderr`: Outputs logs to standard error (stderr), useful for debugging or when running in containers.
-
-  **Default:** `disk,mcp` (logs are written to disk and sent to the MCP client).
-
-  You can combine multiple loggers, e.g. `--loggers disk stderr` or `export MDB_MCP_LOGGERS="mcp,stderr"`.
-
-  ##### Example: Set logger via environment variable
-
-  ```shell
-  export MDB_MCP_LOGGERS="disk,stderr"
-  ```
-
-  ##### Example: Set logger via command-line argument
-
-  ```shell
-  npx -y mongodb-mcp-server@latest --loggers mcp stderr
-  ```
-
-  ##### Log File Location
-
-  When using the `disk` logger, log files are stored in:
-
-  - **Windows:** `%LOCALAPPDATA%\mongodb\mongodb-mcp\.app-logs`
-  - **macOS/Linux:** `~/.mongodb/mongodb-mcp/.app-logs`
-
-  You can override the log directory with the `logPath` option.
-
-  #### Disabled Tools
-
-  You can disable specific tools or categories of tools by using the `disabledTools` option. This option accepts an array of strings,
-  where each string can be a tool name, operation type, or category.
-
-  The way the array is constructed depends on the type of configuration method you use:
-
-  - For **environment variable** configuration, use a comma-separated string: `export MDB_MCP_DISABLED_TOOLS="create,update,delete,atlas,collectionSchema"`.
-  - For **command-line argument** configuration, use a space-separated string: `--disabledTools create update delete atlas collectionSchema`.
-
   Categories of tools:
 
   - `atlas` - MongoDB Atlas tools, such as list clusters, create cluster, etc.
@@ -182,48 +118,8 @@ description: |
   - `metadata` - Tools that read metadata, such as list databases, list collections, collection schema, etc.
   - `connect` - Tools that allow you to connect or switch the connection to a MongoDB instance. If this is disabled, you will need to provide a connection string through the config when starting the server.
 
-  #### Read-Only Mode
-
-  The `readOnly` configuration option allows you to restrict the MCP server to only use tools with "read", "connect", and "metadata" operation types. When enabled, all tools that have "create", "update" or "delete" operation types will not be registered with the server.
-
-  This is useful for scenarios where you want to provide access to MongoDB data for analysis without allowing any modifications to the data or infrastructure.
-
-  You can enable read-only mode using:
-
-  - **Environment variable**: `export MDB_MCP_READ_ONLY=true`
-  - **Command-line argument**: `--readOnly`
-
-  When read-only mode is active, you'll see a message in the server logs indicating which tools were prevented from registering due to this restriction.
-
-  #### Index Check Mode
-
-  The `indexCheck` configuration option allows you to enforce that query operations must use an index. When enabled, queries that perform a collection scan will be rejected to ensure better performance.
-
-  This is useful for scenarios where you want to ensure that database queries are optimized.
-
-  You can enable index check mode using:
-
-  - **Environment variable**: `export MDB_MCP_INDEX_CHECK=true`
-  - **Command-line argument**: `--indexCheck`
-
-  When index check mode is active, you'll see an error message if a query is rejected due to not using an index.
-
-  #### Telemetry
-
-  The `telemetry` configuration option allows you to disable telemetry collection. When enabled, the MCP server will collect usage data and send it to MongoDB.
-
-  You can disable telemetry using:
-
-  - **Environment variable**: `export MDB_MCP_TELEMETRY=disabled`
-  - **Command-line argument**: `--telemetry disabled`
-  - **DO_NOT_TRACK environment variable**: `export DO_NOT_TRACK=1`
-
-  ## 🤝Contributing
-
-  Interested in contributing? Great! Please check our [Contributing Guide](CONTRIBUTING.md) for guidelines on code contributions, standards, adding new tools, and troubleshooting information.
-
 metadata:
-  categories: Databases,Data & Analytics,Verified
+  categories: Databases,Data & Analytics
 icon: https://avatars.githubusercontent.com/u/45120?s=48&v=4
 repoURL: https://github.com/mongodb-js/mongodb-mcp-server
 env:
@@ -251,3 +147,172 @@ args:
   - ${MDB_MCP_API_CLIENT_SECRET}
   - --readOnly
 command: npx
+toolPreview:
+  - name: atlas-list-clusters
+    description: List MongoDB Atlas clusters
+    params:
+      projectId: Optional project ID to filter clusters
+  - name: atlas-list-projects
+    description: List MongoDB Atlas projects
+    params:
+      orgId: Optional organization ID to filter projects
+  - name: atlas-inspect-cluster
+    description: Inspect MongoDB Atlas cluster
+    params:
+      clusterName: Name of the cluster to inspect
+      projectId: Project ID containing the cluster
+  - name: atlas-create-free-cluster
+    description: Create a free MongoDB Atlas cluster
+    params:
+      name: Name for the new cluster
+      projectId: Project ID where cluster will be created
+      region: Optional region for the cluster
+  - name: atlas-create-access-list
+    description: Allow Ip/CIDR ranges to access your MongoDB Atlas clusters.
+    params:
+      projectId: Project ID to configure access for
+      cidrBlocks: Optional array of CIDR blocks to allow
+      comment: Optional comment for the access list entry
+      currentIpAddress: Optional boolean to allow current IP address
+      ipAddresses: Optional array of IP addresses to allow
+  - name: atlas-inspect-access-list
+    description: Inspect Ip/CIDR ranges with access to your MongoDB Atlas clusters.
+    params:
+      projectId: Project ID to inspect access list for
+  - name: atlas-list-db-users
+    description: List MongoDB Atlas database users
+    params:
+      projectId: Project ID to list users for
+  - name: atlas-create-db-user
+    description: Create an MongoDB Atlas database user
+    params:
+      projectId: Project ID to create user in
+      roles: Array of role objects with collectionName, databaseName, and roleName
+      username: Username for the new database user
+      clusters: Optional array of cluster names to restrict access to
+      password: Optional password for the user
+  - name: atlas-create-project
+    description: Create a MongoDB Atlas project
+    params:
+      organizationId: Optional organization ID
+      projectName: Optional name for the new project
+  - name: atlas-list-orgs
+    description: List MongoDB Atlas organizations
+  - name: atlas-connect-cluster
+    description: Connect to MongoDB Atlas cluster
+    params:
+      clusterName: Name of the cluster to connect to
+      projectId: Project ID containing the cluster
+  - name: atlas-list-alerts
+    description: List MongoDB Atlas alerts
+    params:
+      projectId: Project ID to list alerts for
+  - name: connect
+    description: Connect to a MongoDB instance
+    params:
+      connectionString: MongoDB connection string
+  - name: list-collections
+    description: List all collections for a given database
+    params:
+      database: Database name
+  - name: list-databases
+    description: List all databases for a MongoDB connection
+  - name: collection-indexes
+    description: Describe the indexes for a collection
+    params:
+      collection: Collection name
+      database: Database name
+  - name: create-index
+    description: Create an index for a collection
+    params:
+      collection: Collection name
+      database: Database name
+      keys: Index keys specification object
+      name: Optional index name
+  - name: collection-schema
+    description: Describe the schema for a collection
+    params:
+      collection: Collection name
+      database: Database name
+  - name: find
+    description: Run a find query against a MongoDB collection
+    params:
+      collection: Collection name
+      database: Database name
+      filter: Optional query filter object
+      limit: Optional maximum number of documents to return
+      projection: Optional projection object
+      sort: Optional sort specification object
+  - name: insert-many
+    description: Insert an array of documents into a MongoDB collection
+    params:
+      collection: Collection name
+      database: Database name
+      documents: Array of documents to insert
+  - name: delete-many
+    description: Removes all documents that match the filter from a MongoDB collection
+    params:
+      collection: Collection name
+      database: Database name
+      filter: Optional filter object
+  - name: collection-storage-size
+    description: Gets the size of the collection
+    params:
+      collection: Collection name
+      database: Database name
+  - name: count
+    description: Gets the number of documents in a MongoDB collection using db.collection.count() and query as an optional filter parameter
+    params:
+      collection: Collection name
+      database: Database name
+      query: Optional filter/query object
+  - name: db-stats
+    description: Returns statistics that reflect the use state of a single database
+    params:
+      database: Database name
+  - name: aggregate
+    description: Run an aggregation against a MongoDB collection
+    params:
+      collection: Collection name
+      database: Database name
+      pipeline: Array of aggregation pipeline stages
+  - name: update-many
+    description: Updates all documents that match the specified filter for a collection
+    params:
+      collection: Collection name
+      database: Database name
+      update: Update specification object
+      filter: Optional filter object
+      upsert: Optional boolean to insert if no match found
+  - name: rename-collection
+    description: Renames a collection in a MongoDB database
+    params:
+      collection: Collection name
+      database: Database name
+      newName: New collection name
+      dropTarget: Optional boolean to drop target collection if it exists
+  - name: drop-database
+    description: Removes the specified database, deleting the associated data files
+    params:
+      database: Database name
+  - name: drop-collection
+    description: Removes a collection or view from the database. The method also removes any indexes associated with the dropped collection.
+    params:
+      collection: Collection name
+      database: Database name
+  - name: explain
+    description: Returns statistics describing the execution of the winning plan chosen by the query optimizer for the evaluated method
+    params:
+      collection: Collection name
+      database: Database name
+      method: Array specifying the method and arguments to explain
+  - name: create-collection
+    description: Creates a new collection in a database. If the database doesn't exist, it will be created automatically.
+    params:
+      collection: Collection name
+      database: Database name
+  - name: mongodb-logs
+    description: Returns the most recent logged mongod events
+    params:
+      limit: Optional maximum number of log entries to return
+      type: Optional log type filter
