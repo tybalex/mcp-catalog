@@ -1,7 +1,7 @@
 name: GitMCP
 description: |
   ## Overview
-  GitMCP is a free, open-source, remote Model Context Protocol (MCP) server that transforms any GitHub project into a documentation hub. It enables AI tools like Cursor to access up-to-date documentation and code, eliminating code hallucinations by providing real-time access to the latest project information.
+  A Model Context Protocol (MCP) server that transforms any GitHub project into a documentation hub. It enables AI tools like Cursor to access up-to-date documentation and code, eliminating code hallucinations by providing real-time access to the latest project information.
 
   ## Features
   - **Latest Documentation Access**: Grant AI assistants seamless access to any GitHub project's documentation and code with smart search capabilities

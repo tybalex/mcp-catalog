@@ -1,7 +1,7 @@
 name: AWS EKS
 description: |
   ## Overview
-  The Amazon EKS MCP server provides AI code assistants with resource management tools and real-time cluster state visibility. Streamline application development through tailored guidance from initial setup through production optimization and troubleshooting.
+  A Model Context Protocol (MCP) server for Amazon EKS that provides AI code assistants with resource management tools and real-time cluster state visibility. Streamline application development through tailored guidance from initial setup through production optimization and troubleshooting.
 
   ## Features
   - Enables users of AI code assistants to create new EKS clusters, complete with prerequisites such as dedicated VPCs, networking, and EKS Auto Mode node pools, by translating requests into the appropriate AWS CloudFormation actions

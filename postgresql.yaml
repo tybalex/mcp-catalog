@@ -5,7 +5,7 @@ description: |
   [![Contributors](https://img.shields.io/github/contributors/crystaldba/postgres-mcp)](https://github.com/crystaldba/postgres-mcp/graphs/contributors)
 
   ## Overview
-  Postgres MCP Pro is an open-source Model Context Protocol (MCP) server built to support AI agents throughout the entire development process—from initial coding, through testing and deployment, to production tuning and maintenance. This server goes beyond basic database connections to provide advanced performance optimization and health monitoring capabilities.
+  A Model Context Protocol (MCP) server built to support AI agents throughout the entire development process—from initial coding, through testing and deployment, to production tuning and maintenance. This server goes beyond basic database connections to provide advanced performance optimization and health monitoring capabilities.
 
   ## Features
   - **Database Health Analysis**: Comprehensive health checks including index health, connection utilization, buffer cache analysis, vacuum health, and replication lag monitoring

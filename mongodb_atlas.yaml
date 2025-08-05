@@ -1,7 +1,7 @@
 name: MongoDB Atlas
 description: |
   ## Overview
-  A connector for interacting with the MongoDB Atlas Cloud Service. This connector allows you to perform read and write actions with clusters, projects, databases, collections, and database users.
+  A Model Context Protocol (MCP) server for interacting with the MongoDB Atlas Cloud Service. This connector allows you to perform read and write actions with clusters, projects, databases, collections, and database users.
 
   ## Features
   - **Atlas Management**: Create and manage MongoDB Atlas projects, clusters, and database users

@@ -1,7 +1,7 @@
 name: AWS CDK
 description: |
   ## Overview
-  MCP server for AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag. Provides prescriptive guidance, vetted architecture patterns, and automated security validation for building AWS applications.
+  A Model Context Protocol (MCP) server for AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag. Provides prescriptive guidance, vetted architecture patterns, and automated security validation for building AWS applications.
 
   ## Features
   - **CDK Best Practices**: Prescriptive patterns with AWS Solutions Constructs and security automation

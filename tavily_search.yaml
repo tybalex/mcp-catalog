@@ -8,7 +8,7 @@ description: |
   ![MCP demo](https://raw.githubusercontent.com/tavily-ai/tavily-mcp/main/assets/demo_new.gif)
 
   ## Overview
-  The Tavily MCP server provides comprehensive web research capabilities through fast, reliable APIs. It enables AI assistants to search the web in real-time, extract structured data from web pages, map website structures, and crawl entire domains with intelligent content extraction and ranking for AI applications.
+  A Model Context Protocol (MCP) server that provides comprehensive web research capabilities through fast, reliable APIs. It enables AI assistants to search the web in real-time, extract structured data from web pages, map website structures, and crawl entire domains with intelligent content extraction and ranking for AI applications.
 
   ## Features
   - **Real-time Web Search**: Optimized search with intelligent content extraction and relevancy ranking for contextual information

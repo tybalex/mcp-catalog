@@ -11,7 +11,7 @@ description: |
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Overview
-  Neon MCP Server is an open-source tool that lets you interact with your Neon Postgres databases using natural language. Built on the Model Context Protocol, it acts as a bridge between natural language requests and the Neon API, enabling seamless database management without complex SQL or direct API calls.
+  A Model Context Protocol (MCP) server that lets you interact with your Neon Postgres databases using natural language. Built on the Model Context Protocol, it acts as a bridge between natural language requests and the Neon API, enabling seamless database management without complex SQL or direct API calls.
 
   ## Features
   - **Natural Language Interaction**: Manage Neon databases using intuitive, conversational commands

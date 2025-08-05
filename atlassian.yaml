@@ -1,7 +1,7 @@
 name: Atlassian
 description: |
   ## Overview
-  A cloud-hosted gateway that allows AI assistants and developer environments to securely access Jira and Confluence Cloud data. Perform read and write operations such as searching issues, summarizing pages, or bulk-creating content via natural language commands.
+  A Model Context Protocol (MCP) server that provides a cloud-hosted gateway allowing AI assistants and developer environments to securely access Jira and Confluence Cloud data. Perform read and write operations such as searching issues, summarizing pages, or bulk-creating content via natural language commands.
 
   ## Features
   - **Jira Integration**: Search issues, create and update tickets, bulk process tasks from meeting notes

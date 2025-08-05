@@ -1,7 +1,7 @@
 name: AWS Redshift
 description: |
   ## Overview
-  Model Context Protocol (MCP) server for Amazon Redshift. Discover, explore, and query Amazon Redshift clusters and serverless workgroups safely and efficiently through comprehensive discovery and query execution tools.
+  A Model Context Protocol (MCP) server for Amazon Redshift. Discover, explore, and query Amazon Redshift clusters and serverless workgroups safely and efficiently through comprehensive discovery and query execution tools.
 
   ## Features
   - **Cluster Discovery**: Automatically discover both provisioned Redshift clusters and serverless workgroups

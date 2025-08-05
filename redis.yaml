@@ -4,7 +4,7 @@ description: |
   [![Python Version](https://img.shields.io/badge/python-3.13%2B-blue)](https://www.python.org/downloads/)
 
   ## Overview
-  The Official Redis MCP Server is a natural language interface designed for agentic applications to efficiently manage and search data in Redis. It integrates seamlessly with MCP clients, enabling AI-driven workflows to interact with structured and unstructured data using conversational commands.
+  A Model Context Protocol (MCP) server that provides a natural language interface designed for agentic applications to efficiently manage and search data in Redis. It integrates seamlessly with MCP clients, enabling AI-driven workflows to interact with structured and unstructured data using conversational commands.
 
   ## Features
   - **Natural Language Queries**: Enable AI agents to query and update Redis using conversational commands
