@@ -1,5 +1,8 @@
 name: Time
-description: Get current time and convert between timezones using IANA timezone names.
+description: |
+  ## Overview
+  A Model Context Protocol (MCP) server to get current time and convert between timezones using IANA timezone names.
+
 metadata:
   categories: Time & Scheduling
 icon: https://avatars.githubusercontent.com/u/182288589?v=4
@@ -8,3 +11,14 @@ env: []
 runtime: uvx
 uvxConfig:
   package: mcp-server-time
+toolPreview:
+  - name: get_current_time
+    description: Get current time in a specific timezone or system timezone.
+    params:
+      timezone: IANA timezone name (e.g., 'America/New_York', 'Europe/London')
+  - name: convert_time
+    description: Convert time between timezones.
+    params:
+      source_timezone: Source IANA timezone name
+      time: Time in 24-hour format (HH:MM)
+      target_timezone: Target IANA timezone name

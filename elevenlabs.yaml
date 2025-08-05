@@ -22,7 +22,7 @@ description: |
   **Required:**
   - **ELEVENLABS_API_KEY**: Your ElevenLabs API key from the [settings page](https://elevenlabs.io/app/settings/api-keys)
 
-  **Account:** Free tier available with 10k credits per month. ⚠️ Warning: ElevenLabs credits are needed to use these tools.
+  **Account:** Free tier available with 10k credits per month. Warning: ElevenLabs credits are needed to use these tools.
 
   ## Examples
   - "Create an AI agent that speaks like a film noir detective and can answer questions about classic movies"

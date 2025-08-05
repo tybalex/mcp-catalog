@@ -6,7 +6,7 @@ description: |
   ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
   ## Overview
-  A powerful Model Context Protocol (MCP) server for Gmail integration, providing comprehensive email management capabilities through a modern API interface.
+  A Model Context Protocol (MCP) server for Gmail integration, providing comprehensive email management capabilities through a modern API interface.
 
   ## Features
   - **OAuth2 Authentication**: Secure Google OAuth integration with automatic token refresh

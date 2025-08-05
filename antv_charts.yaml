@@ -4,7 +4,7 @@ description: |
 
 
   ## Overview
-  A Model Context Protocol server for generating charts using AntV. Create various types of professional charts for data analysis and visualization with support for 25+ chart types including statistical, geographical, and specialized diagrams.
+  A Model Context Protocol (MCP) server for generating charts using AntV. Create various types of professional charts for data analysis and visualization with support for 25+ chart types including statistical, geographical, and specialized diagrams.
 
   ## Features
   Now 25+ charts supported:
@@ -27,7 +27,7 @@ description: |
   - **DISABLED_TOOLS** (Optional): Comma-separated list of tool names to disable, example: `generate_fishbone_diagram,generate_mind_map`
 
 
-  ### 📠 Private Deployment
+  ### Private Deployment
 
   `MCP Server Chart` provides a free chart generation service by default. For users with a need for private deployment, they can try using `VIS_REQUEST_SERVER` to customize their own chart generation service.
 
@@ -43,7 +43,7 @@ description: |
   > [!NOTE]
   > The private deployment solution currently does not support geographic visualization chart generation include 3 tools: `generate_district_map`, `generate_path_map`, `generate_pin_map`.
 
-  ### 🗺️ Generate Records
+  ### Generate Records
 
   By default, users are required to save the results themselves, but we also provide a service for viewing the chart generation records, which requires users to generate a service identifier for themselves and configure it.
 
