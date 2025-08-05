@@ -3,50 +3,29 @@ description: |
   ![Tests](https://github.com/designcomputer/mysql_mcp_server/actions/workflows/test.yml/badge.svg)
   ![PyPI - Downloads](https://img.shields.io/pypi/dm/mysql-mcp-server)
 
-  # MySQL MCP Server
-  A Model Context Protocol (MCP) implementation that enables secure interaction with MySQL databases. This server component facilitates communication between AI applications (hosts/clients) and MySQL databases, making database exploration and analysis safer and more structured through a controlled interface.
-
-  > **Note**: MySQL MCP Server is not designed to be used as a standalone server, but rather as a communication protocol implementation between AI applications and MySQL databases.
+  ## Overview
+  A Model Context Protocol (MCP) implementation that enables secure interaction with MySQL databases. This server facilitates communication between AI applications and MySQL databases, making database exploration and analysis safer and more structured through a controlled interface.
 
   ## Features
-  - List available MySQL tables as resources
-  - Read table contents
-  - Execute SQL queries with proper error handling
-  - Secure database access through environment variables
-  - Comprehensive logging
+  - **Database Exploration**: List available MySQL tables as resources and read table contents
+  - **Query Execution**: Execute SQL queries with proper error handling and comprehensive logging
+  - **Resource Management**: Structured interface for safer database operations
 
-  ## Configuration Options
+  ## What you'll need to connect
 
-  ### Required
-  - `MYSQL_HOST`: Database host (e.g., `localhost`)
-  - `MYSQL_USER`: Database username
-  - `MYSQL_PASSWORD`: Database password  
-  - `MYSQL_DATABASE`: Database name
+  **Required:**
+  - **MySQL Host**: Database host (e.g. localhost)
+  - **MySQL User**: Database username
+  - **MySQL Password**: Database password
+  - **MySQL Database**: Database name
 
-  ### Optional
-  - `MYSQL_PORT`: Database port (default: `3306`)
+  **Optional:**
+  - **MySQL Port**: Database port (default: 3306)
 
-  ## Security Considerations
-  - Never commit environment variables or credentials
-  - Use a database user with minimal required permissions
-  - Consider implementing query whitelisting for production use
-  - Monitor and log all database operations
-
-  ## Security Best Practices
-  This MCP implementation requires database access to function. For security:
-  1. **Create a dedicated MySQL user** with minimal permissions
-  2. **Never use root credentials** or administrative accounts
-  3. **Restrict database access** to only necessary operations
-  4. **Enable logging** for audit purposes
-  5. **Regular security reviews** of database access
-
-  See [MySQL Security Configuration Guide](https://github.com/designcomputer/mysql_mcp_server/blob/main/SECURITY.md) for detailed instructions on:
-  - Creating a restricted MySQL user
-  - Setting appropriate permissions
-  - Monitoring database access
-  - Security best practices
-
-  ⚠️ IMPORTANT: Always follow the principle of least privilege when configuring database access.
+  **Security Tips:**
+  - Create a dedicated MySQL user with minimal required permissions
+  - Never use root credentials or administrative accounts
+  - Follow the principle of least privilege when configuring database access
 
 metadata:
   categories: Databases,Data & Analytics
@@ -54,27 +33,27 @@ icon: https://avatars.githubusercontent.com/u/25017723?v=4
 repoURL: https://github.com/designcomputer/mysql_mcp_server
 env:
   - key: MYSQL_HOST
-    name: MYSQL_HOST
+    name: MySQL Host
     required: true
     sensitive: false
-    description: The hostname or IP address of your MySQL database.
+    description: The hostname or IP address of your MySQL database
   - key: MYSQL_PORT
-    name: MYSQL_PORT
+    name: MySQL Port
     required: false
     sensitive: false
     description: The port number of your MySQL database. Defaults to 3306.
   - key: MYSQL_USER
-    name: MYSQL_USER
+    name: MySQL User
     required: true
     sensitive: false
     description: The username for your MySQL database.
   - key: MYSQL_PASSWORD
-    name: MYSQL_PASSWORD
+    name: MySQL Password
     required: true
     sensitive: true
     description: The password for your MySQL database.
   - key: MYSQL_DATABASE
-    name: MYSQL_DATABASE
+    name: MySQL Database
     required: true
     sensitive: false
     description: The name of your MySQL database.
