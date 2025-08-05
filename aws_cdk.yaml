@@ -1,96 +1,26 @@
 name: AWS CDK
 description: |
-  # AWS CDK MCP Server
-
-  MCP server for AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag.
-
-  ## Prerequisites
-
-  * have your AWS credential ready.
-
-  ## Configuration Options
-
-  #### Required
-  - `AWS_ACCESS_KEY_ID`: Your AWS credential access key
-  - `AWS_SECRET_ACCESS_KEY`: Your AWS credential access secret
-
-  #### Optional
-  - `AWS_REGION`: AWS region to use (default: `us-east-1`)
-  - `AWS_SESSION_TOKEN`: AWS Session Token (only required for temporary credentials like SSO or STS AssumeRole)
-
+  ## Overview
+  A Model Context Protocol (MCP) server for AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag. Provides prescriptive guidance, vetted architecture patterns, and automated security validation for building AWS applications.
 
   ## Features
+  - **CDK Best Practices**: Prescriptive patterns with AWS Solutions Constructs and security automation
+  - **CDK Nag Integration**: Security compliance rules, explanations, and suppression validation
+  - **Architecture Patterns**: Search and discover vetted AWS Solutions Constructs for common use cases
+  - **GenAI Constructs**: Specialized CDK constructs for AI/ML workloads and generative AI applications
+  - **Lambda Layer Documentation**: Comprehensive guides and code examples for Lambda layer implementation
+  - **Bedrock Agent Schemas**: Generate OpenAPI schemas for Bedrock Agent Action Groups from Lambda functions
 
-  ### CDK General Guidance
+  ## What you'll need to connect
 
-  - Prescriptive patterns with AWS Solutions Constructs and GenAI CDK libraries
-  - Structured decision flow for choosing appropriate implementation approaches
-  - Security automation through CDK Nag integration and Lambda Powertools
+  **Required AWS Credentials:**
+  - **AWS Access Key ID**: Your AWS credential access key
+  - **AWS Secret Access Key**: Your AWS credential access secret
 
-  ### CDK Nag Integration
+  **Optional Configuration:**
+  - **AWS Region**: AWS region to use (default: `us-east-1`)
+  - **AWS Session Token**: Required only for temporary credentials like SSO or STS AssumeRole
 
-  - Work with CDK Nag rules for security and compliance
-  - Explain specific CDK Nag rules with AWS Well-Architected guidance
-  - Check if CDK code contains Nag suppressions that require human review
-
-  ### AWS Solutions Constructs
-
-  - Search and discover AWS Solutions Constructs patterns
-  - Find recommended patterns for common architecture needs
-  - Get detailed documentation on Solutions Constructs
-
-  ### Generative AI CDK Constructs
-
-  - Search for GenAI CDK constructs by name or type
-  - Discover specialized constructs for AI/ML workloads
-  - Get implementation guidance for generative AI applications
-
-  ### Lambda Layer Documentation Provider
-
-  - Access comprehensive documentation for AWS Lambda layers
-  - Get code examples for generic Lambda layers and Python-specific layers
-  - Retrieve directory structure information and implementation best practices
-  - Seamless integration with AWS Documentation MCP Server for detailed documentation
-
-  ### Amazon Bedrock Agent Schema Generation
-
-  - Use this tool when creating Bedrock Agents with Action Groups that use Lambda functions
-  - Streamline the creation of Bedrock Agent schemas
-  - Convert code files to compatible OpenAPI specifications
-
-  #### Developer Notes
-
-  - **Requirements**: Your Lambda function must use `BedrockAgentResolver` from AWS Lambda Powertools
-  - **Lambda Dependencies**: If schema generation fails, a fallback script will be generated. If you see error messages about missing dependencies, install them and then run the script again.
-  - **Integration**: Use the generated schema with `bedrock.ApiSchema.fromLocalAsset()` in your CDK code
-
-  ## Available MCP Tools
-
-  - **CDKGeneralGuidance**: Get prescriptive advice for building AWS applications with CDK
-  - **GetAwsSolutionsConstructPattern**: Find vetted architecture patterns combining AWS services
-  - **SearchGenAICDKConstructs**: Discover GenAI CDK constructs by name or features
-  - **GenerateBedrockAgentSchema**: Create OpenAPI schemas for Bedrock Agent action groups
-  - **LambdaLayerDocumentationProvider**: Access documentation for Lambda layers implementation
-  - **ExplainCDKNagRule**: Get detailed guidance on CDK Nag security rules
-  - **CheckCDKNagSuppressions**: Validate CDK Nag suppressions in your code
-
-  ## Available MCP Resources
-
-  - **CDK Nag Rules**: Access rule packs via `cdk-nag://rules/{rule_pack}`
-  - **AWS Solutions Constructs**: Access patterns via `aws-solutions-constructs://{pattern_name}`
-  - **GenAI CDK Constructs**: Access documentation via `genai-cdk-constructs://{construct_type}/{construct_name}`
-  - **Lambda Powertools**: Get guidance on Lambda Powertools via `lambda-powertools://{topic}`
-
-  ## Security Considerations
-
-  When using this MCP server, you should consider:
-
-  - Reviewing all CDK Nag warnings and errors manually
-  - Fixing security issues rather than suppressing them whenever possible
-  - Documenting clear justifications for any necessary suppressions
-  - Using the CheckCDKNagSuppressions tool to verify no unauthorized suppressions exist
-
-  Before applying CDK NAG Suppressions, you should consider conducting your own independent assessment to ensure that your use would comply with your own specific security and quality control practices and standards, as well as the local laws, rules, and regulations that govern you and your content.
 
 metadata:
   categories: Infrastructure & DevOps, SaaS & API Integrations

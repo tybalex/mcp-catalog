@@ -1,61 +1,33 @@
 name: Elasticsearch
 description: |
-  # Elasticsearch MCP Server
-
   > [!CAUTION]
-  >
   > **WARNING: this MCP server is EXPERIMENTAL.**
 
-  Elasticsearch is a distributed search and analytics engine, scalable data store and vector database optimized for speed and relevance on production-scale workloads. Elasticsearch is the foundation of Elastic's open Stack platform. Search in near real-time over massive datasets, perform vector searches, integrate with generative AI applications, and much more.
+  ## Overview
+  A Model Context Protocol (MCP) server that connects to your Elasticsearch data directly from any MCP Client. Elasticsearch is a distributed search and analytics engine, scalable data store and vector database optimized for speed and relevance on production-scale workloads.
 
-  Use cases enabled by Elasticsearch include:
+  ## Features
+  - **Index Management**: List all available Elasticsearch indices and get field mappings
+  - **Search Capabilities**: Perform Elasticsearch searches with query DSL and ES|QL queries
+  - **Vector Search**: Enable vector search for AI applications and RAG implementations
+  - **Shard Information**: Get detailed shard information for indices
+  - **Full-text Search**: Search across massive datasets in near real-time
+  - **Analytics**: Support for logs, metrics, APM, and security logs
 
-  * https://www.elastic.co/search-labs/blog/articles/retrieval-augmented-generation-rag[Retrieval Augmented Generation (RAG)]
-  * https://www.elastic.co/search-labs/blog/categories/vector-search[Vector search]
-  * Full-text search
-  * Logs
-  * Metrics
-  * Application performance monitoring (APM)
-  * Security logs
+  ## What you'll need to connect
 
-  \... and more!
+  **Required:**
+  - **ES URL**: Your Elasticsearch instance URL
 
-  Connect to your Elasticsearch data directly from any MCP Client using the Model Context Protocol (MCP).
+  **Authentication (choose one method):**
+  - **Option 1 - API Key (Recommended)**: `ES API Key`
+  - **Option 2 - Username/Password**: `ES Username` and `ES Password`
 
-  This server connects agents to your Elasticsearch data using the Model Context Protocol. It allows you to interact with your Elasticsearch indices through natural language conversations.
+  **Prerequisites:**
+  - An Elasticsearch instance (versions 8.x and 9.x officially supported)
+  - Elasticsearch authentication credentials
 
-  ## Available Tools
-
-  * `list_indices`: List all available Elasticsearch indices
-  * `get_mappings`: Get field mappings for a specific Elasticsearch index
-  * `search`: Perform an Elasticsearch search with the provided query DSL
-  * `esql`: Perform an ES|QL query
-  * `get_shards`: Get shard information for all or specific indices
-
-  ## Prerequisites
-
-  * An Elasticsearch instance
-  * Elasticsearch authentication credentials (API key or username/password)
-
-  **Supported Elasticsearch versions**
-
-  Versions `8.x` and `9.x` are officially supported. Earlier versions may partially work, at your own risk and with no guarantees made.
-
-  ## Configuration Options
-
-  ### Required
-  - `ES_URL`: Your Elasticsearch instance URL
-
-  ### Authentication (choose one method)
-
-  **Option 1: API Key Authentication (Recommended)**
-  - `ES_API_KEY`: Your Elasticsearch API key
-
-  **Option 2: Username/Password Authentication**
-  - `ES_USERNAME`: Your Elasticsearch username  
-  - `ES_PASSWORD`: Your Elasticsearch password
-
-  **Note**: If both authentication methods are provided, API key takes precedence and username/password will be ignored.
+  **Note**: If both authentication methods are provided, API key takes precedence.
 
 metadata:
   categories: Databases
@@ -63,25 +35,45 @@ icon: https://avatars.githubusercontent.com/u/6764390?v=4
 repoURL: https://github.com/elastic/mcp-server-elasticsearch
 env:
   - key: ES_URL
-    name: ES_URL
+    name: ES URL
     required: true
     sensitive: false
     description: Your Elasticsearch instance URL
   - key: ES_API_KEY
-    name: ES_API_KEY
+    name: ES API Key
     required: false
     sensitive: true
     description: Elasticsearch API key for authentication
   - key: ES_USERNAME
-    name: ES_USERNAME
+    name: ES Username
     required: false
     sensitive: true
     description: Elasticsearch username for basic authentication
   - key: ES_PASSWORD
-    name: ES_PASSWORD
+    name: ES Password
     required: false
     sensitive: true
     description: Elasticsearch password for basic authentication
 runtime: npx
 npxConfig:
   package: '@elastic/mcp-server-elasticsearch'
+toolPreview:
+  - name: list_indices
+    description: List all available Elasticsearch indices
+    params:
+      indexPattern: Index pattern to filter indices
+  - name: get_mappings
+    description: Get field mappings for a specific Elasticsearch index
+    params:
+      index: Name of the Elasticsearch index
+  - name: search
+    description: Perform an Elasticsearch search with the provided query DSL. Highlights are always enabled.
+    params:
+      index: Name of the Elasticsearch index to search
+      queryBody: Elasticsearch query DSL object
+      explain: Optional boolean to include query explanation
+      profile: Optional boolean to enable query profiling
+  - name: get_shards
+    description: Get shard information for all or specific indices
+    params:
+      index: Optional specific index name (if not provided, shows all indices)

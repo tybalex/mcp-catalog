@@ -1,52 +1,26 @@
 name: MongoDB Local
 description: |
-  # MongoDB Local MCP Server
+  ## Overview
+  A Model Context Protocol (MCP) server for interacting with MongoDB databases. Provides comprehensive tools for database operations, collection management, and data manipulation with any MongoDB instance (local, cloud, or self-hosted).
 
-  A Model Context Protocol server for interacting with MongoDB Databases.
+  ## Features
+  - **Database Operations**: Connect, list databases, and get database statistics
+  - **Collection Management**: Create, drop, rename collections and manage schemas
+  - **Data Operations**: Find, insert, update, delete documents with flexible filtering
+  - **Aggregation Support**: Run complex aggregation pipelines for data analysis
+  - **Index Management**: Create and manage indexes for collection optimization
+  - **Storage Analytics**: Get collection sizes and database statistics
+  - **Query Optimization**: Explain query execution plans for performance tuning
 
-  <a name="getting-started"></a>
+  ## What you'll need to connect
 
-  ## 🚀 Prerequisites
+  **Required:**
+  - **MongoDB Connection String**: Valid connection string to your MongoDB instance
 
-  - **MongoDB Connection String Required**: The server requires a valid connection string to start.
-    - Works with any MongoDB instance (local, cloud, or self-hosted).
-    - MongoDB Atlas users can use this server or the specialized *MongoDB Atlas MCP Server*.
-
-  ## 🛠️ Supported Tools
-
-  ### Tool List
-
-  #### MongoDB Database Tools
-
-  - `connect` - Connect to a MongoDB instance
-  - `find` - Run a find query against a MongoDB collection
-  - `aggregate` - Run an aggregation against a MongoDB collection
-  - `count` - Get the number of documents in a MongoDB collection
-  - `insert-one` - Insert a single document into a MongoDB collection
-  - `insert-many` - Insert multiple documents into a MongoDB collection
-  - `create-index` - Create an index for a MongoDB collection
-  - `update-one` - Update a single document in a MongoDB collection
-  - `update-many` - Update multiple documents in a MongoDB collection
-  - `rename-collection` - Rename a MongoDB collection
-  - `delete-one` - Delete a single document from a MongoDB collection
-  - `delete-many` - Delete multiple documents from a MongoDB collection
-  - `drop-collection` - Remove a collection from a MongoDB database
-  - `drop-database` - Remove a MongoDB database
-  - `list-databases` - List all databases for a MongoDB connection
-  - `list-collections` - List all collections for a given database
-  - `collection-indexes` - Describe the indexes for a collection
-  - `collection-schema` - Describe the schema for a collection
-  - `collection-storage-size` - Get the size of a collection in MB
-  - `db-stats` - Return statistics about a MongoDB database
-
-  Operation types:
-
-  - `create` - Tools that create resources, such as create cluster, insert document, etc.
-  - `update` - Tools that update resources, such as update document, rename collection, etc.
-  - `delete` - Tools that delete resources, such as delete document, drop collection, etc.
-  - `read` - Tools that read resources, such as find, aggregate, list clusters, etc.
-  - `metadata` - Tools that read metadata, such as list databases, list collections, collection schema, etc.
-  - `connect` - Tools that allow you to connect or switch the connection to a MongoDB instance. If this is disabled, you will need to provide a connection string through the config when starting the server.
+  **Compatibility:**
+  - Works with any MongoDB instance (local, cloud, or self-hosted)
+  - MongoDB Atlas users can use this server or the specialized MongoDB Atlas MCP Server
+# - Optional read-only mode available for safer operations
 
 metadata:
   categories: Databases,Data & Analytics

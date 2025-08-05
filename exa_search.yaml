@@ -1,60 +1,27 @@
 name: Exa Search
 description: |
-  # Exa MCP Server 🔍
   [![npm version](https://badge.fury.io/js/exa-mcp-server.svg)](https://www.npmjs.com/package/exa-mcp-server)
 
+  ## Overview
+  A Model Context Protocol (MCP) server that lets AI assistants use the Exa AI Search API for web searches. Get real-time web information in a safe and controlled way with advanced search capabilities and content extraction.
 
-  A Model Context Protocol (MCP) server lets AI assistants like Claude use the Exa AI Search API for web searches. This setup allows AI models to get real-time web information in a safe and controlled way.
+  ## Features
+  - **Web Search**: Real-time web searches with optimized results and content extraction
+  - **Research Tools**: Specialized search for academic papers and research content
+  - **Company Research**: Comprehensive business intelligence and company analysis
+  - **Content Crawling**: Extract content from specific URLs, articles, and PDFs
+  - **Platform-Specific Search**: LinkedIn, Wikipedia, and GitHub specialized searches
+  - **Deep Research**: AI-powered comprehensive research agent for complex queries
+  - **Competitor Analysis**: Identify and analyze business competitors
 
-  ## Remote Exa MCP 🌐
+  ## What you'll need to connect
 
-  Connect directly to Exa's hosted MCP server (instead of running it locally).
+  **Required:**
+  - **EXA API Key**: Your Exa API key from [dashboard.exa.ai/api-keys](https://dashboard.exa.ai/api-keys)
 
-  ### Remote Exa MCP URL
 
-  ```
-  https://mcp.exa.ai/mcp?exaApiKey=your-exa-api-key
-  ```
 
-  Replace `your-api-key-here` with your actual Exa API key from [dashboard.exa.ai/api-keys](https://dashboard.exa.ai/api-keys).
 
-  ### Available Tools & Tool Selection
-
-  The Exa MCP server includes the following tools, which can be enabled by adding the `--tools`:
-
-  - **web_search_exa**: Performs real-time web searches with optimized results and content extraction.
-  - **research_paper_search**: Specialized search focused on academic papers and research content.
-  - **company_research**: Comprehensive company research tool that crawls company websites to gather detailed information about businesses.
-  - **crawling**: Extracts content from specific URLs, useful for reading articles, PDFs, or any web page when you have the exact URL.
-  - **competitor_finder**: Identifies competitors of a company by searching for businesses offering similar products or services.
-  - **linkedin_search**: Search LinkedIn for companies and people using Exa AI. Simply include company names, person names, or specific LinkedIn URLs in your query.
-  - **wikipedia_search_exa**: Search and retrieve information from Wikipedia articles on specific topics, giving you accurate, structured knowledge from the world's largest encyclopedia.
-  - **github_search**: Search GitHub repositories using Exa AI - performs real-time searches on GitHub.com to find relevant repositories, issues, and GitHub accounts.
-  - **deep_researcher_start**: Start a smart AI researcher for complex questions. The AI will search the web, read many sources, and think deeply about your question to create a detailed research report.
-  - **deep_researcher_check**: Check if your research is ready and get the results. Use this after starting a research task to see if it's done and get your comprehensive report.
-
-  ## Troubleshooting 🔧
-
-  ### Common Issues
-
-  1. **Server Not Found**
-    * Verify the npm link is correctly set up
-    * Check Claude Desktop configuration syntax (json file)
-
-  2. **API Key Issues**
-    * Confirm your EXA_API_KEY is valid
-    * Check the EXA_API_KEY is correctly set in the Claude Desktop config
-    * Verify no spaces or quotes around the API key
-
-  3. **Connection Issues**
-    * Restart Claude Desktop completely
-    * Check Claude Desktop logs:
-
-  <br>
-
-  ---
-
-  Built with ❤️ by team Exa
   
 metadata:
   categories: Retrieval & Search,Science & Research,Developer Tools

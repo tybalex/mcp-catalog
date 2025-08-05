@@ -1,267 +1,33 @@
 name: Azure
 description: |
-  # 🌟 Azure MCP Server
-
-  The Azure MCP Server implements the [MCP specification](https://modelcontextprotocol.io) to create a seamless connection between AI agents and Azure services. This project is in Public Preview and implementation may significantly change prior to our General Availability.
-
-  ## ✨ What can you do with the Azure MCP Server?
-
-  The Azure MCP Server supercharges your agents with Azure context. Here are some cool prompts you can try:
-
-  ### 🔎 Azure AI Search
-
-  * "What indexes do I have in my Azure AI Search service 'mysvc'?"
-  * "Let's search this index for 'my search query'"
-
-  ### ⚙️ Azure App Configuration
-
-  * "List my App Configuration stores"
-  * "Show my key-value pairs in App Config"
-
-  ### ☸️ Azure Kubernetes Service (AKS)
-
-  * "List my AKS clusters in my subscription"
-  * "Show me all my Azure Kubernetes Service clusters"
-
-  ### 📊 Azure Cosmos DB
-
-  * "Show me all my Cosmos DB databases"
-  * "List containers in my Cosmos DB database"
-
-  ### 🧮 Azure Data Explorer
-
-  * "Get Azure Data Explorer databases in cluster 'mycluster'"
-  * "Sample 10 rows from table 'StormEvents' in Azure Data Explorer database 'db1'"
-
-  ### 📊 Azure Monitor
-
-  * "Query my Log Analytics workspace"
-
-  ### 🗄️ Azure SQL Database
-
-  * "Show me details about my Azure SQL database 'mydb'"
-  * "List all databases in my Azure SQL server 'myserver'"
-  * "List Active Directory administrators for my Azure SQL server 'myserver'"
-  * "List all firewall rules for my Azure SQL server 'myserver'"
-  * "List all elastic pools in my Azure SQL server 'myserver'"
-
-  ### 🔧 Azure Resource Management
-
-  * "List my resource groups"
-  * "List my Azure CDN endpoints"
-  * "Help me build an Azure application using Node.js"
-
-  ### 💾 Azure Storage
-
-  * "List my Azure storage accounts"
-  * "Show me the tables in my Storage account"
-  * "Get details about my Storage container"
-  * "List paths in my Data Lake file system"
-
-  ## 🛠️ Currently Supported Tools
-
-  <details>
-  <summary>The Azure MCP Server provides tools for interacting with the following Azure services</summary>
-
-  ### 🔎 Azure AI Search (search engine/vector database)
-
-  * List Azure AI Search services
-  * List indexes and look at their schema and configuration
-  * Query search indexes
-
-  ### ⚙️ Azure App Configuration
-
-  * List App Configuration stores
-  * Manage key-value pairs
-  * Handle labeled configurations
-  * Lock/unlock configuration settings
-
-  ### 🛡️ Azure Best Practices
-
-  * Get secure, production-grade Azure SDK best practices for effective code generation.
-
-  ### 🖥️ Azure CLI Extension
-
-  * Execute Azure CLI commands directly
-  * Support for all Azure CLI functionality
-  * JSON output formatting
-  * Cross-platform compatibility
-
-  ### 📊 Azure Cosmos DB (NoSQL Databases)
-
-  * List Cosmos DB accounts
-  * List and query databases
-  * Manage containers and items
-  * Execute SQL queries against containers
-
-  ### 🧮 Azure Data Explorer
-
-  * List Azure Data Explorer clusters
-  * List databases
-  * List tables
-  * Get schema for a table
-  * Sample rows from a table
-  * Query using KQL
-
-  ### 🐘 Azure Database for PostgreSQL - Flexible Server
-
-  * List and query databases.
-  * List and get schema for tables.
-  * List, get configuration and get parameters for servers.
-
-  ### 🛠️ Azure Developer CLI (azd) Extension
-
-  * Execute Azure Developer CLI commands directly
-  * Support for template discovery, template initialization, provisioning and deployment
-  * Cross-platform compatibility
-
-  ### 🧮 Azure Foundry
-
-  * List Azure Foundry models
-  * Deploy foundry models
-  * List foundry model deployments
-
-  ### 🚀 Azure Managed Grafana
-
-  * List Azure Managed Grafana
-
-  ### 🔑 Azure Key Vault
-
-  * List and create certificates
-  * List and create keys
-  * List and create secrets
-
-  ### ☸️ Azure Kubernetes Service (AKS)
-
-  * List Azure Kubernetes Service clusters
-
-  ### 📦 Azure Load Testing
-
-  * List, create load test resources
-  * List, create load tests
-  * Get, list, (create) run and rerun, update load test runs
-
-  ### 🏪 Azure Marketplace
-
-  * Get details about Marketplace products
-
-  ### 📈 Azure Monitor
-
-  #### Log Analytics
-
-  * List Log Analytics workspaces
-  * Query logs using KQL
-  * List available tables
-
-  #### Health Models
-
-  * Get health of an entity
-
-  #### Metrics
-
-  * Query Azure Monitor metrics for resources with time series data
-  * List available metric definitions for resources
-
-  ### ⚙️ Azure Native ISV Services
-
-  * List Monitored Resources in a Datadog Monitor
-
-  ### 🛡️ Azure Quick Review CLI Extension
-
-  * Scan Azure resources for compliance related recommendations
-
-  ### 🔴 Azure Redis Cache
-
-  * List Redis Cluster resources
-  * List databases in Redis Clusters
-  * List Redis Cache resources
-  * List access policies for Redis Caches
-
-  ### 🏗️ Azure Resource Groups
-
-  * List resource groups
-
-  ### 🎭 Azure Role-Based Access Control (RBAC)
-
-  * List role assignments
-
-  ### 🚌 Azure Service Bus
-
-  * Examine properties and runtime information about queues, topics, and subscriptions
-
-  ### 🗄️ Azure SQL Database
-
-  * Show database details and properties
-  * List the details and properties of all databases
-  * List SQL server firewall rules
-  * List elastic pools and their configurations
-
-  ### 💾 Azure Storage
-
-  * List Storage accounts
-  * Manage blob containers and blobs
-  * List and query Storage tables
-  * List paths in Data Lake file systems
-  * Get container properties and metadata
-
-  ### 📋 Azure Subscription
-
-  * List Azure subscriptions
-
-  ### 🏗️ Azure Terraform Best Practices
-
-  * Get secure, production-grade Azure Terraform best practices for effective code generation and command execution
-
-  ### 📊 Azure Workbooks
-
-  * List workbooks in resource groups
-  * Create new workbooks with custom visualizations
-  * Update existing workbook configurations
-  * Get workbook details and metadata
-  * Delete workbooks when no longer needed
-
-  ### 🏗️ Bicep
-
-  * Get the Bicep schema for specific Azure resource types
-
-  Agents and models can discover and learn best practices and usage guidelines for the `azd` MCP tool. For more information, see [AZD Best Practices](https://github.com/Azure/azure-mcp/tree/main/areas/extension/src/AzureMcp.Extension/Resources/azd-best-practices.txt).
-
-  </details>
-
-  For detailed command documentation and examples, see [Azure MCP Commands](https://github.com/Azure/azure-mcp/blob/main/docs/azmcp-commands.md).
-
-  ## Data Collection
-
-  The software may collect information about you and your use of the software and send it to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may turn off the telemetry as described in the repository. There are also some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with a copy of Microsoft's [privacy statement](https://www.microsoft.com/privacy/privacystatement). You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
-
-  ### Telemetry Configuration
-
-  Telemetry collection is on by default.
-
-  To opt out, set the configuration option `AZURE_MCP_COLLECT_TELEMETRY` to `false`.
-
-  ## 📝 Troubleshooting
-
-  See [Troubleshooting guide](https://github.com/Azure/azure-mcp/blob/main/TROUBLESHOOTING.md#128-tool-limit-issue) for help with common issues and logging.
-
-  ### 🔑 Authentication
-
-  <details>
-  <summary>Authentication options including DefaultAzureCredential flow, RBAC permissions, troubleshooting, and production credentials</summary>
-
-  The Azure MCP Server uses the Azure Identity library for .NET to authenticate to Microsoft Entra ID. For detailed information, see [Authentication Fundamentals](https://github.com/Azure/azure-mcp/blob/main/docs/Authentication.md#authentication-fundamentals).
-
-  If you're running into any issues with authentication, visit our [troubleshooting guide](https://github.com/Azure/azure-mcp/blob/main/TROUBLESHOOTING.md#authentication).
-
-  For enterprise authentication scenarios, including network restrictions, security policies, and protected resources, see [Authentication Scenarios in Enterprise Environments](https://github.com/Azure/azure-mcp/blob/main/docs/Authentication.md#authentication-scenarios-in-enterprise-environments).
-  </details>
-
-  ## 🛡️ Security Note
-
-  Your credentials are always handled securely through the official [Azure Identity SDK](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md) - **we never store or manage tokens directly**.
-
-  MCP as a phenomenon is very novel and cutting-edge. As with all new technology standards, consider doing a security review to ensure any systems that integrate with MCP servers follow all regulations and standards your system is expected to adhere to. This includes not only the Azure MCP Server, but any MCP client/agent that you choose to implement down to the model provider.
-
+  ## Overview
+  A Model Context Protocol (MCP) server that implements the MCP specification to create a seamless connection between AI agents and Azure services. Supercharge your agents with Azure context across compute, storage, databases, AI services, and more.
+
+  ## Features
+  - **Azure AI & Search**: Query Azure AI Search indexes and manage search services
+  - **Data Services**: Cosmos DB, SQL Database, PostgreSQL, Redis Cache, and Data Explorer operations
+  - **Compute & Containers**: AKS cluster management and container operations
+  - **Storage & Configuration**: Azure Storage, App Configuration, and Key Vault management
+  - **Monitoring & Analytics**: Azure Monitor, Log Analytics, Grafana, and Workbooks
+  - **CLI Integration**: Execute Azure CLI and Azure Developer CLI commands directly
+  - **Resource Management**: Manage subscriptions, resource groups, and RBAC
+
+  ## What you'll need to connect
+
+  **Authentication**: OAuth with web browser authentication - no manual configuration required.
+
+  **Optional Configuration:**
+  - **AZURE_MCP_COLLECT_TELEMETRY** (Optional): Set to `false` to opt out of telemetry collection (default: `true`)
+
+  ## Examples
+  - **Azure AI Search**: "What indexes do I have in my Azure AI Search service 'mysvc'?"
+  - **App Configuration**: "List my App Configuration stores"
+  - **AKS**: "List my AKS clusters in my subscription"
+  - **Cosmos DB**: "Show me all my Cosmos DB databases"
+  - **Data Explorer**: "Sample 10 rows from table 'StormEvents' in Azure Data Explorer database 'db1'"
+  - **Storage**: "List my Azure storage accounts"
+  - **Monitor**: "Query my Log Analytics workspace"
+  - **Resource Management**: "List my resource groups"
 metadata:
   categories: Cloud & Infrastructure
 icon: https://avatars.githubusercontent.com/u/19199542?v=4

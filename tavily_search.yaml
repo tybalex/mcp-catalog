@@ -1,51 +1,29 @@
 name: Tavily Search
 description: |
-  # ![Tavily Crawl Beta](https://raw.githubusercontent.com/tavily-ai/tavily-mcp/main/assets/Banner_NEW.png)
-
+  ![Tavily Crawl Beta](https://raw.githubusercontent.com/tavily-ai/tavily-mcp/main/assets/Banner_NEW.png)
 
   ![GitHub Repo stars](https://img.shields.io/github/stars/tavily-ai/tavily-mcp?style=social)
   ![npm](https://img.shields.io/npm/dt/tavily-mcp)
 
-
   ![MCP demo](https://raw.githubusercontent.com/tavily-ai/tavily-mcp/main/assets/demo_new.gif)
 
-  The Tavily MCP server provides:
-  - search, extract, map, crawl tools
-  - Real-time web search capabilities through the tavily-search tool
-  - Intelligent data extraction from web pages via the tavily-extract tool
-  - Powerful web mapping tool that creates a structured map of website 
-  - Web crawler that systematically explores websites 
+  ## Overview
+  A Model Context Protocol (MCP) server that provides comprehensive web research capabilities through fast, reliable APIs. It enables AI assistants to search the web in real-time, extract structured data from web pages, map website structures, and crawl entire domains with intelligent content extraction and ranking for AI applications.
 
-  ## What is Tavily?
+  ## Features
+  - **Real-time Web Search**: Optimized search with intelligent content extraction and relevancy ranking for contextual information
+  - **Structured Data Extraction**: Transform web pages into LLM-ready data with automatic content cleaning and format conversion
+  - **Website Mapping**: Create structured maps of website architecture to understand organization and discover pages
+  - **Domain Crawling**: Systematically explore websites with smart crawling strategies that respect robots.txt and handle dynamic content
+  - **Multiple Output Formats**: Support for summaries, Markdown, or cleaned text extraction
+  - **Advanced Filtering**: Control search scope with domain inclusion/exclusion, time ranges, and content categories
 
-  Tavily provides fast, reliable APIs that let developers easily:
+  ## What you'll need to connect
 
-  ### 🔍 Search the web
+  **Required:**
+  - **Tavily API Key**: Get your free API key at [app.tavily.com](https://app.tavily.com/home)
 
-  Optimized for relevancy and low latency. Get real-time, contextual information from across the web with intelligent content extraction and ranking that prioritizes the most relevant results for your AI applications.
 
-  ### 📄 Extract structured data from URLs
-
-  Supporting summaries, Markdown, or cleaned text. Transform any webpage into LLM-ready data with automatic content cleaning, format conversion, and text extraction that preserves structure and meaning.
-
-  ### 🕸️ Crawl entire domains at scale
-
-  Optimized for intelligent URL decisions and results. Navigate complex websites with smart crawling strategies that respect robots.txt, handle dynamic content, and efficiently discover all accessible pages.
-
-  ## Remote MCP Server
-  Connect directly to Tavily's remote MCP server instead of running it locally. This provides a seamless experience without requiring local installation or configuration.
-
-  ### Prerequisites 🔧
-
-  Before you begin, ensure you have:
-
-  - [Tavily API key](https://app.tavily.com/home)
-    - If you don't have a Tavily API key, you can sign up for a free account [here](https://app.tavily.com/home)
-
-  ## Acknowledgments ✨
-
-  - [Model Context Protocol](https://modelcontextprotocol.io) for the MCP specification
-  - [Anthropic](https://anthropic.com) for Claude Desktop
 
 metadata:
   categories: Retrieval & Search, SaaS & API Integrations, Developer Tools

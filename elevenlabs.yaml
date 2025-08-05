@@ -2,27 +2,29 @@ name: ElevenLabs
 description: |
   ![export](https://github.com/user-attachments/assets/ee379feb-348d-48e7-899c-134f7f7cd74f)
 
-  <div class="title-block" style="text-align: center;" align="center">
+  [![PyPI](https://img.shields.io/badge/PyPI-elevenlabs--mcp-000000.svg?style=for-the-badge&logo=pypi&labelColor=000)](https://pypi.org/project/elevenlabs-mcp)
+  [![Tests](https://img.shields.io/badge/tests-passing-000000.svg?style=for-the-badge&logo=github&labelColor=000)](https://github.com/elevenlabs/elevenlabs-mcp-server/actions/workflows/test.yml)
 
-    [![PyPI](https://img.shields.io/badge/PyPI-elevenlabs--mcp-000000.svg?style=for-the-badge&logo=pypi&labelColor=000)](https://pypi.org/project/elevenlabs-mcp)
-    [![Tests](https://img.shields.io/badge/tests-passing-000000.svg?style=for-the-badge&logo=github&labelColor=000)](https://github.com/elevenlabs/elevenlabs-mcp-server/actions/workflows/test.yml)
+  ## Overview
+  A Model Context Protocol (MCP) server that enables interaction with powerful Text to Speech and audio processing APIs. Generate speech, clone voices, transcribe audio, create AI agents, and process sound effects with industry-leading voice AI technology.
 
-  </div>
+  ## Features
+  - **Text-to-Speech**: Convert text to natural-sounding speech with customizable voices and settings
+  - **Voice Cloning**: Create instant voice clones from audio files and generate voice previews from text descriptions
+  - **Speech-to-Text**: Transcribe audio files with speaker diarization support
+  - **AI Agents**: Create and manage conversational AI agents with custom voices and knowledge bases
+  - **Sound Effects**: Generate realistic sound effects from text descriptions
+  - **Audio Processing**: Transform voices, isolate audio, and perform speech-to-speech conversion
+  - **Voice Management**: Search and manage extensive voice libraries with detailed voice controls
 
+  ## What you'll need to connect
 
-  <p align="center">
-    Official ElevenLabs <a href="https://github.com/modelcontextprotocol">Model Context Protocol (MCP)</a> server that enables interaction with powerful Text to Speech and audio processing APIs. This server allows MCP clients to generate speech, clone voices, transcribe audio, and more.
-  </p>
+  **Required:**
+  - **ELEVENLABS_API_KEY**: Your ElevenLabs API key from the [settings page](https://elevenlabs.io/app/settings/api-keys)
 
-  ## Prerequisites
-  Get your API key from [ElevenLabs](https://elevenlabs.io/app/settings/api-keys). There is a free tier with 10k credits per month.
+  **Account:** Free tier available with 10k credits per month. Warning: ElevenLabs credits are needed to use these tools.
 
-  ## Example usage
-
-  ⚠️ Warning: ElevenLabs credits are needed to use these tools.
-
-  Try asking:
-
+  ## Examples
   - "Create an AI agent that speaks like a film noir detective and can answer questions about classic movies"
   - "Generate three voice variations for a wise, ancient dragon character, then I will choose my favorite voice to add to my voice library"
   - "Convert this recording of my voice to sound like a medieval knight"

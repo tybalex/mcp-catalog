@@ -1,69 +1,45 @@
 name: Notion
 description: |
-  # Notion MCP Server
-
-  > [!NOTE] 
-  > 
-  > We’ve introduced **Notion MCP**, a remote MCP server with the following improvements:
-  > - Easy installation via standard OAuth. No need to fiddle with JSON or API token anymore.
-  > - Powerful tools tailored to AI agents. These tools are designed with optimized token consumption in mind.
-  > 
-  > Learn more and try it out [here](https://developers.notion.com/docs/mcp)
-
 
   ![notion-mcp-sm](https://github.com/user-attachments/assets/6c07003c-8455-4636-b298-d60ffdf46cd8)
 
-  This project implements an [MCP server](https://spec.modelcontextprotocol.io/) for the [Notion API](https://developers.notion.com/reference/intro). 
+  ## Overview
+  A Model Context Protocol (MCP) server for the Notion API that enables AI agents to interact with Notion workspaces. This server provides comprehensive tools for managing pages, databases, blocks, comments, and users with optimized token consumption for AI applications.
 
   ![mcp-demo](https://github.com/user-attachments/assets/e3ff90a7-7801-48a9-b807-f7dd47f0d3d6)
 
-  ### Installation
+  ## Features
+  - **Page Management**: Create, retrieve, update, and archive pages with full content support
+  - **Database Operations**: Query, create, and update databases with advanced filtering and sorting
+  - **Block Manipulation**: Manage content blocks including text, media, and structured content
+  - **Search & Discovery**: Powerful search capabilities across all workspace content
+  - **Comment System**: Create and retrieve comments on pages and blocks
+  - **User Management**: Access user information and workspace members
+  - **Security Controls**: Configurable read-only access and granular permission management
 
-  #### 1. Setting up Integration in Notion:
-  Go to [https://www.notion.so/profile/integrations](https://www.notion.so/profile/integrations) and create a new **internal** integration or select an existing one.
+  ## What you'll need to connect
 
-  ![Creating a Notion Integration token](https://raw.githubusercontent.com/makenotion/notion-mcp-server/main/docs/images/integrations-creation.png)
+  **Required:**
+  - **Notion Integration**: Create an internal integration at [notion.so/profile/integrations](https://www.notion.so/profile/integrations)
+  - **Integration Token**: Your Notion integration token (ntn_****)
 
-  While we limit the scope of Notion API's exposed (for example, you will not be able to delete databases via MCP), there is a non-zero risk to workspace data by exposing it to LLMs. Security-conscious users may want to further configure the Integration's _Capabilities_. 
+  **Configuration Options:**
+  - **NOTION_TOKEN** (recommended): Simply provide your Notion integration token
+  - **OPENAPI_MCP_HEADERS** (advanced): JSON-encoded HTTP headers for custom configurations, e.g., {"Authorization": "Bearer ntn_****", "Notion-Version": "2022-06-28"}. The Notion Integration token (ntn_****) is required too.
 
-  For example, you can create a read-only integration token by giving only "Read content" access from the "Configuration" tab:
+  **Setup Steps:**
+  1. **Create Integration**: Set up a new internal integration in your Notion workspace
+  2. **Configure Permissions**: Choose read-only or full access based on your security requirements
+  3. **Connect Content**: Grant the integration access to specific pages and databases
+  4. **Get Token**: Copy the integration token for configuration
 
-  ![Notion Integration Token Capabilities showing Read content checked](https://raw.githubusercontent.com/makenotion/notion-mcp-server/main/docs/images/integrations-capabilities.png)
+  **Security Note**: Consider using read-only permissions to limit workspace data exposure to AI agents.
 
-  #### 2. Connecting content to integration:
-  Ensure relevant pages and databases are connected to your integration.
+  ## Example Usage
 
-  To do this, visit the **Access** tab in your internal integration settings. Edit access and select the pages you'd like to use.
-  ![Integration Access tab](https://raw.githubusercontent.com/makenotion/notion-mcp-server/main/docs/images/integration-access.png)
-
-  ![Edit integration access](https://raw.githubusercontent.com/makenotion/notion-mcp-server/main/docs/images/page-access-edit.png)
-
-  Alternatively, you can grant page access individually. You'll need to visit the target page, and click on the 3 dots, and select "Connect to integration". 
-
-  ![Adding Integration Token to Notion Connections](https://raw.githubusercontent.com/makenotion/notion-mcp-server/main/docs/images/connections.png)
-
-  #### 3. Click `Connect To Server` and Connect:
-
-  **Note:** In the configuration, make sure to set either the `NOTION_TOKEN` (recommended) or the `OPENAPI_MCP_HEADERS` (for advanced use cases) with your Notion integration token.
-
-  ### Examples
-
-  1. Using the following instruction
-  ```
-  Comment "Hello MCP" on page "Getting started"
-  ```
-
-  AI will correctly plan two API calls, `v1/search` and `v1/comments`, to achieve the task
-
-  2. Similarly, the following instruction will result in a new page named "Notion MCP" added to parent page "Development"
-  ```
-  Add a page titled "Notion MCP" to page "Development"
-  ```
-
-  3. You may also reference content ID directly
-  ```
-  Get the content of page 1a6b35e6e67f802fa7e1d27686f017f2
-  ```
+  - "Comment 'Hello MCP' on page 'Getting started'"
+  - "Add a page titled 'Notion MCP' to page 'Development'"
+  - "Get the content of page 1a6b35e6e67f802fa7e1d27686f017f2"
 
 metadata:
   categories: SaaS & API Integrations,Databases
