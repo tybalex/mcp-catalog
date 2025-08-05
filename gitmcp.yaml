@@ -14,7 +14,7 @@ description: |
   **No Setup Required**: GitMCP runs in the cloud with no authentication needed
 
   **Connection Options:**
-  - **Specific Repository**: `gitmcp.io/{owner}/{repo}` or `{owner}.gitmcp.io/{repo}` - Use for select libraries with enhanced security
+  - **Specific Repository**: `gitmcp.io/{owner}/{repo}` - Use for select specific repositories
   - **Generic Server**: `gitmcp.io/docs` - Use for maximum flexibility when switching between repositories
 
   ## Example Usage
