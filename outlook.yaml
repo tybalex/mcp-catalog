@@ -25,10 +25,7 @@ description: |
   - 🔍 **Advanced Search** - Powerful query-based email filtering
   - 📎 **Attachment Support** - List, download, and read email attachments
   - 🚀 **Streamable HTTP** - High-performance streaming capabilities
-  - 🐳 **Docker Ready** - Containerized deployment with Docker Compose
-  - 🧪 **Comprehensive Testing** - Full test coverage with pytest
   - 📊 **Microsoft Graph API** - Native integration with Microsoft 365 services
-  - 🔄 **Async Operations** - Non-blocking asynchronous email operations
 
   ## 📚 Available Tools
 

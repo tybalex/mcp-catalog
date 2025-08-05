@@ -1,32 +1,25 @@
 name: AWS Documentation
 description: |
-  # AWS Documentation MCP Server
+  ![AWS Documentation MCP Demo](https://github.com/awslabs/mcp/blob/main/src/aws-documentation-mcp-server/basic-usage.gif?raw=true)
 
-  Model Context Protocol (MCP) server for AWS Documentation
-
-  This MCP server provides tools to access AWS documentation, search for content, and get recommendations.
+  ## Overview
+  Model Context Protocol (MCP) server for AWS Documentation. Access, search, and get recommendations from AWS documentation with tools to fetch content, search globally, and discover related resources.
 
   ## Features
-
   - **Read Documentation**: Fetch and convert AWS documentation pages to markdown format
   - **Search Documentation**: Search AWS documentation using the official search API (global only)
   - **Recommendations**: Get content recommendations for AWS documentation pages (global only)
   - **Get Available Services List**: Get a list of available AWS services in China regions (China only)
 
-  ## Prerequisites
+  ## What you'll need to connect
 
-  * have your AWS credential ready.
+  **Required AWS Credentials:**
+  - **AWS Access Key ID**: Your AWS credential access key
+  - **AWS Secret Access Key**: Your AWS credential access secret
 
-  ## Configuration Options
-
-  #### Required
-  - `AWS_ACCESS_KEY_ID`: Your AWS credential access key
-  - `AWS_SECRET_ACCESS_KEY`: Your AWS credential access secret
-
-  #### Optional
-  - `AWS_REGION`: AWS region to use (default: `us-east-1`)
-  - `AWS_SESSION_TOKEN`: AWS Session Token (only required for temporary credentials like SSO or STS AssumeRole)
-
+  **Optional Configuration:**
+  - **AWS Region**: AWS region to use (default: `us-east-1`)
+  - **AWS Session Token**: Required only for temporary credentials like SSO or STS AssumeRole
 
   ## Basic Usage
 
@@ -35,41 +28,6 @@ description: |
   - "look up documentation on S3 bucket naming rule. cite your sources"
   - "recommend content for page https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html"
 
-  ![AWS Documentation MCP Demo](https://github.com/awslabs/mcp/blob/main/src/aws-documentation-mcp-server/basic-usage.gif?raw=true)
-
-  ## Tools
-
-  ### read_documentation
-
-  Fetches an AWS documentation page and converts it to markdown format.
-
-  ```python
-  read_documentation(url: str) -> str
-  ```
-
-  ### search_documentation (global only)
-
-  Searches AWS documentation using the official AWS Documentation Search API.
-
-  ```python
-  search_documentation(search_phrase: str, limit: int) -> list[dict]
-  ```
-
-  ### recommend (global only)
-
-  Gets content recommendations for an AWS documentation page.
-
-  ```python
-  recommend(url: str) -> list[dict]
-  ```
-
-  ### get_available_services (China only)
-
-  Gets a list of available AWS services in China regions.
-
-  ```python
-  get_available_services() -> str
-  ```
 
 metadata:
   categories: Documentation & Learning, SaaS & API Integrations

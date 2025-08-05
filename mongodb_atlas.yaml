@@ -1,122 +1,49 @@
 name: MongoDB Atlas
 description: |
-  # MongoDB Atlas MCP Server
+  ## Overview
+  A connector for interacting with the MongoDB Atlas Cloud Service. This connector allows you to perform read and write actions with clusters, projects, databases, collections, and database users.
 
-  A Model Context Protocol server for interacting with MongoDB Atlas Cloud Service.
-  If you want to connect to your own MongoDB database, use the *MongoDB Local MCP Server* instead.
+  ## Features
+  - **Atlas Management**: Create and manage MongoDB Atlas projects, clusters, and database users
+  - **Database Operations**: Perform CRUD operations on collections and documents
+  - **Cluster Management**: List, inspect, and create MongoDB Atlas clusters including free tier clusters
+  - **Access Control**: Configure IP access lists and manage database user permissions
+  - **Monitoring**: View alerts and get database statistics
+  - **Schema Operations**: Create indexes, inspect collection schemas, and manage database structures
 
-  <a name="getting-started"></a>
+  ## What you'll need to connect
+  
+  ### MongoDB Atlas API Credentials (Required)
+  You'll need Service Account Atlas API credentials to use the Atlas management tools:
+  
+  - **API Client ID**: Your MongoDB Atlas Service Account Client ID
+  - **API Client Secret**: Your MongoDB Atlas Service Account Client Secret (keep this secure)
 
-  ## 🚀 Prerequisites
-
-  - A MongoDB connection string or Atlas API credentials, **_the Server will not start unless configured_**.
-    - **_Service Accounts Atlas API credentials_** are required to use the Atlas tools. You can create a service account in MongoDB Atlas and use its credentials for authentication. See [Atlas API Access](#atlas-api-access) for more details.
-    - If you have a MongoDB connection string, you can use it directly to connect to your MongoDB instance.
-
-  ### Atlas API Access
-
-  To use the Atlas API tools, you'll need to create a service account in MongoDB Atlas:
-
-  > **ℹ️ Note:** For a detailed breakdown of the minimum required permissions for each Atlas operation, see the [Atlas API Permissions](#atlas-api-permissions) section below.
-
+  ### Setting up Atlas API Access
+  
   1. **Create a Service Account:**
-    - Log in to MongoDB Atlas at [cloud.mongodb.com](https://cloud.mongodb.com)
-    - Navigate to Access Manager > Organization Access
-    - Click Add New > Applications > Service Accounts
-    - Enter name, description and expiration for your service account (e.g., "MCP, MCP Server Access, 7 days")
-    - **Assign only the minimum permissions needed for your use case.**
-      - See [Atlas API Permissions](#atlas-api-permissions) for details.
-    - Click `Create`
-
-  To learn more about Service Accounts, check the [MongoDB Atlas documentation](https://www.mongodb.com/docs/atlas/api/service-accounts-overview/).
+     - Log in to MongoDB Atlas at [cloud.mongodb.com](https://cloud.mongodb.com)
+     - Navigate to Access Manager > Organization Access
+     - Click Add New > Applications > Service Accounts
+     - Enter name, description and expiration for your service account
+     - (Recommended) Assign only the minimum permissions needed for your use case
 
   2. **Save Client Credentials:**
-    - After creation, you'll be shown the Client ID and Client Secret
-    - **Important:** Copy and save the Client Secret immediately as it won't be displayed again
+     - After creation, copy and save the Client ID and Client Secret
+     - **Important:** The Client Secret won't be displayed again
 
-  3. **Add Access List Entry:**
-    - Add your IP address to the API access list
+  ### Required Permissions by Operation
 
-  4. **Configure the MCP Server:**
-    - Use one of the configuration methods below to set your `apiClientId` and `apiClientSecret`
+  | Operation | Required Role | Scope |
+  |-----------|---------------|-------|
+  | List organizations/projects | Org Member or Org Read Only | Organization |
+  | Create new projects | Org Project Creator | Organization |
+  | View clusters/databases | Project Read Only | Project |
+  | Create/manage clusters | Project Cluster Manager | Project |
+  | Manage IP access lists | Project IP Access List Admin | Project |
+  | Manage database users | Project Database Access Admin | Project |
 
-  ### Atlas API Permissions
-
-  > **Security Warning:** Granting the Organization Owner role is rarely necessary and can be a security risk. Assign only the minimum permissions needed for your use case.
-
-  #### Quick Reference: Required roles per operation
-
-  | What you want to do                  | Safest Role to Assign (where)           |
-  | ------------------------------------ | --------------------------------------- |
-  | List orgs/projects                   | Org Member or Org Read Only (Org)       |
-  | Create new projects                  | Org Project Creator (Org)               |
-  | View clusters/databases in a project | Project Read Only (Project)             |
-  | Create/manage clusters in a project  | Project Cluster Manager (Project)       |
-  | Manage project access lists          | Project IP Access List Admin (Project)  |
-  | Manage database users                | Project Database Access Admin (Project) |
-
-  - **Prefer project-level roles** for most operations. Assign only to the specific projects you need to manage or view.
-  - **Avoid Organization Owner** unless you require full administrative control over all projects and settings in the organization.
-
-  For a full list of roles and their privileges, see the [Atlas User Roles documentation](https://www.mongodb.com/docs/atlas/reference/user-roles/#service-user-roles).
-
-  ## 🛠️ Supported Tools
-
-  ### Tool List
-
-  #### MongoDB Atlas Tools
-
-  - `atlas-list-orgs` - Lists MongoDB Atlas organizations
-  - `atlas-list-projects` - Lists MongoDB Atlas projects
-  - `atlas-create-project` - Creates a new MongoDB Atlas project
-  - `atlas-list-clusters` - Lists MongoDB Atlas clusters
-  - `atlas-inspect-cluster` - Inspect a specific MongoDB Atlas cluster
-  - `atlas-create-free-cluster` - Create a free MongoDB Atlas cluster
-  - `atlas-connect-cluster` - Connects to MongoDB Atlas cluster
-  - `atlas-inspect-access-list` - Inspect IP/CIDR ranges with access to MongoDB Atlas clusters
-  - `atlas-create-access-list` - Configure IP/CIDR access list for MongoDB Atlas clusters
-  - `atlas-list-db-users` - List MongoDB Atlas database users
-  - `atlas-create-db-user` - Creates a MongoDB Atlas database user
-  - `atlas-list-alerts` - List MongoDB Atlas Alerts for a Project
-
-  NOTE: atlas tools are only available when you set credentials on [configuration](#configuration) section.
-
-  #### MongoDB Database Tools
-
-  - `connect` - Connect to a MongoDB instance
-  - `find` - Run a find query against a MongoDB collection
-  - `aggregate` - Run an aggregation against a MongoDB collection
-  - `count` - Get the number of documents in a MongoDB collection
-  - `insert-one` - Insert a single document into a MongoDB collection
-  - `insert-many` - Insert multiple documents into a MongoDB collection
-  - `create-index` - Create an index for a MongoDB collection
-  - `update-one` - Update a single document in a MongoDB collection
-  - `update-many` - Update multiple documents in a MongoDB collection
-  - `rename-collection` - Rename a MongoDB collection
-  - `delete-one` - Delete a single document from a MongoDB collection
-  - `delete-many` - Delete multiple documents from a MongoDB collection
-  - `drop-collection` - Remove a collection from a MongoDB database
-  - `drop-database` - Remove a MongoDB database
-  - `list-databases` - List all databases for a MongoDB connection
-  - `list-collections` - List all collections for a given database
-  - `collection-indexes` - Describe the indexes for a collection
-  - `collection-schema` - Describe the schema for a collection
-  - `collection-storage-size` - Get the size of a collection in MB
-  - `db-stats` - Return statistics about a MongoDB database
-
-  Categories of tools:
-
-  - `atlas` - MongoDB Atlas tools, such as list clusters, create cluster, etc.
-  - `mongodb` - MongoDB database tools, such as find, aggregate, etc.
-
-  Operation types:
-
-  - `create` - Tools that create resources, such as create cluster, insert document, etc.
-  - `update` - Tools that update resources, such as update document, rename collection, etc.
-  - `delete` - Tools that delete resources, such as delete document, drop collection, etc.
-  - `read` - Tools that read resources, such as find, aggregate, list clusters, etc.
-  - `metadata` - Tools that read metadata, such as list databases, list collections, collection schema, etc.
-  - `connect` - Tools that allow you to connect or switch the connection to a MongoDB instance. If this is disabled, you will need to provide a connection string through the config when starting the server.
+  **Security Note:** Prefer project-level roles for most operations. Avoid Organization Owner unless you require full administrative control.
 
 metadata:
   categories: Databases,Data & Analytics
