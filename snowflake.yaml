@@ -15,7 +15,6 @@ description: |
   - **Snowflake Account**: Your Snowflake account identifier
   - **Username**: Your Snowflake username
   - **Password**: Your Snowflake password
-  
 
   **Optional:**
   - **Role**: Your Snowflake role (e.g., ACCOUNTADMIN, SYSADMIN)
@@ -101,8 +100,6 @@ description: |
     - Update: True
     - Use: True
   ```
-
-
 
 metadata:
   categories: Data Warehouse, SQL, Analytics, Database Management
@@ -239,6 +236,6 @@ env:
 
 runtime: containerized
 containerizedConfig:
-  image: ghcr.io/obot-platform/mcp-images-snowflake:main
+  image: ghcr.io/obot-platform/mcp-images/snowflake:main
   port: 9000
   path: "/mcp"
