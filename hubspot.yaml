@@ -1,15 +1,15 @@
 name: HubSpot
 description: |
   A Model Context Protocol (MCP) server that integrates with HubSpot CRM.
-  
+
   This MCP server is currently in beta.
-  
+
   ## Features
   - **CRM**: Manage CRM objects, schemas, and properties
   - **Automation**: Manage HubSpot workflows
-  
+
   ## What you'll need to connect
-  
+
   **Required:**
   - **HubSpot private app access token**: You can find this in Settings -> Integrations -> Private Apps.
 
@@ -167,6 +167,6 @@ env:
     required: true
 runtime: containerized
 containerizedConfig:
-  image: ghcr.io/obot-platform/hubspot-mcp-server:main
+  image: ghcr.io/obot-platform/mcp-images/hubspot:main
   port: 8099
   path: "/"
