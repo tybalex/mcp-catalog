@@ -75,6 +75,8 @@ env:
 runtime: containerized
 containerizedConfig:
   image: ghcr.io/obot-platform/mcp-images/antv-charts
+  port: 8099
+  path: /
   args:
     - mcp-server-chart
 toolPreview:
