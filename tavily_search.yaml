@@ -37,7 +37,7 @@ env:
 
 runtime: containerized
 containerizedConfig:
-  image: ghcr.io/obot-platform/mcp-images/tavily-mcp:0.2.9
+  image: ghcr.io/obot-platform/mcp-images/tavily:0.2.9
   port: 8099
   path: /
   args:
