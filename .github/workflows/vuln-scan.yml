@@ -1,4 +1,4 @@
-name: Scan for LLM Vulenerabilities
+name: Scan for LLM Vulnerabilities
 permissions:
   id-token: write
   contents: read
@@ -7,7 +7,7 @@ permissions:
 
 on:
   workflow_dispatch:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened]
   push:
     branches:
@@ -23,6 +23,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Checkout PR code if running for a PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Generate matrix from yaml
         id: set-matrix
         run: |
@@ -42,6 +49,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Checkout PR code if running for a PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
