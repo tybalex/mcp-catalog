@@ -1,150 +1,121 @@
 name: Supabase
-description: |
-  ![supabase-mcp-demo](https://github.com/user-attachments/assets/3fce101a-b7d4-482f-9182-0be70ed1ad56)
+description: '![supabase-mcp-demo](https://github.com/user-attachments/assets/3fce101a-b7d4-482f-9182-0be70ed1ad56)
 
-  A Model Context Protocol (MCP) server that connects your Supabase projects to AI assistants. This server enables AI assistants to perform comprehensive Supabase operations including managing tables, fetching configurations, querying data, and deploying Edge Functions across your development workflow.
+
+  A Model Context Protocol (MCP) server that connects your Supabase projects to AI
+  assistants. This server enables AI assistants to perform comprehensive Supabase
+  operations including managing tables, fetching configurations, querying data, and
+  deploying Edge Functions across your development workflow.
+
 
   ## Features
-  - **Project Management**: Create, pause, restore projects and manage organizations with cost tracking
-  - **Database Operations**: Execute SQL queries, apply migrations, manage tables and extensions
-  - **Development Tools**: Generate TypeScript types, get API URLs and keys for seamless integration
-  - **Edge Functions**: Deploy and manage serverless functions directly from AI assistants
-  - **Branching Support**: Create development branches, merge changes, and handle migration drift (paid plans)
-  - **Storage Management**: Manage buckets and storage configurations
-  - **Documentation Search**: Search Supabase docs for up-to-date information and guidance
 
-  ## What you'll need to connect
+  - **Project Management**: Create, pause, restore projects and manage organizations
+  with cost tracking
+
+  - **Database Operations**: Execute SQL queries, apply migrations, manage tables
+  and extensions
+
+  - **Development Tools**: Generate TypeScript types, get API URLs and keys for seamless
+  integration
+
+  - **Edge Functions**: Deploy and manage serverless functions directly from AI assistants
+
+  - **Branching Support**: Create development branches, merge changes, and handle
+  migration drift (paid plans)
+
+  - **Storage Management**: Manage buckets and storage configurations
+
+  - **Documentation Search**: Search Supabase docs for up-to-date information and
+  guidance
+
+
+  ## What you''ll need to connect
+
 
   **Required:**
+
   - **Supabase Personal Access Token**: Create at [Supabase settings](https://supabase.com/dashboard/account/tokens)
 
-# **Optional:**
-# - **Project Scoping**: Limit access to specific projects for enhanced security
-# - **Read-only Mode**: Execute queries as read-only Postgres user for safer operations
-
+  '
 metadata:
   categories: Databases
 icon: https://avatars.githubusercontent.com/u/87650496?s=48&v=4
 repoURL: https://github.com/supabase-community/supabase-mcp
 env:
-  - key: SUPABASE_ACCESS_TOKEN
-    name: Supabase Personal Access Token
-    required: true
-    sensitive: true
-    description: Your Supabase Personal Access Token.
-  # - key: SUPABASE_PROJECT_REF
-  #   name: Supabase Project ID
-  #   required: false
-  #   sensitive: false
-  #   description: The project ID for your Supabase project. You can find it in `General` > `Project Settings` > `Project ID`.
-
+- key: SUPABASE_ACCESS_TOKEN
+  name: Supabase Personal Access Token
+  required: true
+  sensitive: true
+  description: Your Supabase Personal Access Token.
 runtime: containerized
 containerizedConfig:
   image: ghcr.io/obot-platform/mcp-images/supabase:0.5.1
   port: 8099
   path: /
   args:
-    - mcp-server-supabase
-    # - "--project-ref=${SUPABASE_PROJECT_REF}" # TODO: add this back once we support dynamic args, see issue https://github.com/obot-platform/obot/issues/3619 feature request 1
-
+  - mcp-server-supabase
 toolPreview:
-  # Account tools
-  - name: list_projects
-    description: Lists all Supabase projects for the user
-
-  - name: get_project
-    description: Gets details for a project
-
-  - name: create_project
-    description: Creates a new Supabase project
-
-  - name: pause_project
-    description: Pauses a project
-
-  - name: restore_project
-    description: Restores a project
-
-  - name: list_organizations
-    description: Lists all organizations that the user is a member of
-
-  - name: get_organization
-    description: Gets details for an organization
-
-  - name: get_cost
-    description: Gets the cost of a new project or branch for an organization
-
-  - name: confirm_cost
-    description: Confirms the user's understanding of new project or branch costs
-
-  # Knowledge Base tools
-  - name: search_docs
-    description: Searches the Supabase documentation for up-to-date information
-
-  # Database tools
-  - name: list_tables
-    description: Lists all tables within the specified schemas
-
-  - name: list_extensions
-    description: Lists all extensions in the database
-
-  - name: list_migrations
-    description: Lists all migrations in the database
-
-  - name: apply_migration
-    description: Applies a SQL migration to the database
-
-  - name: execute_sql
-    description: Executes raw SQL in the database
-
-  # Debug tools
-  - name: get_logs
-    description: Gets logs for a Supabase project by service type (api, postgres, edge functions, auth, storage, realtime)
-
-  - name: get_advisors
-    description: Gets a list of advisory notices for a Supabase project
-
-  # Development tools
-  - name: get_project_url
-    description: Gets the API URL for a project
-
-  - name: get_anon_key
-    description: Gets the anonymous API key for a project
-
-  - name: generate_typescript_types
-    description: Generates TypeScript types based on the database schema
-
-  # Edge Functions tools
-  - name: list_edge_functions
-    description: Lists all Edge Functions in a Supabase project
-
-  - name: deploy_edge_function
-    description: Deploys a new Edge Function to a Supabase project
-
-  # Branching tools
-  - name: create_branch
-    description: Creates a development branch with migrations from production branch
-
-  - name: list_branches
-    description: Lists all development branches
-
-  - name: delete_branch
-    description: Deletes a development branch
-
-  - name: merge_branch
-    description: Merges migrations and edge functions from a development branch to production
-
-  - name: reset_branch
-    description: Resets migrations of a development branch to a prior version
-
-  - name: rebase_branch
-    description: Rebases development branch on production to handle migration drift
-
-  # Storage tools
-  - name: list_storage_buckets
-    description: Lists all storage buckets in a Supabase project
-
-  - name: get_storage_config
-    description: Gets the storage config for a Supabase project
-
-  - name: update_storage_config
-    description: Updates the storage config for a Supabase project
+- name: list_projects
+  description: Lists all Supabase projects for the user
+- name: get_project
+  description: Gets details for a project
+- name: create_project
+  description: Creates a new Supabase project
+- name: pause_project
+  description: Pauses a project
+- name: restore_project
+  description: Restores a project
+- name: list_organizations
+  description: Lists all organizations that the user is a member of
+- name: get_organization
+  description: Gets details for an organization
+- name: get_cost
+  description: Gets the cost of a new project or branch for an organization
+- name: confirm_cost
+  description: Confirms the user's understanding of new project or branch costs
+- name: search_docs
+  description: Searches the Supabase documentation for up-to-date information
+- name: list_tables
+  description: Lists all tables within the specified schemas
+- name: list_extensions
+  description: Lists all extensions in the database
+- name: list_migrations
+  description: Lists all migrations in the database
+- name: apply_migration
+  description: Applies a SQL migration to the database
+- name: execute_sql
+  description: Executes raw SQL in the database
+- name: get_logs
+  description: Gets logs for a Supabase project by service type (api, postgres, edge
+    functions, auth, storage, realtime)
+- name: get_advisors
+  description: Gets a list of advisory notices for a Supabase project
+- name: get_project_url
+  description: Gets the API URL for a project
+- name: get_anon_key
+  description: Gets the anonymous API key for a project
+- name: generate_typescript_types
+  description: Generates TypeScript types based on the database schema
+- name: list_edge_functions
+  description: Lists all Edge Functions in a Supabase project
+- name: deploy_edge_function
+  description: Deploys a new Edge Function to a Supabase project
+- name: create_branch
+  description: Creates a development branch with migrations from production branch
+- name: list_branches
+  description: Lists all development branches
+- name: delete_branch
+  description: Deletes a development branch
+- name: merge_branch
+  description: Merges migrations and edge functions from a development branch to production
+- name: reset_branch
+  description: Resets migrations of a development branch to a prior version
+- name: rebase_branch
+  description: Rebases development branch on production to handle migration drift
+- name: list_storage_buckets
+  description: Lists all storage buckets in a Supabase project
+- name: get_storage_config
+  description: Gets the storage config for a Supabase project
+- name: update_storage_config
+  description: Updates the storage config for a Supabase project
