@@ -32,14 +32,14 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install PyYAML
-        run: pip install PyYAML
+      - name: Install ruamel.yaml
+        run: pip install ruamel.yaml
 
       - name: Update image tag in YAML files
         id: update-files
         run: |
           python3 << 'EOF'
-          import yaml
+          from ruamel.yaml import YAML
           import os
           import re
           from pathlib import Path
@@ -58,9 +58,12 @@ jobs:
 
           for yaml_file in yaml_files:
               try:
+                  yaml = YAML()
+                  yaml.preserve_quotes = True
+                  yaml.width = 4096
+
                   with open(yaml_file, 'r') as f:
-                      content = f.read()
-                      data = yaml.safe_load(content)
+                      data = yaml.load(f)
 
                   # Check if this file has containerizedConfig.image
                   if (isinstance(data, dict) and
@@ -89,7 +92,7 @@ jobs:
 
                           # Write back to file, preserving formatting as much as possible
                           with open(yaml_file, 'w') as f:
-                              yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+                              yaml.dump(data, f)
 
                           updated_files.append(str(yaml_file))
 
