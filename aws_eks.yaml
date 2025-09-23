@@ -1,173 +1,227 @@
 name: AWS EKS
-description: |
-  A Model Context Protocol (MCP) server for Amazon EKS that provides AI code assistants with resource management tools and real-time cluster state visibility. Streamline application development through tailored guidance from initial setup through production optimization and troubleshooting.
+description: 'A Model Context Protocol (MCP) server for Amazon EKS that provides AI
+  code assistants with resource management tools and real-time cluster state visibility.
+  Streamline application development through tailored guidance from initial setup
+  through production optimization and troubleshooting.
+
 
   ## Features
-  - Enables users of AI code assistants to create new EKS clusters, complete with prerequisites such as dedicated VPCs, networking, and EKS Auto Mode node pools, by translating requests into the appropriate AWS CloudFormation actions
-  - Provides the ability to deploy containerized applications by applying existing Kubernetes YAML files or by generating new deployment and service manifests based on user-provided parameters
-  - Supports full lifecycle management of individual Kubernetes resources (such as Pods, Services, and Deployments) within EKS clusters, enabling create, read, update, patch, and delete operations
-  - Provides the ability to list Kubernetes resources with filtering by namespace, labels, and fields, simplifying the process for both users and LLMs to gather information about the state of Kubernetes applications and EKS infrastructure
-  - Facilitates operational tasks such as retrieving logs from specific pods and containers or fetching Kubernetes events related to particular resources, supporting troubleshooting and monitoring for both direct users and AI-driven workflows
+
+  - Enables users of AI code assistants to create new EKS clusters, complete with
+  prerequisites such as dedicated VPCs, networking, and EKS Auto Mode node pools,
+  by translating requests into the appropriate AWS CloudFormation actions
+
+  - Provides the ability to deploy containerized applications by applying existing
+  Kubernetes YAML files or by generating new deployment and service manifests based
+  on user-provided parameters
+
+  - Supports full lifecycle management of individual Kubernetes resources (such as
+  Pods, Services, and Deployments) within EKS clusters, enabling create, read, update,
+  patch, and delete operations
+
+  - Provides the ability to list Kubernetes resources with filtering by namespace,
+  labels, and fields, simplifying the process for both users and LLMs to gather information
+  about the state of Kubernetes applications and EKS infrastructure
+
+  - Facilitates operational tasks such as retrieving logs from specific pods and containers
+  or fetching Kubernetes events related to particular resources, supporting troubleshooting
+  and monitoring for both direct users and AI-driven workflows
+
   - Enables users to troubleshoot issues with an EKS cluster
 
-  ## What you'll need to connect
+
+  ## What you''ll need to connect
+
 
   **Required AWS Credentials:**
+
   - **AWS Access Key ID**: Your AWS credential access key
+
   - **AWS Secret Access Key**: Your AWS credential access secret
 
+
   **Optional Configuration:**
+
   - **AWS Region**: AWS region to use (default: `us-east-1`)
-  - **AWS Session Token**: Required only for temporary credentials like SSO or STS AssumeRole
+
+  - **AWS Session Token**: Required only for temporary credentials like SSO or STS
+  AssumeRole
+
 
   **IAM Permissions Required:**
-  - **Read Operations**: EKS describe, CloudFormation describe, CloudWatch metrics, IAM get policies
-  - **Write Operations**: Full access to IAM, VPC, CloudFormation, and EKS for cluster creation and management
 
-  **Kubernetes Access:** Your IAM principal must either create the EKS cluster or have an EKS Access Entry configured.
+  - **Read Operations**: EKS describe, CloudFormation describe, CloudWatch metrics,
+  IAM get policies
 
+  - **Write Operations**: Full access to IAM, VPC, CloudFormation, and EKS for cluster
+  creation and management
+
+
+  **Kubernetes Access:** Your IAM principal must either create the EKS cluster or
+  have an EKS Access Entry configured.
+
+  '
 metadata:
   categories: Cloud & Infrastructure
 icon: https://avatars.githubusercontent.com/u/3299148?s=48&v=4
 repoURL: https://github.com/awslabs/mcp/tree/main/src/eks-mcp-server
 env:
-  - key: AWS_ACCESS_KEY_ID
-    name: AWS Access Key ID
-    required: true
-    sensitive: false
-    description: Your AWS Access Key ID
-  - key: AWS_SECRET_ACCESS_KEY
-    name: AWS Secret Access Key
-    required: true
-    sensitive: true
-    description: AWS Secret Access Key
-  - key: AWS_SESSION_TOKEN
-    name: AWS Session Token
-    required: false
-    sensitive: true
-    description: AWS Session Token, only required if using temporary credentials such as temporary AWS credentials, such as those obtained through aws sso login or other temporary access methods (for example, STS AssumeRole)
-  - key: AWS_REGION
-    name: AWS Region
-    required: false
-    sensitive: false
-    description: AWS Region, default to us-east-1
-
+- key: AWS_ACCESS_KEY_ID
+  name: AWS Access Key ID
+  required: true
+  sensitive: false
+  description: Your AWS Access Key ID
+- key: AWS_SECRET_ACCESS_KEY
+  name: AWS Secret Access Key
+  required: true
+  sensitive: true
+  description: AWS Secret Access Key
+- key: AWS_SESSION_TOKEN
+  name: AWS Session Token
+  required: false
+  sensitive: true
+  description: AWS Session Token, only required if using temporary credentials such
+    as temporary AWS credentials, such as those obtained through aws sso login or
+    other temporary access methods (for example, STS AssumeRole)
+- key: AWS_REGION
+  name: AWS Region
+  required: false
+  sensitive: false
+  description: AWS Region, default to us-east-1
 runtime: containerized
 containerizedConfig:
   image: ghcr.io/obot-platform/mcp-images/aws-eks:0.1.13
   port: 8099
   path: /
   args:
-    - awslabs.eks-mcp-server
-    - --allow-write
-    - --allow-sensitive-data-access
+  - awslabs.eks-mcp-server
+  - --allow-write
+  - --allow-sensitive-data-access
 toolPreview:
-  - name: manage_eks_stacks
-    description: Manage EKS CloudFormation stacks with operations for generating templates, deploying, describing, and deleting EKS clusters and their underlying infrastructure.
-    params:
-      operation: Operation to perform (generate, deploy, describe, or delete)
-      cluster_name: Name of the EKS cluster (for all operations)
-      template_file: Absolute path for the CloudFormation template (for generate and deploy operations)
-  - name: list_k8s_resources
-    description: List Kubernetes resources of a specific kind in an EKS cluster, with options to filter by namespace, labels, and fields.
-    params:
-      cluster_name: Name of the EKS cluster
-      kind: Kind of the Kubernetes resources (e.g., 'Pod', 'Service')
-      api_version: API version of the Kubernetes resources (e.g., 'v1', 'apps/v1')
-      namespace: Namespace of the Kubernetes resources (optional)
-      label_selector: Label selector to filter resources (optional)
-      field_selector: Field selector to filter resources (optional)
-  - name: manage_k8s_resource
-    description: Manage individual Kubernetes resources with complete CRUD operations (create, read, update, patch, delete) for any resource type.
-    params:
-      operation: Operation to perform (create, replace, patch, delete, read)
-      cluster_name: Name of the EKS cluster
-      kind: Kind of the Kubernetes resource (e.g., 'Pod', 'Service')
-      api_version: API version of the Kubernetes resource (e.g., 'v1', 'apps/v1')
-      name: Name of the Kubernetes resource
-      namespace: Namespace of the Kubernetes resource (optional)
-      body: Resource definition (for create/replace/patch operations)
-  - name: apply_yaml
-    description: Apply Kubernetes YAML manifests from local files to an EKS cluster, supporting multi-document files and resource updates.
-    params:
-      yaml_path: Absolute path to the YAML file to apply
-      cluster_name: Name of the EKS cluster
-      namespace: Default namespace to use for resources
-      force: Whether to update resources if they already exist (optional)
-  - name: list_api_versions
-    description: List all available API versions in the Kubernetes cluster to determine correct apiVersion for resource management.
-    params:
-      cluster_name: Name of the EKS cluster
-  - name: generate_app_manifest
-    description: Generate Kubernetes manifests for application deployment, creating both Deployment and LoadBalancer Service configurations.
-    params:
-      app_name: Name of the application (used for deployment and service names)
-      image_uri: Full ECR image URI with tag
-      output_dir: Directory to save the manifest file
-      port: Container port that the application listens on (optional)
-      replicas: Number of replicas to deploy (optional)
-      cpu: CPU request for each container (optional)
-      memory: Memory request for each container (optional)
-      namespace: Kubernetes namespace to deploy to (optional)
-      load_balancer_scheme: AWS load balancer scheme (internal or internet-facing) (optional)
-  - name: get_pod_logs
-    description: Retrieve logs from pods in a Kubernetes cluster with options to filter by container, time range, and size for debugging and monitoring.
-    params:
-      cluster_name: Name of the EKS cluster
-      pod_name: Name of the pod
-      namespace: Namespace of the pod
-      container_name: Container name (optional, if pod contains more than one container)
-      since_seconds: Only return logs newer than this many seconds (optional)
-      tail_lines: Number of lines to return from the end of the logs (optional)
-      limit_bytes: Maximum number of bytes to return (optional)
-  - name: get_k8s_events
-    description: Retrieve Kubernetes events related to specific resources for troubleshooting pod failures, deployment issues, and resource modifications.
-    params:
-      cluster_name: Name of the EKS cluster
-      kind: Kind of the involved object
-      name: Name of the involved object
-      namespace: Namespace of the involved object (optional for non-namespaced resources)
-  - name: get_cloudwatch_logs
-    description: Retrieve logs from CloudWatch for Kubernetes resources in an EKS cluster, supporting filtering by resource type, time range, and content.
-    params:
-      cluster_name: Name of the EKS cluster
-      log_type: Log type (application, host, performance, control-plane, or custom)
-      resource_type: Resource type (pod, node, container, cluster)
-      resource_name: Resource name to search for in log messages (optional when resource_type is "cluster")
-      minutes: Number of minutes to look back (optional)
-      start_time: Start time in ISO format (optional)
-      end_time: End time in ISO format (optional)
-      limit: Maximum number of log entries to return (optional)
-      filter_pattern: Additional CloudWatch Logs filter pattern (optional)
-      fields: Custom fields to include in the query results (optional)
-  - name: get_cloudwatch_metrics
-    description: Retrieve CloudWatch metrics for Kubernetes resources in an EKS cluster to monitor performance, resource utilization, and system health.
-    params:
-      cluster_name: Name of the EKS cluster
-      metric_name: Metric name (e.g., cpu_usage_total, memory_rss)
-      namespace: CloudWatch namespace
-      dimensions: Dimensions to use for the CloudWatch metric query
-      minutes: Number of minutes to look back (optional)
-      start_time: Start time in ISO format (optional)
-      end_time: End time in ISO format (optional)
-      limit: Maximum number of data points to return (optional)
-      stat: Statistic to use for the metric (optional)
-      period: Period in seconds for the metric data points (optional)
-  - name: get_eks_metrics_guidance
-    description: Get information about available CloudWatch metrics for different resource types in EKS clusters, including metric names, dimensions, and descriptions.
-    params:
-      resource_type: Type of resource to get metrics for (cluster, node, pod, namespace, service)
-  - name: get_policies_for_role
-    description: Retrieve all policies attached to an IAM role, including assume role policy, managed policies, and inline policies for permission analysis.
-    params:
-      role_name: Name of the IAM role to get policies for
-  - name: add_inline_policy
-    description: Create and attach a new inline policy with specified permissions to an IAM role, commonly used for granting EKS clusters access to AWS services.
-    params:
-      policy_name: Name of the new inline policy to create
-      role_name: Name of the role to add the policy to
-      permissions: Permissions to include in the policy (JSON object or array of objects)
-  - name: search_eks_troubleshoot_guide
-    description: Search the EKS Troubleshoot Guide knowledge base for troubleshooting information and step-by-step solutions for EKS issues.
-    params:
-      query: Specific question or issue description related to EKS troubleshooting (less than 300 characters)
+- name: manage_eks_stacks
+  description: Manage EKS CloudFormation stacks with operations for generating templates,
+    deploying, describing, and deleting EKS clusters and their underlying infrastructure.
+  params:
+    operation: Operation to perform (generate, deploy, describe, or delete)
+    cluster_name: Name of the EKS cluster (for all operations)
+    template_file: Absolute path for the CloudFormation template (for generate and
+      deploy operations)
+- name: list_k8s_resources
+  description: List Kubernetes resources of a specific kind in an EKS cluster, with
+    options to filter by namespace, labels, and fields.
+  params:
+    cluster_name: Name of the EKS cluster
+    kind: Kind of the Kubernetes resources (e.g., 'Pod', 'Service')
+    api_version: API version of the Kubernetes resources (e.g., 'v1', 'apps/v1')
+    namespace: Namespace of the Kubernetes resources (optional)
+    label_selector: Label selector to filter resources (optional)
+    field_selector: Field selector to filter resources (optional)
+- name: manage_k8s_resource
+  description: Manage individual Kubernetes resources with complete CRUD operations
+    (create, read, update, patch, delete) for any resource type.
+  params:
+    operation: Operation to perform (create, replace, patch, delete, read)
+    cluster_name: Name of the EKS cluster
+    kind: Kind of the Kubernetes resource (e.g., 'Pod', 'Service')
+    api_version: API version of the Kubernetes resource (e.g., 'v1', 'apps/v1')
+    name: Name of the Kubernetes resource
+    namespace: Namespace of the Kubernetes resource (optional)
+    body: Resource definition (for create/replace/patch operations)
+- name: apply_yaml
+  description: Apply Kubernetes YAML manifests from local files to an EKS cluster,
+    supporting multi-document files and resource updates.
+  params:
+    yaml_path: Absolute path to the YAML file to apply
+    cluster_name: Name of the EKS cluster
+    namespace: Default namespace to use for resources
+    force: Whether to update resources if they already exist (optional)
+- name: list_api_versions
+  description: List all available API versions in the Kubernetes cluster to determine
+    correct apiVersion for resource management.
+  params:
+    cluster_name: Name of the EKS cluster
+- name: generate_app_manifest
+  description: Generate Kubernetes manifests for application deployment, creating
+    both Deployment and LoadBalancer Service configurations.
+  params:
+    app_name: Name of the application (used for deployment and service names)
+    image_uri: Full ECR image URI with tag
+    output_dir: Directory to save the manifest file
+    port: Container port that the application listens on (optional)
+    replicas: Number of replicas to deploy (optional)
+    cpu: CPU request for each container (optional)
+    memory: Memory request for each container (optional)
+    namespace: Kubernetes namespace to deploy to (optional)
+    load_balancer_scheme: AWS load balancer scheme (internal or internet-facing) (optional)
+- name: get_pod_logs
+  description: Retrieve logs from pods in a Kubernetes cluster with options to filter
+    by container, time range, and size for debugging and monitoring.
+  params:
+    cluster_name: Name of the EKS cluster
+    pod_name: Name of the pod
+    namespace: Namespace of the pod
+    container_name: Container name (optional, if pod contains more than one container)
+    since_seconds: Only return logs newer than this many seconds (optional)
+    tail_lines: Number of lines to return from the end of the logs (optional)
+    limit_bytes: Maximum number of bytes to return (optional)
+- name: get_k8s_events
+  description: Retrieve Kubernetes events related to specific resources for troubleshooting
+    pod failures, deployment issues, and resource modifications.
+  params:
+    cluster_name: Name of the EKS cluster
+    kind: Kind of the involved object
+    name: Name of the involved object
+    namespace: Namespace of the involved object (optional for non-namespaced resources)
+- name: get_cloudwatch_logs
+  description: Retrieve logs from CloudWatch for Kubernetes resources in an EKS cluster,
+    supporting filtering by resource type, time range, and content.
+  params:
+    cluster_name: Name of the EKS cluster
+    log_type: Log type (application, host, performance, control-plane, or custom)
+    resource_type: Resource type (pod, node, container, cluster)
+    resource_name: Resource name to search for in log messages (optional when resource_type
+      is "cluster")
+    minutes: Number of minutes to look back (optional)
+    start_time: Start time in ISO format (optional)
+    end_time: End time in ISO format (optional)
+    limit: Maximum number of log entries to return (optional)
+    filter_pattern: Additional CloudWatch Logs filter pattern (optional)
+    fields: Custom fields to include in the query results (optional)
+- name: get_cloudwatch_metrics
+  description: Retrieve CloudWatch metrics for Kubernetes resources in an EKS cluster
+    to monitor performance, resource utilization, and system health.
+  params:
+    cluster_name: Name of the EKS cluster
+    metric_name: Metric name (e.g., cpu_usage_total, memory_rss)
+    namespace: CloudWatch namespace
+    dimensions: Dimensions to use for the CloudWatch metric query
+    minutes: Number of minutes to look back (optional)
+    start_time: Start time in ISO format (optional)
+    end_time: End time in ISO format (optional)
+    limit: Maximum number of data points to return (optional)
+    stat: Statistic to use for the metric (optional)
+    period: Period in seconds for the metric data points (optional)
+- name: get_eks_metrics_guidance
+  description: Get information about available CloudWatch metrics for different resource
+    types in EKS clusters, including metric names, dimensions, and descriptions.
+  params:
+    resource_type: Type of resource to get metrics for (cluster, node, pod, namespace,
+      service)
+- name: get_policies_for_role
+  description: Retrieve all policies attached to an IAM role, including assume role
+    policy, managed policies, and inline policies for permission analysis.
+  params:
+    role_name: Name of the IAM role to get policies for
+- name: add_inline_policy
+  description: Create and attach a new inline policy with specified permissions to
+    an IAM role, commonly used for granting EKS clusters access to AWS services.
+  params:
+    policy_name: Name of the new inline policy to create
+    role_name: Name of the role to add the policy to
+    permissions: Permissions to include in the policy (JSON object or array of objects)
+- name: search_eks_troubleshoot_guide
+  description: Search the EKS Troubleshoot Guide knowledge base for troubleshooting
+    information and step-by-step solutions for EKS issues.
+  params:
+    query: Specific question or issue description related to EKS troubleshooting (less
+      than 300 characters)
