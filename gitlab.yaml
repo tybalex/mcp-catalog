@@ -1,18 +1,14 @@
 name: GitLab
-description: 'A Model Context Protocol (MCP) server that provides comprehensive GitLab
-  integration capabilities. Enable LLMs to interact with GitLab projects, manage repositories,
-  handle issues and merge requests, and perform automated GitLab operations with precision.
+description: 'A Model Context Protocol (MCP) server that provides comprehensive GitLab integration capabilities. Enable LLMs to interact with GitLab projects, manage repositories, handle issues and merge requests, and perform automated GitLab operations with precision.
 
 
   ## Features
 
   - **Project Management**: List, search, create, and manage GitLab projects
 
-  - **Repository Operations**: Browse files, read content, create/update files, and
-  manage branches
+  - **Repository Operations**: Browse files, read content, create/update files, and manage branches
 
-  - **Issue Management**: Create, update, list, and manage GitLab issues with full
-  metadata
+  - **Issue Management**: Create, update, list, and manage GitLab issues with full metadata
 
   - **Merge Request Workflow**: Create, review, merge, and manage merge requests
 
@@ -32,14 +28,12 @@ description: 'A Model Context Protocol (MCP) server that provides comprehensive 
 
   **Required Credentials:**
 
-  - **GitLab Personal Access Token**: Your GitLab personal access token with appropriate
-  scopes
+  - **GitLab Personal Access Token**: Your GitLab personal access token with appropriate scopes
 
 
   **Optional:**
 
-  - **GitLab API URL**: Your GitLab instance URL (optional, for self-hosted GitLab
-  instances)
+  - **GitLab API URL**: Your GitLab instance URL (optional, for self-hosted GitLab instances)
 
   - **GitLab Read-Only Mode**: default is false
 
@@ -59,8 +53,7 @@ env:
   name: GitLab Personal Access Token
   required: true
   sensitive: true
-  description: Your GitLab personal access token with api, read_repository, and write_repository
-    scopes.
+  description: Your GitLab personal access token with api, read_repository, and write_repository scopes.
 - key: GITLAB_API_URL
   name: GitLab API URL
   required: false
@@ -163,8 +156,7 @@ toolPreview:
     assignee_ids: Array of user IDs to assign (optional)
     labels: Array of label names (optional)
 - name: list_issues
-  description: List issues (default created by current user only; use scope='all'
-    for all accessible issues)
+  description: List issues (default created by current user only; use scope='all' for all accessible issues)
   params:
     project_id: Project ID or URL-encoded path (optional)
     state: Issue state - opened, closed, all (optional)
@@ -200,8 +192,7 @@ toolPreview:
     page: Page number for pagination (optional)
     per_page: Number of results per page (optional)
 - name: get_merge_request
-  description: Get details of a merge request (Either mergeRequestIid or branchName
-    must be provided)
+  description: Get details of a merge request (Either mergeRequestIid or branchName must be provided)
   params:
     project_id: Project ID or URL-encoded path (optional)
     merge_request_iid: Internal ID of the merge request (optional)
@@ -215,8 +206,7 @@ toolPreview:
     should_remove_source_branch: Remove source branch after merge (optional)
     squash: Squash commits into a single commit when merging (optional)
 - name: update_merge_request
-  description: Update a merge request (Either mergeRequestIid or branchName must be
-    provided)
+  description: Update a merge request (Either mergeRequestIid or branchName must be provided)
   params:
     project_id: Project ID or URL-encoded path (optional)
     merge_request_iid: Internal ID of the merge request (optional)
