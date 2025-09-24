@@ -10,31 +10,22 @@ description: '![Tavily Crawl Beta](https://raw.githubusercontent.com/tavily-ai/t
   ![MCP demo](https://raw.githubusercontent.com/tavily-ai/tavily-mcp/main/assets/demo_new.gif)
 
 
-  A Model Context Protocol (MCP) server that provides comprehensive web research capabilities
-  through fast, reliable APIs. It enables AI assistants to search the web in real-time,
-  extract structured data from web pages, map website structures, and crawl entire
-  domains with intelligent content extraction and ranking for AI applications.
+  A Model Context Protocol (MCP) server that provides comprehensive web research capabilities through fast, reliable APIs. It enables AI assistants to search the web in real-time, extract structured data from web pages, map website structures, and crawl entire domains with intelligent content extraction and ranking for AI applications.
 
 
   ## Features
 
-  - **Real-time Web Search**: Optimized search with intelligent content extraction
-  and relevancy ranking for contextual information
+  - **Real-time Web Search**: Optimized search with intelligent content extraction and relevancy ranking for contextual information
 
-  - **Structured Data Extraction**: Transform web pages into LLM-ready data with automatic
-  content cleaning and format conversion
+  - **Structured Data Extraction**: Transform web pages into LLM-ready data with automatic content cleaning and format conversion
 
-  - **Website Mapping**: Create structured maps of website architecture to understand
-  organization and discover pages
+  - **Website Mapping**: Create structured maps of website architecture to understand organization and discover pages
 
-  - **Domain Crawling**: Systematically explore websites with smart crawling strategies
-  that respect robots.txt and handle dynamic content
+  - **Domain Crawling**: Systematically explore websites with smart crawling strategies that respect robots.txt and handle dynamic content
 
-  - **Multiple Output Formats**: Support for summaries, Markdown, or cleaned text
-  extraction
+  - **Multiple Output Formats**: Support for summaries, Markdown, or cleaned text extraction
 
-  - **Advanced Filtering**: Control search scope with domain inclusion/exclusion,
-  time ranges, and content categories
+  - **Advanced Filtering**: Control search scope with domain inclusion/exclusion, time ranges, and content categories
 
 
   ## What you''ll need to connect
@@ -64,12 +55,7 @@ containerizedConfig:
   - tavily-mcp
 toolPreview:
 - name: tavily_search
-  description: Search the web for real-time information about any topic. Use this
-    tool when you need up-to-date information that might not be available in your
-    training data, or when you need to verify current facts. The search results will
-    include relevant snippets and URLs from web pages. This is particularly useful
-    for questions about current events, technology updates, or any topic that requires
-    recent information.
+  description: Search the web for real-time information about any topic. Use this tool when you need up-to-date information that might not be available in your training data, or when you need to verify current facts. The search results will include relevant snippets and URLs from web pages. This is particularly useful for questions about current events, technology updates, or any topic that requires recent information.
   params:
     query: The search query string
     country: Country code for localized search results (optional)
@@ -85,10 +71,7 @@ toolPreview:
     time_range: Time range for search results (optional)
     topic: Topic category for search (optional)
 - name: tavily_extract
-  description: Extract and process content from specific web pages. Use this tool
-    when you have URLs and need to get the full text content from those pages. Returns
-    clean, structured content in markdown or text format. Useful for reading articles,
-    documentation, or any web page content that you need to analyze or reference.
+  description: Extract and process content from specific web pages. Use this tool when you have URLs and need to get the full text content from those pages. Returns clean, structured content in markdown or text format. Useful for reading articles, documentation, or any web page content that you need to analyze or reference.
   params:
     urls: Array of URLs to extract content from
     extract_depth: Depth of content extraction (optional)
@@ -96,14 +79,7 @@ toolPreview:
     include_favicon: Whether to include favicon URLs (optional)
     include_images: Whether to include images (optional)
 - name: tavily_crawl
-  description: Crawl multiple pages from a website starting from a base URL. Use this
-    tool when you need to gather information from multiple related pages across a
-    website or explore a site's structure. It follows internal links and extracts
-    content from multiple pages, but truncates content to 500 characters per page.
-    For full content extraction, use tavily_map to discover URLs first, then tavily_extract
-    to get complete content from specific pages. Useful for comprehensive research
-    on documentation sites, blogs, or when you need to understand the full scope of
-    information available on a website.
+  description: Crawl multiple pages from a website starting from a base URL. Use this tool when you need to gather information from multiple related pages across a website or explore a site's structure. It follows internal links and extracts content from multiple pages, but truncates content to 500 characters per page. For full content extraction, use tavily_map to discover URLs first, then tavily_extract to get complete content from specific pages. Useful for comprehensive research on documentation sites, blogs, or when you need to understand the full scope of information available on a website.
   params:
     url: Base URL to start crawling from
     allow_external: Whether to allow crawling external domains (optional)
@@ -121,12 +97,7 @@ toolPreview:
     select_domains: Specific domains to crawl (optional)
     select_paths: Specific URL paths to crawl (optional)
 - name: tavily_map
-  description: Map and discover the structure of a website by finding all its URLs
-    and pages. Use this tool when you need to understand a website's organization,
-    find specific pages, or get an overview of all available content without extracting
-    the actual text. Returns a structured list of URLs and their relationships. Useful
-    for site exploration, finding documentation pages, or understanding how a website
-    is organized.
+  description: Map and discover the structure of a website by finding all its URLs and pages. Use this tool when you need to understand a website's organization, find specific pages, or get an overview of all available content without extracting the actual text. Returns a structured list of URLs and their relationships. Useful for site exploration, finding documentation pages, or understanding how a website is organized.
   params:
     url: Base URL to map
     allow_external: Whether to allow mapping external domains (optional)
