@@ -1,18 +1,14 @@
 name: AWS Redshift
-description: 'A Model Context Protocol (MCP) server for Amazon Redshift. Discover,
-  explore, and query Amazon Redshift clusters and serverless workgroups safely and
-  efficiently through comprehensive discovery and query execution tools.
+description: 'A Model Context Protocol (MCP) server for Amazon Redshift. Discover, explore, and query Amazon Redshift clusters and serverless workgroups safely and efficiently through comprehensive discovery and query execution tools.
 
 
   ## Features
 
-  - **Cluster Discovery**: Automatically discover both provisioned Redshift clusters
-  and serverless workgroups
+  - **Cluster Discovery**: Automatically discover both provisioned Redshift clusters and serverless workgroups
 
   - **Metadata Exploration**: Browse databases, schemas, tables, and columns
 
-  - **Safe Query Execution**: Execute SQL queries in READ ONLY mode (safe READ WRITE
-  support planned for future versions)
+  - **Safe Query Execution**: Execute SQL queries in READ ONLY mode (safe READ WRITE support planned for future versions)
 
   - **Multi-Cluster Support**: Work with multiple clusters and workgroups simultaneously
 
@@ -31,8 +27,7 @@ description: 'A Model Context Protocol (MCP) server for Amazon Redshift. Discove
 
   - **AWS Region**: AWS region to use (default: `us-east-1`)
 
-  - **AWS Session Token**: Required only for temporary credentials like SSO or STS
-  AssumeRole
+  - **AWS Session Token**: Required only for temporary credentials like SSO or STS AssumeRole
 
 
   **IAM Permissions Required:**
@@ -41,8 +36,7 @@ description: 'A Model Context Protocol (MCP) server for Amazon Redshift. Discove
 
   - `redshift-serverless:ListWorkgroups`, `redshift-serverless:GetWorkgroup`
 
-  - `redshift-data:ExecuteStatement`, `redshift-data:BatchExecuteStatement`, `redshift-data:DescribeStatement`,
-  `redshift-data:GetStatementResult`
+  - `redshift-data:ExecuteStatement`, `redshift-data:BatchExecuteStatement`, `redshift-data:DescribeStatement`, `redshift-data:GetStatementResult`
 
 
   **Database Permissions:**
@@ -100,9 +94,7 @@ env:
   name: AWS Session Token
   required: false
   sensitive: true
-  description: AWS Session Token, only required if using temporary credentials such
-    as temporary AWS credentials, such as those obtained through aws sso login or
-    other temporary access methods (for example, STS AssumeRole)
+  description: AWS Session Token, only required if using temporary credentials such as temporary AWS credentials, such as those obtained through aws sso login or other temporary access methods (for example, STS AssumeRole)
 - key: AWS_REGION
   name: AWS Region
   required: false
