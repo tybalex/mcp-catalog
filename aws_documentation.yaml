@@ -2,24 +2,18 @@ name: AWS Documentation
 description: '![AWS Documentation MCP Demo](https://github.com/awslabs/mcp/blob/main/src/aws-documentation-mcp-server/basic-usage.gif?raw=true)
 
 
-  A Model Context Protocol (MCP) server for AWS Documentation. Access, search, and
-  get recommendations from AWS documentation with tools to fetch content, search globally,
-  and discover related resources.
+  A Model Context Protocol (MCP) server for AWS Documentation. Access, search, and get recommendations from AWS documentation with tools to fetch content, search globally, and discover related resources.
 
 
   ## Features
 
-  - **Read Documentation**: Fetch and convert AWS documentation pages to markdown
-  format
+  - **Read Documentation**: Fetch and convert AWS documentation pages to markdown format
 
-  - **Search Documentation**: Search AWS documentation using the official search API
-  (global only)
+  - **Search Documentation**: Search AWS documentation using the official search API (global only)
 
-  - **Recommendations**: Get content recommendations for AWS documentation pages (global
-  only)
+  - **Recommendations**: Get content recommendations for AWS documentation pages (global only)
 
-  - **Get Available Services List**: Get a list of available AWS services in China
-  regions (China only)
+  - **Get Available Services List**: Get a list of available AWS services in China regions (China only)
 
 
   ## What you''ll need to connect
@@ -36,8 +30,7 @@ description: '![AWS Documentation MCP Demo](https://github.com/awslabs/mcp/blob/
 
   - **AWS Region**: AWS region to use (default: `us-east-1`)
 
-  - **AWS Session Token**: Required only for temporary credentials like SSO or STS
-  AssumeRole
+  - **AWS Session Token**: Required only for temporary credentials like SSO or STS AssumeRole
 
 
   ## Basic Usage
@@ -70,9 +63,7 @@ env:
   name: AWS Session Token
   required: false
   sensitive: true
-  description: AWS Session Token, only required if using temporary credentials such
-    as temporary AWS credentials, such as those obtained through aws sso login or
-    other temporary access methods (for example, STS AssumeRole)
+  description: AWS Session Token, only required if using temporary credentials such as temporary AWS credentials, such as those obtained through aws sso login or other temporary access methods (for example, STS AssumeRole)
 - key: AWS_REGION
   name: AWS Region
   required: false
@@ -87,28 +78,17 @@ containerizedConfig:
   - awslabs.aws-documentation-mcp-server
 toolPreview:
 - name: read_documentation
-  description: Fetch and convert an AWS documentation page to markdown format. Retrieves
-    content from AWS documentation pages and converts it to markdown format. For long
-    documents, you can make multiple calls with different start_index values to retrieve
-    the entire content in chunks.
+  description: Fetch and convert an AWS documentation page to markdown format. Retrieves content from AWS documentation pages and converts it to markdown format. For long documents, you can make multiple calls with different start_index values to retrieve the entire content in chunks.
   params:
-    url: URL of the AWS documentation page to read (must be from docs.aws.amazon.com
-      domain and end with .html)
+    url: URL of the AWS documentation page to read (must be from docs.aws.amazon.com domain and end with .html)
     max_length: Maximum number of characters to return (optional)
     start_index: Starting character index for pagination of long documents (optional)
 - name: search_documentation
-  description: Search AWS documentation using the official AWS Documentation Search
-    API. Searches across all AWS documentation for pages matching your search phrase.
-    Use specific technical terms and include service names to narrow results. Available
-    for global AWS partition only.
+  description: Search AWS documentation using the official AWS Documentation Search API. Searches across all AWS documentation for pages matching your search phrase. Use specific technical terms and include service names to narrow results. Available for global AWS partition only.
   params:
-    search_phrase: Search phrase to use (use specific technical terms and include
-      service names for better results)
+    search_phrase: Search phrase to use (use specific technical terms and include service names for better results)
     limit: Maximum number of results to return (optional)
 - name: recommend
-  description: Get content recommendations for an AWS documentation page. Provides
-    recommendations for related AWS documentation pages including highly rated, new,
-    similar, and journey categories. Available for global AWS partition only.
+  description: Get content recommendations for an AWS documentation page. Provides recommendations for related AWS documentation pages including highly rated, new, similar, and journey categories. Available for global AWS partition only.
   params:
-    url: URL of the AWS documentation page to get recommendations for (must be a valid
-      AWS documentation URL)
+    url: URL of the AWS documentation page to get recommendations for (must be a valid AWS documentation URL)
