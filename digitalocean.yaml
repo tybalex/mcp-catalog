@@ -1,39 +1,28 @@
 name: DigitalOcean
-description: 'A Model Context Protocol (MCP) server that provides comprehensive interface
-  for managing DigitalOcean resources and performing actions using the DigitalOcean
-  API. Built on top of the godo library, this integration enables seamless management
-  of your DigitalOcean infrastructure through AI agents.
+description: 'A Model Context Protocol (MCP) server that provides comprehensive interface for managing DigitalOcean resources and performing actions using the DigitalOcean API. Built on top of the godo library, this integration enables seamless management of your DigitalOcean infrastructure through AI agents.
 
 
   ## Features
 
-  - **App Platform Management**: Deploy, manage, and monitor applications on DigitalOcean
-  App Platform
+  - **App Platform Management**: Deploy, manage, and monitor applications on DigitalOcean App Platform
 
-  - **Droplet Operations**: Create, manage, resize, snapshot, and monitor virtual
-  machines (droplets)
+  - **Droplet Operations**: Create, manage, resize, snapshot, and monitor virtual machines (droplets)
 
-  - **Account Management**: Access account information, billing, balance, invoices,
-  and SSH keys
+  - **Account Management**: Access account information, billing, balance, invoices, and SSH keys
 
-  - **Networking Services**: Manage domains, DNS records, certificates, firewalls,
-  reserved IPs, VPCs, and CDNs
+  - **Networking Services**: Manage domains, DNS records, certificates, firewalls, reserved IPs, VPCs, and CDNs
 
-  - **Database Management**: Provision, manage, and monitor managed database clusters
-  (Postgres, MySQL, Redis, etc.)
+  - **Database Management**: Provision, manage, and monitor managed database clusters (Postgres, MySQL, Redis, etc.)
 
   - **Kubernetes (DOKS)**: Manage DigitalOcean Kubernetes clusters and node pools
 
-  - **Object Storage (Spaces)**: Manage DigitalOcean Spaces and access keys for S3-compatible
-  storage
+  - **Object Storage (Spaces)**: Manage DigitalOcean Spaces and access keys for S3-compatible storage
 
   - **Marketplace Integration**: Discover and manage DigitalOcean Marketplace applications
 
-  - **Monitoring & Insights**: Monitor resources, endpoints, and receive alerts for
-  performance and SSL certificates
+  - **Monitoring & Insights**: Monitor resources, endpoints, and receive alerts for performance and SSL certificates
 
-  - **Modular Services**: Enable only the services you need to reduce context size
-  and improve accuracy
+  - **Modular Services**: Enable only the services you need to reduce context size and improve accuracy
 
 
   ## What you''ll need to connect
@@ -41,8 +30,7 @@ description: 'A Model Context Protocol (MCP) server that provides comprehensive 
 
   **Required:**
 
-  - **DigitalOcean API Token**: Personal Access Token with appropriate permissions
-  for your DigitalOcean account
+  - **DigitalOcean API Token**: Personal Access Token with appropriate permissions for your DigitalOcean account
 
   - **Enabled Services**: Comma-separated list of enabled services (e.g., apps,droplets).
 
@@ -54,30 +42,23 @@ description: 'A Model Context Protocol (MCP) server that provides comprehensive 
 
   |---------|-------------|------|
 
-  | **Apps** | DigitalOcean App Platform applications, deployments, and configurations
-  | `apps` |
+  | **Apps** | DigitalOcean App Platform applications, deployments, and configurations | `apps` |
 
-  | **Droplets** | Virtual machines - create, manage, resize, snapshot, and monitor
-  | `droplets` |
+  | **Droplets** | Virtual machines - create, manage, resize, snapshot, and monitor | `droplets` |
 
-  | **Accounts** | Account information, billing, balance, invoices, and SSH keys |
-  `accounts` |
+  | **Accounts** | Account information, billing, balance, invoices, and SSH keys | `accounts` |
 
-  | **Networking** | Domains, DNS records, certificates, firewalls, reserved IPs,
-  VPCs, CDNs | `networking` |
+  | **Networking** | Domains, DNS records, certificates, firewalls, reserved IPs, VPCs, CDNs | `networking` |
 
-  | **Databases** | Managed database clusters (Postgres, MySQL, Redis, etc.) | `databases`
-  |
+  | **Databases** | Managed database clusters (Postgres, MySQL, Redis, etc.) | `databases` |
 
   | **DOKS** | DigitalOcean Kubernetes clusters and node pools | `doks` |
 
-  | **Spaces** | Object storage and access keys for S3-compatible storage | `spaces`
-  |
+  | **Spaces** | Object storage and access keys for S3-compatible storage | `spaces` |
 
   | **Marketplace** | DigitalOcean Marketplace applications | `marketplace` |
 
-  | **Insights** | Resource monitoring, endpoint alerts, SSL certificate monitoring
-  | `insights` |
+  | **Insights** | Resource monitoring, endpoint alerts, SSL certificate monitoring | `insights` |
 
 
   ## Examples
