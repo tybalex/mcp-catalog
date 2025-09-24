@@ -1,21 +1,16 @@
 name: DuckDuckGo Search
-description: 'A Model Context Protocol (MCP) server that provides web search capabilities
-  through DuckDuckGo, with additional features for content fetching and parsing. Search
-  the web and retrieve webpage content with LLM-friendly formatting.
+description: 'A Model Context Protocol (MCP) server that provides web search capabilities through DuckDuckGo, with additional features for content fetching and parsing. Search the web and retrieve webpage content with LLM-friendly formatting.
 
 
   ## Features
 
   - **Web Search**: Search DuckDuckGo with advanced rate limiting and result formatting
 
-  - **Content Fetching**: Retrieve and parse webpage content with intelligent text
-  extraction
+  - **Content Fetching**: Retrieve and parse webpage content with intelligent text extraction
 
-  - **Rate Limiting**: Built-in protection against rate limits (30 searches/min, 20
-  fetches/min)
+  - **Rate Limiting**: Built-in protection against rate limits (30 searches/min, 20 fetches/min)
 
-  - **LLM-Friendly Output**: Results formatted specifically for large language model
-  consumption
+  - **LLM-Friendly Output**: Results formatted specifically for large language model consumption
 
   - **Error Handling**: Comprehensive error handling and logging with graceful degradation
 
@@ -23,8 +18,7 @@ description: 'A Model Context Protocol (MCP) server that provides web search cap
   ## What you''ll need to connect
 
 
-  **No Setup Required**: DuckDuckGo Search works out-of-the-box with no API keys or
-  configuration needed.
+  **No Setup Required**: DuckDuckGo Search works out-of-the-box with no API keys or configuration needed.
 
   '
 metadata:
