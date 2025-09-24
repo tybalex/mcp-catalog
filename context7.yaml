@@ -1,26 +1,19 @@
 name: Context7
-description: '[![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com)
-  [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
+description: '[![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 
 
-  A Model Context Protocol (MCP) server that provides up-to-date code documentation
-  for any prompt. Context7 MCP pulls version-specific documentation and code examples
-  straight from the source and places them directly into your LLM''s context, eliminating
-  outdated training data and hallucinated APIs.
+  A Model Context Protocol (MCP) server that provides up-to-date code documentation for any prompt. Context7 MCP pulls version-specific documentation and code examples straight from the source and places them directly into your LLM''s context, eliminating outdated training data and hallucinated APIs.
 
 
   ## Features
 
-  - **Up-to-date Documentation**: Fetches current, version-specific docs and code
-  examples
+  - **Up-to-date Documentation**: Fetches current, version-specific docs and code examples
 
   - **No More Hallucinated APIs**: Get working code examples that actually exist
 
-  - **Automatic Library Resolution**: Resolves general library names to Context7-compatible
-  IDs
+  - **Automatic Library Resolution**: Resolves general library names to Context7-compatible IDs
 
-  - **Topic-focused Retrieval**: Focus documentation on specific topics (routing,
-  hooks, etc.)
+  - **Topic-focused Retrieval**: Focus documentation on specific topics (routing, hooks, etc.)
 
   - **Token Control**: Configurable token limits for documentation size
 
@@ -28,44 +21,37 @@ description: '[![Website](https://img.shields.io/badge/Website-context7.com-blue
   ## What you''ll need to connect
 
 
-  **No Setup Required**: Context7 works out-of-the-box with no API keys or configuration
-  needed.
+  **No Setup Required**: Context7 works out-of-the-box with no API keys or configuration needed.
 
 
   **Optional Configuration:**
 
-  - **DEFAULT_MINIMUM_TOKENS**: Set minimum token count for documentation retrieval
-  (default: 10000)
+  - **DEFAULT_MINIMUM_TOKENS**: Set minimum token count for documentation retrieval (default: 10000)
 
 
   ## Examples
 
   ```txt
 
-  Create a Next.js middleware that checks for a valid JWT in cookies and redirects
-  unauthenticated users to login. use context7
+  Create a Next.js middleware that checks for a valid JWT in cookies and redirects unauthenticated users to login. use context7
 
   ```
 
 
   ```txt
 
-  Configure a Cloudflare Worker script to cache JSON API responses for five minutes.
-  use context7
+  Configure a Cloudflare Worker script to cache JSON API responses for five minutes. use context7
 
   ```
 
 
   ### Usage Tips
 
-  - **Add a Rule**: Create auto-invocation rules in your IDE to automatically use
-  Context7 for code questions
+  - **Add a Rule**: Create auto-invocation rules in your IDE to automatically use Context7 for code questions
 
-  - **Use Library ID**: If you know the exact library, use the slash syntax: `use
-  library /supabase/supabase`
+  - **Use Library ID**: If you know the exact library, use the slash syntax: `use library /supabase/supabase`
 
-  - **Simple Workflow**: 1️⃣ Write your prompt naturally → 2️⃣ Tell the LLM to "use
-  context7" → 3️⃣ Get working code answers
+  - **Simple Workflow**: 1️⃣ Write your prompt naturally → 2️⃣ Tell the LLM to "use context7" → 3️⃣ Get working code answers
 
   '
 metadata:
@@ -77,32 +63,16 @@ env:
   name: Default Minimum Tokens
   required: false
   sensitive: false
-  description: 'Set the minimum token count for documentation retrieval (default:
-    10000).'
+  description: 'Set the minimum token count for documentation retrieval (default: 10000).'
 toolPreview:
 - name: resolve-library-id
-  description: Resolves a package/product name to a Context7-compatible library ID
-    and returns a list of matching libraries. You MUST call this function before 'get-library-docs'
-    to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides
-    a library ID in the format '/org/project' or '/org/project/version' in their query.
-    Selection Process - 1. Analyze the query to understand what library/package the
-    user is looking for 2. Return the most relevant match based on name similarity
-    to the query (exact matches prioritized), description relevance to the query's
-    intent, documentation coverage (prioritize libraries with higher Code Snippet
-    counts), trust score (consider libraries with scores of 7-10 more authoritative).
-    Response Format - Return the selected library ID in a clearly marked section,
-    provide a brief explanation for why this library was chosen, if multiple good
-    matches exist acknowledge this but proceed with the most relevant one, if no good
-    matches exist clearly state this and suggest query refinements. For ambiguous
-    queries, request clarification before proceeding with a best-guess match.
+  description: Resolves a package/product name to a Context7-compatible library ID and returns a list of matching libraries. You MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query. Selection Process - 1. Analyze the query to understand what library/package the user is looking for 2. Return the most relevant match based on name similarity to the query (exact matches prioritized), description relevance to the query's intent, documentation coverage (prioritize libraries with higher Code Snippet counts), trust score (consider libraries with scores of 7-10 more authoritative). Response Format - Return the selected library ID in a clearly marked section, provide a brief explanation for why this library was chosen, if multiple good matches exist acknowledge this but proceed with the most relevant one, if no good matches exist clearly state this and suggest query refinements. For ambiguous queries, request clarification before proceeding with a best-guess match.
   params:
     libraryName: The name of the library/package to search for
 - name: get-library-docs
-  description: Fetches up-to-date documentation for a library using a Context7-compatible
-    library ID.
+  description: Fetches up-to-date documentation for a library using a Context7-compatible library ID.
   params:
-    context7CompatibleLibraryID: Exact Context7-compatible library ID (e.g., /mongodb/docs,
-      /vercel/next.js)
+    context7CompatibleLibraryID: Exact Context7-compatible library ID (e.g., /mongodb/docs, /vercel/next.js)
     tokens: Optional maximum number of tokens to return (default 10000, minimum 10000)
     topic: Optional topic to focus the docs on (e.g., "routing", "hooks")
 runtime: containerized
