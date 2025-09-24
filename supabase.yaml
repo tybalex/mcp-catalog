@@ -2,32 +2,24 @@ name: Supabase
 description: '![supabase-mcp-demo](https://github.com/user-attachments/assets/3fce101a-b7d4-482f-9182-0be70ed1ad56)
 
 
-  A Model Context Protocol (MCP) server that connects your Supabase projects to AI
-  assistants. This server enables AI assistants to perform comprehensive Supabase
-  operations including managing tables, fetching configurations, querying data, and
-  deploying Edge Functions across your development workflow.
+  A Model Context Protocol (MCP) server that connects your Supabase projects to AI assistants. This server enables AI assistants to perform comprehensive Supabase operations including managing tables, fetching configurations, querying data, and deploying Edge Functions across your development workflow.
 
 
   ## Features
 
-  - **Project Management**: Create, pause, restore projects and manage organizations
-  with cost tracking
+  - **Project Management**: Create, pause, restore projects and manage organizations with cost tracking
 
-  - **Database Operations**: Execute SQL queries, apply migrations, manage tables
-  and extensions
+  - **Database Operations**: Execute SQL queries, apply migrations, manage tables and extensions
 
-  - **Development Tools**: Generate TypeScript types, get API URLs and keys for seamless
-  integration
+  - **Development Tools**: Generate TypeScript types, get API URLs and keys for seamless integration
 
   - **Edge Functions**: Deploy and manage serverless functions directly from AI assistants
 
-  - **Branching Support**: Create development branches, merge changes, and handle
-  migration drift (paid plans)
+  - **Branching Support**: Create development branches, merge changes, and handle migration drift (paid plans)
 
   - **Storage Management**: Manage buckets and storage configurations
 
-  - **Documentation Search**: Search Supabase docs for up-to-date information and
-  guidance
+  - **Documentation Search**: Search Supabase docs for up-to-date information and guidance
 
 
   ## What you''ll need to connect
@@ -87,8 +79,7 @@ toolPreview:
 - name: execute_sql
   description: Executes raw SQL in the database
 - name: get_logs
-  description: Gets logs for a Supabase project by service type (api, postgres, edge
-    functions, auth, storage, realtime)
+  description: Gets logs for a Supabase project by service type (api, postgres, edge functions, auth, storage, realtime)
 - name: get_advisors
   description: Gets a list of advisory notices for a Supabase project
 - name: get_project_url
