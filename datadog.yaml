@@ -1,18 +1,12 @@
 name: Datadog
-description: 'A Model Context Protocol (MCP) server that provides access to Datadog''s
-  monitoring and observability platform. This server enables AI agents to interact
-  with key Datadog features including incidents, monitors, logs, dashboards, metrics,
-  APM traces, infrastructure monitoring, and RUM analytics through a comprehensive
-  set of tools.
+description: 'A Model Context Protocol (MCP) server that provides access to Datadog''s monitoring and observability platform. This server enables AI agents to interact with key Datadog features including incidents, monitors, logs, dashboards, metrics, APM traces, infrastructure monitoring, and RUM analytics through a comprehensive set of tools.
 
 
   ## Features
 
-  - **Observability Tools**: Leverage key Datadog monitoring features including incidents,
-  monitors, logs, dashboards, and metrics through the MCP server
+  - **Observability Tools**: Leverage key Datadog monitoring features including incidents, monitors, logs, dashboards, and metrics through the MCP server
 
-  - **Extensible Design**: Designed to easily integrate with additional Datadog APIs,
-  allowing for seamless future feature expansion
+  - **Extensible Design**: Designed to easily integrate with additional Datadog APIs, allowing for seamless future feature expansion
 
 
   ## What you''ll need to connect
@@ -20,20 +14,14 @@ description: 'A Model Context Protocol (MCP) server that provides access to Data
 
   **Required:**
 
-  - **Datadog API Key**: Your Datadog API key. API keys are unique to your organization.
-  To create an API key, navigate to Organization settings, then click the `API keys`.
+  - **Datadog API Key**: Your Datadog API key. API keys are unique to your organization. To create an API key, navigate to Organization settings, then click the `API keys`.
 
-  - **Datadog App Key**: Your Datadog application key. Application keys are associated
-  with the user account that created them and by default have the permissions of the
-  user who created them. To add a Datadog application key, navigate to Organization
-  Settings > Application Keys. If you have the permission to create application keys,
-  click New Key.
+  - **Datadog App Key**: Your Datadog application key. Application keys are associated with the user account that created them and by default have the permissions of the user who created them. To add a Datadog application key, navigate to Organization Settings > Application Keys. If you have the permission to create application keys, click New Key.
 
 
   **Optional:**
 
-  - **Datadog Site**: The Datadog site of your organization, such as `datadoghq.eu`
-  or `us3.datadoghq.com`. Default is `datadoghq.com`.
+  - **Datadog Site**: The Datadog site of your organization, such as `datadoghq.eu` or `us3.datadoghq.com`. Default is `datadoghq.com`.
 
   '
 metadata:
@@ -50,15 +38,12 @@ env:
   name: Datadog App Key
   required: true
   sensitive: true
-  description: Your Datadog application key. Application keys are associated with
-    the user account that created them and by default have the permissions of the
-    user who created them.
+  description: Your Datadog application key. Application keys are associated with the user account that created them and by default have the permissions of the user who created them.
 - key: DATADOG_SITE
   name: Datadog Site
   required: false
   sensitive: false
-  description: (Optional) The Datadog site of your organization, such as `datadoghq.eu`
-    or `us3.datadoghq.com`. Default is `datadoghq.com`.
+  description: (Optional) The Datadog site of your organization, such as `datadoghq.eu` or `us3.datadoghq.com`. Default is `datadoghq.com`.
 runtime: containerized
 containerizedConfig:
   image: ghcr.io/obot-platform/mcp-images/datadog:latest
@@ -73,8 +58,7 @@ toolPreview:
     filter: Filter parameters for incidents (e.g., status, priority) (optional)
     pagination: Pagination details like page size/offset (optional)
 - name: get_incident
-  description: Retrieve detailed information about a specific Datadog incident (Read-only
-    - true)
+  description: Retrieve detailed information about a specific Datadog incident (Read-only - true)
   params:
     incident_id: Incident ID to fetch details for
 - name: get_monitors
@@ -129,8 +113,7 @@ toolPreview:
 - name: get_active_hosts_count
   description: Get the total number of active hosts in Datadog (Read-only - true)
   params:
-    from: Number of seconds from which you want to get total number of active hosts
-      (defaults to 2h) (optional)
+    from: Number of seconds from which you want to get total number of active hosts (defaults to 2h) (optional)
 - name: mute_host
   description: Mute a host in Datadog (Read-only - false)
   params:
@@ -172,8 +155,7 @@ toolPreview:
     to: End time in epoch seconds
     limit: Maximum number of events to return (default 100) (optional)
 - name: get_rum_grouped_event_count
-  description: Search, group and count RUM events by a specified dimension (Read-only
-    - true)
+  description: Search, group and count RUM events by a specified dimension (Read-only - true)
   params:
     query: Additional query filter for RUM search (default "*") (optional)
     from: Start time in epoch seconds
@@ -187,8 +169,7 @@ toolPreview:
     to: End time in epoch seconds
     metricNames: Array of metric names to retrieve (e.g., 'view.load_time', 'view.first_contentful_paint')
 - name: get_rum_page_waterfall
-  description: Retrieve RUM page (view) waterfall data filtered by application name
-    and session ID (Read-only - true)
+  description: Retrieve RUM page (view) waterfall data filtered by application name and session ID (Read-only - true)
   params:
     applicationName: Application name to filter events
     sessionId: Session ID to filter events
