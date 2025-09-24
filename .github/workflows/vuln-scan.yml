@@ -9,11 +9,6 @@ on:
   workflow_dispatch:
   pull_request_target:
     types: [opened, synchronize, reopened]
-  push:
-    branches:
-      - main
-    tags:
-      - "v*"
 
 jobs:
   generate-matrix:
@@ -27,16 +22,26 @@ jobs:
         if: ${{ github.event_name == 'pull_request_target' }}
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Generate matrix from yaml
         id: set-matrix
         run: |
-          matrix=$(for f in *.yaml; do
-            yq eval 'has("toolPreview")' --exit-status "$f" >/dev/null 2>&1 \
-              && echo "{\"filename\":\"$f\"}"
-          done | jq -cs .)
+          if [ "${{ github.event_name }}" = "pull_request_target" ]; then
+            # Get changed files in PR, filter for .yaml files
+            changed_files=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }}..HEAD | grep '\.yaml$' || true)
+            matrix=$(for f in $changed_files; do
+              [ -f "$f" ] && yq eval 'has("toolPreview")' --exit-status "$f" >/dev/null 2>&1 \
+                && echo "{\"filename\":\"$f\"}"
+            done | jq -cs .)
+          else
+            # For workflow_dispatch, scan all yaml files
+            matrix=$(for f in *.yaml; do
+              yq eval 'has("toolPreview")' --exit-status "$f" >/dev/null 2>&1 \
+                && echo "{\"filename\":\"$f\"}"
+            done | jq -cs .)
+          fi
           echo "matrix=$matrix" >> $GITHUB_OUTPUT
 
   repackage:
