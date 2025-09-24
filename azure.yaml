@@ -1,16 +1,12 @@
 name: Azure
-description: 'A Model Context Protocol (MCP) server that implements the MCP specification
-  to create a seamless connection between AI agents and Azure services. Supercharge
-  your agents with Azure context across compute, storage, databases, AI services,
-  and more.
+description: 'A Model Context Protocol (MCP) server that implements the MCP specification to create a seamless connection between AI agents and Azure services. Supercharge your agents with Azure context across compute, storage, databases, AI services, and more.
 
 
   ## Features
 
   - **Azure AI & Search**: Query Azure AI Search indexes and manage search services
 
-  - **Data Services**: Cosmos DB, SQL Database, PostgreSQL, Redis Cache, and Data
-  Explorer operations
+  - **Data Services**: Cosmos DB, SQL Database, PostgreSQL, Redis Cache, and Data Explorer operations
 
   - **Compute & Containers**: AKS cluster management and container operations
 
@@ -36,9 +32,7 @@ description: 'A Model Context Protocol (MCP) server that implements the MCP spec
 
   - AZURE_CLIENT_SECRET
 
-  These must correspond to a service principal. You can create one using the (Azure
-  web console)[https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal],
-  or with the Azure CLI:
+  These must correspond to a service principal. You can create one using the (Azure web console)[https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal], or with the Azure CLI:
 
 
   ```bash
@@ -47,21 +41,17 @@ description: 'A Model Context Protocol (MCP) server that implements the MCP spec
 
   --scopes /subscriptions/<your-subscription-id> \
 
-  --query "{AZURE_CLIENT_ID: appId, AZURE_CLIENT_SECRET: password, AZURE_TENANT_ID:
-  tenant}" --output json
+  --query "{AZURE_CLIENT_ID: appId, AZURE_CLIENT_SECRET: password, AZURE_TENANT_ID: tenant}" --output json
 
   ```
 
 
-  Replace `<my-service-principal>` with the name of the service principal you want
-  to create, and `<your-subscription-id>` with your actual subscription ID. The role
-  you assign to the service principal will determine the permissions it has.
+  Replace `<my-service-principal>` with the name of the service principal you want to create, and `<your-subscription-id>` with your actual subscription ID. The role you assign to the service principal will determine the permissions it has.
 
 
   **Optional Configuration:**
 
-  - **AZURE_MCP_COLLECT_TELEMETRY** (Optional): Set to `false` to opt out of telemetry
-  collection (default: `true`)
+  - **AZURE_MCP_COLLECT_TELEMETRY** (Optional): Set to `false` to opt out of telemetry collection (default: `true`)
 
 
   ## Examples
@@ -74,8 +64,7 @@ description: 'A Model Context Protocol (MCP) server that implements the MCP spec
 
   - **Cosmos DB**: "Show me all my Cosmos DB databases"
 
-  - **Data Explorer**: "Sample 10 rows from table ''StormEvents'' in Azure Data Explorer
-  database ''db1''"
+  - **Data Explorer**: "Sample 10 rows from table ''StormEvents'' in Azure Data Explorer database ''db1''"
 
   - **Storage**: "List my Azure storage accounts"
 
@@ -111,7 +100,7 @@ env:
   description: Telemetry collection is on by default, to opt out, set this to false.
 runtime: containerized
 containerizedConfig:
-  image: ghcr.io/obot-platform/mcp-images/azure:latest
+  image: ghcr.io/obot-platform/mcp-images/azure:0.8.1
   port: 8099
   path: /
   args:
@@ -120,97 +109,84 @@ containerizedConfig:
   - start
 toolPreview:
 - name: documentation
-  description: Search official Microsoft/Azure documentation to find the most relevant
-    and trustworthy content for a user's query, returning up to 10 high-quality content
-    chunks from Microsoft Learn and other official sources.
+  description: Search official Microsoft/Azure documentation to find the most relevant and trustworthy content for a user's query, returning up to 10 high-quality content chunks from Microsoft Learn and other official sources.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: bestpractices
-  description: Returns secure, production-grade Azure best practices. Call this before
-    generating Azure SDK code.
+  description: Returns secure, production-grade Azure best practices. Call this before generating Azure SDK code.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: subscription
-  description: Azure subscription operations - Commands for listing and managing Azure
-    subscriptions accessible to your account.
+  description: Azure subscription operations - Commands for listing and managing Azure subscriptions accessible to your account.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: group
-  description: Resource group operations - Commands for listing and managing Azure
-    resource groups in your subscriptions.
+  description: Resource group operations - Commands for listing and managing Azure resource groups in your subscriptions.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: aks
-  description: Azure Kubernetes Service operations - Commands for managing and listing
-    Azure Kubernetes Service (AKS) clusters.
+  description: Azure Kubernetes Service operations - Commands for managing and listing Azure Kubernetes Service (AKS) clusters.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: storage
-  description: Storage operations - Commands for managing and accessing Azure Storage
-    resources. Includes operations for containers, blobs, and tables.
+  description: Storage operations - Commands for managing and accessing Azure Storage resources. Includes operations for containers, blobs, and tables.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: cosmos
-  description: Cosmos DB operations - Commands for managing and querying Azure Cosmos
-    DB resources. Includes operations for databases, containers, and document queries.
+  description: Cosmos DB operations - Commands for managing and querying Azure Cosmos DB resources. Includes operations for databases, containers, and document queries.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: postgres
-  description: PostgreSQL operations - Commands for listing and managing Azure Database
-    for PostgreSQL - Flexible server.
+  description: PostgreSQL operations - Commands for listing and managing Azure Database for PostgreSQL - Flexible server.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: redis
-  description: Redis Cache operations - Commands for managing and accessing Azure
-    Redis Cache resources.
+  description: Redis Cache operations - Commands for managing and accessing Azure Redis Cache resources.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: sql
-  description: Azure SQL operations - Commands for managing Azure SQL databases and
-    servers.
+  description: Azure SQL operations - Commands for managing Azure SQL databases and servers.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: keyvault
-  description: Key Vault operations - Commands for managing and accessing Azure Key
-    Vault resources.
+  description: Key Vault operations - Commands for managing and accessing Azure Key Vault resources.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: appconfig
-  description: App Configuration operations - Commands for managing App Configuration
-    stores.
+  description: App Configuration operations - Commands for managing App Configuration stores.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
@@ -224,16 +200,14 @@ toolPreview:
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: monitor
-  description: Azure Monitor operations - Commands for querying and analyzing Azure
-    Monitor logs and metrics.
+  description: Azure Monitor operations - Commands for querying and analyzing Azure Monitor logs and metrics.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: grafana
-  description: Grafana workspace operations - Commands for managing and accessing
-    Azure Managed Grafana resources.
+  description: Grafana workspace operations - Commands for managing and accessing Azure Managed Grafana resources.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
@@ -261,8 +235,7 @@ toolPreview:
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: search
-  description: Search operations - Commands for managing and listing Azure AI Search
-    services.
+  description: Search operations - Commands for managing and listing Azure AI Search services.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
@@ -276,32 +249,28 @@ toolPreview:
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: azureterraformbestpractices
-  description: Returns Terraform best practices for Azure. Call this before generating
-    Terraform code for Azure Providers.
+  description: Returns Terraform best practices for Azure. Call this before generating Terraform code for Azure Providers.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: loadtesting
-  description: Load Testing operations - Commands for managing Azure Load Testing
-    resources.
+  description: Load Testing operations - Commands for managing Azure Load Testing resources.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: foundry
-  description: Foundry service operations - Commands for listing and managing services
-    and resources in AI Foundry.
+  description: Foundry service operations - Commands for listing and managing services and resources in AI Foundry.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: marketplace
-  description: Marketplace operations - Commands for managing and accessing Azure
-    Marketplace products and offers.
+  description: Marketplace operations - Commands for managing and accessing Azure Marketplace products and offers.
   params:
     intent: The intent of the azure operation to perform
     command: The command to execute against the specified tool (optional)
@@ -315,9 +284,7 @@ toolPreview:
     learn: To learn about the tool and its supported child tools and parameters (optional)
     parameters: The parameters to pass to the tool command (optional)
 - name: extension_az
-  description: Execute Azure CLI commands directly for comprehensive Azure resource
-    management. Use the Azure CLI to manage Azure resources and services with proper
-    confirmation for destructive operations.
+  description: Execute Azure CLI commands directly for comprehensive Azure resource management. Use the Azure CLI to manage Azure resources and services with proper confirmation for destructive operations.
   params:
     command: The Azure CLI command to execute (without the 'az' prefix)
     auth-method: Authentication method to use (optional)
@@ -328,9 +295,7 @@ toolPreview:
     retry-network-timeout: Network operation timeout in seconds (optional)
     tenant: The Microsoft Entra ID tenant ID or name (optional)
 - name: extension_azd
-  description: Use Azure Developer CLI for project lifecycle management including
-    initialization, provisioning, deployment, and monitoring. Always run with 'learn'
-    parameter on first use.
+  description: Use Azure Developer CLI for project lifecycle management including initialization, provisioning, deployment, and monitoring. Always run with 'learn' parameter on first use.
   params:
     cwd: The current working directory for the command
     command: The Azure Developer CLI command and arguments to execute (optional)
@@ -344,9 +309,7 @@ toolPreview:
     retry-network-timeout: Network operation timeout in seconds (optional)
     tenant: The Microsoft Entra ID tenant ID or name (optional)
 - name: extension_azqr
-  description: Generate compliance and security reports for Azure resources using
-    Azure Quick Review CLI to identify non-compliant configurations and areas for
-    improvement.
+  description: Generate compliance and security reports for Azure resources using Azure Quick Review CLI to identify non-compliant configurations and areas for improvement.
   params:
     subscription: Specifies the Azure subscription to use (optional)
     resource-group: The name of the Azure resource group (optional)
