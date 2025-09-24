@@ -1,114 +1,130 @@
 name: MongoDB Atlas Management
-description: "A Model Context Protocol (MCP) server for interacting with the MongoDB\
-  \ Atlas Cloud Service. This connector allows you to perform management actions with\
-  \ clusters, projects, databases, collections, and database users.\n\n## Features\n\
-  - **Atlas Management**: Create and manage MongoDB Atlas projects, clusters, and\
-  \ database users\n- **Cluster Management**: List, inspect, and create MongoDB Atlas\
-  \ clusters including free tier clusters\n\n## What you'll need to connect\n\n###\
-  \ MongoDB Atlas API Credentials (Required)\nYou'll need Service Account Atlas API\
-  \ credentials to use the Atlas management tools:\n\n- **API Client ID**: Your MongoDB\
-  \ Atlas Service Account Client ID\n- **API Client Secret**: Your MongoDB Atlas Service\
-  \ Account Client Secret (keep this secure)\n\n### Setting up Atlas API Access\n\n\
-  1. **Create a Service Account:**\n   - Log in to MongoDB Atlas at [cloud.mongodb.com](https://cloud.mongodb.com)\n\
-  \   - Navigate to Access Manager > Organization Access\n   - Click Add New > Applications\
-  \ > Service Accounts\n   - Enter name, description and expiration for your service\
-  \ account\n   - (Recommended) Assign only the minimum permissions needed for your\
-  \ use case\n\n2. **Save Client Credentials:**\n   - After creation, copy and save\
-  \ the Client ID and Client Secret\n   - **Important:** The Client Secret won't be\
-  \ displayed again\n\n### Required Permissions by Operation\n\n| Operation | Required\
-  \ Role | Scope |\n|-----------|---------------|-------|\n| List organizations/projects\
-  \ | Org Member or Org Read Only | Organization |\n| Create new projects | Org Project\
-  \ Creator | Organization |\n| View clusters/databases | Project Read Only | Project\
-  \ |\n| Create/manage clusters | Project Cluster Manager | Project |\n| Manage IP\
-  \ access lists | Project IP Access List Admin | Project |\n| Manage database users\
-  \ | Project Database Access Admin | Project |\n\n**Security Note:** Prefer project-level\
-  \ roles for most operations. Avoid Organization Owner unless you require full administrative\
-  \ control.\n"
+description: |
+  A Model Context Protocol (MCP) server for interacting with the MongoDB Atlas Cloud Service. This connector allows you to perform management actions with clusters, projects, databases, collections, and database users.
+
+  ## Features
+  - **Atlas Management**: Create and manage MongoDB Atlas projects, clusters, and database users
+  - **Cluster Management**: List, inspect, and create MongoDB Atlas clusters including free tier clusters
+
+  ## What you'll need to connect
+
+  ### MongoDB Atlas API Credentials (Required)
+  You'll need Service Account Atlas API credentials to use the Atlas management tools:
+
+  - **API Client ID**: Your MongoDB Atlas Service Account Client ID
+  - **API Client Secret**: Your MongoDB Atlas Service Account Client Secret (keep this secure)
+
+  ### Setting up Atlas API Access
+
+  1. **Create a Service Account:**
+  - Log in to MongoDB Atlas at [cloud.mongodb.com](https://cloud.mongodb.com)
+  - Navigate to Access Manager > Organization Access
+  - Click Add New > Applications > Service Accounts
+  - Enter name, description and expiration for your service account
+  - (Recommended) Assign only the minimum permissions needed for your use case
+
+  2. **Save Client Credentials:**
+  - After creation, copy and save the Client ID and Client Secret
+  - **Important:** The Client Secret won't be displayed again
+
+  ### Required Permissions by Operation
+
+  | Operation | Required Role | Scope |
+  # |-----------|---------------|-------|
+  | List organizations/projects | Org Member or Org Read Only | Organization |
+  | Create new projects | Org Project Creator | Organization |
+  | View clusters/databases | Project Read Only | Project |
+  | Create/manage clusters | Project Cluster Manager | Project |
+  | Manage IP access lists | Project IP Access List Admin | Project |
+  | Manage database users | Project Database Access Admin | Project |
+
+  **Security Note:** Prefer project-level roles for most operations. Avoid Organization Owner unless you require full administrative control.
+
 metadata:
   categories: Databases,Data & Analytics
 icon: https://avatars.githubusercontent.com/u/45120?s=48&v=4
 repoURL: https://github.com/mongodb-js/mongodb-mcp-server
 env:
-- key: MDB_MCP_API_CLIENT_ID
-  name: MongoDB API Client ID
-  required: true
-  sensitive: false
-  description: The client ID for your MongoDB Service Accounts Atlas API credentials.
-- key: MDB_MCP_API_CLIENT_SECRET
-  name: MongoDB API Client Secret
-  required: true
-  sensitive: true
-  description: The client secret for your MongoDB Service Accounts Atlas API credentials.
+  - key: MDB_MCP_API_CLIENT_ID
+    name: MongoDB API Client ID
+    required: true
+    sensitive: false
+    description: The client ID for your MongoDB Service Accounts Atlas API credentials.
+  - key: MDB_MCP_API_CLIENT_SECRET
+    name: MongoDB API Client Secret
+    required: true
+    sensitive: true
+    description: The client secret for your MongoDB Service Accounts Atlas API credentials.
 toolPreview:
-- name: atlas-list-clusters
-  description: List MongoDB Atlas clusters
-  params:
-    projectId: Optional project ID to filter clusters
-- name: atlas-list-projects
-  description: List MongoDB Atlas projects
-  params:
-    orgId: Optional organization ID to filter projects
-- name: atlas-inspect-cluster
-  description: Inspect MongoDB Atlas cluster
-  params:
-    clusterName: Name of the cluster to inspect
-    projectId: Project ID containing the cluster
-- name: atlas-create-free-cluster
-  description: Create a free MongoDB Atlas cluster
-  params:
-    name: Name for the new cluster
-    projectId: Project ID where cluster will be created
-    region: Optional region for the cluster
-- name: atlas-create-access-list
-  description: Allow Ip/CIDR ranges to access your MongoDB Atlas clusters.
-  params:
-    projectId: Project ID to configure access for
-    cidrBlocks: Optional array of CIDR blocks to allow
-    comment: Optional comment for the access list entry
-    currentIpAddress: Optional boolean to allow current IP address
-    ipAddresses: Optional array of IP addresses to allow
-- name: atlas-inspect-access-list
-  description: Inspect Ip/CIDR ranges with access to your MongoDB Atlas clusters.
-  params:
-    projectId: Project ID to inspect access list for
-- name: atlas-list-db-users
-  description: List MongoDB Atlas database users
-  params:
-    projectId: Project ID to list users for
-- name: atlas-create-db-user
-  description: Create an MongoDB Atlas database user
-  params:
-    projectId: Project ID to create user in
-    roles: Array of role objects with collectionName, databaseName, and roleName
-    username: Username for the new database user
-    clusters: Optional array of cluster names to restrict access to
-    password: Optional password for the user
-- name: atlas-create-project
-  description: Create a MongoDB Atlas project
-  params:
-    organizationId: Optional organization ID
-    projectName: Optional name for the new project
-- name: atlas-list-orgs
-  description: List MongoDB Atlas organizations
-- name: atlas-connect-cluster
-  description: Connect to MongoDB Atlas cluster
-  params:
-    clusterName: Name of the cluster to connect to
-    projectId: Project ID containing the cluster
-- name: atlas-list-alerts
-  description: List MongoDB Atlas alerts
-  params:
-    projectId: Project ID to list alerts for
+  - name: atlas-list-clusters
+    description: List MongoDB Atlas clusters
+    params:
+      projectId: Optional project ID to filter clusters
+  - name: atlas-list-projects
+    description: List MongoDB Atlas projects
+    params:
+      orgId: Optional organization ID to filter projects
+  - name: atlas-inspect-cluster
+    description: Inspect MongoDB Atlas cluster
+    params:
+      clusterName: Name of the cluster to inspect
+      projectId: Project ID containing the cluster
+  - name: atlas-create-free-cluster
+    description: Create a free MongoDB Atlas cluster
+    params:
+      name: Name for the new cluster
+      projectId: Project ID where cluster will be created
+      region: Optional region for the cluster
+  - name: atlas-create-access-list
+    description: Allow Ip/CIDR ranges to access your MongoDB Atlas clusters.
+    params:
+      projectId: Project ID to configure access for
+      cidrBlocks: Optional array of CIDR blocks to allow
+      comment: Optional comment for the access list entry
+      currentIpAddress: Optional boolean to allow current IP address
+      ipAddresses: Optional array of IP addresses to allow
+  - name: atlas-inspect-access-list
+    description: Inspect Ip/CIDR ranges with access to your MongoDB Atlas clusters.
+    params:
+      projectId: Project ID to inspect access list for
+  - name: atlas-list-db-users
+    description: List MongoDB Atlas database users
+    params:
+      projectId: Project ID to list users for
+  - name: atlas-create-db-user
+    description: Create an MongoDB Atlas database user
+    params:
+      projectId: Project ID to create user in
+      roles: Array of role objects with collectionName, databaseName, and roleName
+      username: Username for the new database user
+      clusters: Optional array of cluster names to restrict access to
+      password: Optional password for the user
+  - name: atlas-create-project
+    description: Create a MongoDB Atlas project
+    params:
+      organizationId: Optional organization ID
+      projectName: Optional name for the new project
+  - name: atlas-list-orgs
+    description: List MongoDB Atlas organizations
+  - name: atlas-connect-cluster
+    description: Connect to MongoDB Atlas cluster
+    params:
+      clusterName: Name of the cluster to connect to
+      projectId: Project ID containing the cluster
+  - name: atlas-list-alerts
+    description: List MongoDB Atlas alerts
+    params:
+      projectId: Project ID to list alerts for
 runtime: containerized
 containerizedConfig:
   image: ghcr.io/obot-platform/mcp-images/mongodb-atlas:0.3.0
   port: 8099
   path: /
   args:
-  - mongodb-mcp-server
-  - --apiClientId
-  - ${MDB_MCP_API_CLIENT_ID}
-  - --apiClientSecret
-  - ${MDB_MCP_API_CLIENT_SECRET}
-  - --disabledTools
-  - mongodb
+    - mongodb-mcp-server
+    - --apiClientId
+    - ${MDB_MCP_API_CLIENT_ID}
+    - --apiClientSecret
+    - ${MDB_MCP_API_CLIENT_SECRET}
+    - --disabledTools
+    - mongodb

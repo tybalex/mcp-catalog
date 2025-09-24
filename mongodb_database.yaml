@@ -18,7 +18,7 @@ description: |
 
   **Compatibility:**
   - Works with any MongoDB instance (local, cloud, or self-hosted)
-# - Optional read-only mode available for safer operations
+  # - Optional read-only mode available for safer operations
 metadata:
   categories: Databases,Data & Analytics
 icon: https://avatars.githubusercontent.com/u/45120?s=48&v=4
