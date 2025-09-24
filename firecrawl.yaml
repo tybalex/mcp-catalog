@@ -1,13 +1,10 @@
 name: Firecrawl
-description: 'A Model Context Protocol (MCP) server that integrates with Firecrawl
-  for web scraping capabilities. Perform web scraping, crawling, search, and content
-  extraction with automatic retries and rate limiting.
+description: 'A Model Context Protocol (MCP) server that integrates with Firecrawl for web scraping capabilities. Perform web scraping, crawling, search, and content extraction with automatic retries and rate limiting.
 
 
   ## Features
 
-  - **Web Scraping**: Extract content from single pages or batch process multiple
-  URLs
+  - **Web Scraping**: Extract content from single pages or batch process multiple URLs
 
   - **Site Discovery**: Map websites to discover all indexed URLs and site structure
 
@@ -15,13 +12,11 @@ description: 'A Model Context Protocol (MCP) server that integrates with Firecra
 
   - **Content Crawling**: Comprehensive site crawling with depth control and filtering
 
-  - **Structured Extraction**: Extract specific data using LLM capabilities with JSON
-  schemas
+  - **Structured Extraction**: Extract specific data using LLM capabilities with JSON schemas
 
   - **Deep Research**: In-depth, multi-source research with intelligent analysis
 
-  - **Rate Limiting**: Automatic rate limit handling with exponential backoff and
-  retries
+  - **Rate Limiting**: Automatic rate limit handling with exponential backoff and retries
 
 
   ## What you''ll need to connect
@@ -29,8 +24,7 @@ description: 'A Model Context Protocol (MCP) server that integrates with Firecra
 
   **Required:**
 
-  - **Firecrawl API Key**: Your Firecrawl API key (visit https://www.firecrawl.dev
-  to get a new key)
+  - **Firecrawl API Key**: Your Firecrawl API key (visit https://www.firecrawl.dev to get a new key)
 
 
   ## Example Usage
@@ -56,18 +50,15 @@ description: 'A Model Context Protocol (MCP) server that integrates with Firecra
 
   | Tool                | Best for                                 | Returns         |
 
-  | ------------------- | ---------------------------------------- | ---------------
-  |
+  | ------------------- | ---------------------------------------- | --------------- |
 
   | scrape              | Single page content                      | markdown/html   |
 
-  | batch_scrape        | Multiple known URLs                      | markdown/html[]
-  |
+  | batch_scrape        | Multiple known URLs                      | markdown/html[] |
 
   | map                 | Discovering URLs on a site               | URL[]           |
 
-  | crawl               | Multi-page extraction (with limits)      | markdown/html[]
-  |
+  | crawl               | Multi-page extraction (with limits)      | markdown/html[] |
 
   | search              | Web search for info                      | results[]       |
 
@@ -93,12 +84,9 @@ toolPreview:
     formats: 'Content formats to extract (default: [''markdown''])'
     includeTags: HTML tags to specifically include in extraction
     location: Location settings for scraping
-    maxAge: 'Maximum age in milliseconds for cached content. Use cached data if available
-      and younger than maxAge, otherwise scrape fresh. Enables 500% faster scrapes
-      for recently cached pages. Default: 0 (always scrape fresh)'
+    maxAge: 'Maximum age in milliseconds for cached content. Use cached data if available and younger than maxAge, otherwise scrape fresh. Enables 500% faster scrapes for recently cached pages. Default: 0 (always scrape fresh)'
     mobile: Use mobile viewport
-    onlyMainContent: Extract only the main content, filtering out navigation, footers,
-      etc.
+    onlyMainContent: Extract only the main content, filtering out navigation, footers, etc.
     removeBase64Images: Remove base64 encoded images from output
     skipTlsVerification: Skip TLS certificate verification
     timeout: Maximum time in milliseconds to wait for the page to load
@@ -114,8 +102,7 @@ toolPreview:
     sitemapOnly: Only use sitemap.xml for discovery, ignore HTML links
     url: Starting URL for URL discovery
 - name: firecrawl_crawl
-  description: Starts an asynchronous crawl job on a website and extracts content
-    from all pages.
+  description: Starts an asynchronous crawl job on a website and extracts content from all pages.
   params:
     allowBackwardLinks: Allow crawling links that point to parent directories
     allowExternalLinks: Allow crawling links to external domains
@@ -155,9 +142,7 @@ toolPreview:
     systemPrompt: System prompt for LLM extraction
     urls: List of URLs to extract information from
 - name: firecrawl_generate_llmstxt
-  description: Generate a standardized llms.txt (and optionally llms-full.txt) file
-    for a given domain. This file defines how large language models should interact
-    with the site
+  description: Generate a standardized llms.txt (and optionally llms-full.txt) file for a given domain. This file defines how large language models should interact with the site
   params:
     maxUrls: 'Maximum number of URLs to process (1-100, default: 10)'
     showFullText: Whether to show the full LLMs-full.txt in the response
