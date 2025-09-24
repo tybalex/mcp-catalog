@@ -6,32 +6,22 @@ description: '[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg
   [![Contributors](https://img.shields.io/github/contributors/crystaldba/postgres-mcp)](https://github.com/crystaldba/postgres-mcp/graphs/contributors)
 
 
-  A Model Context Protocol (MCP) server designed for deep SQL performance analysis
-  and optimization. It delivers advanced index tuning, workload-aware query insights,
-  safe execution controls, and schema-aware SQL generation—backed by comprehensive
-  database health diagnostics and EXPLAIN plan simulation.
+  A Model Context Protocol (MCP) server designed for deep SQL performance analysis and optimization. It delivers advanced index tuning, workload-aware query insights, safe execution controls, and schema-aware SQL generation—backed by comprehensive database health diagnostics and EXPLAIN plan simulation.
 
 
   ## Features
 
-  - **Database Health Analysis**: Comprehensive health checks including index health,
-  connection utilization, buffer cache analysis, vacuum health, and replication lag
-  monitoring
+  - **Database Health Analysis**: Comprehensive health checks including index health, connection utilization, buffer cache analysis, vacuum health, and replication lag monitoring
 
-  - **Advanced Index Tuning**: Industrial-strength algorithms that explore thousands
-  of possible indexes using proven optimization techniques
+  - **Advanced Index Tuning**: Industrial-strength algorithms that explore thousands of possible indexes using proven optimization techniques
 
-  - **Query Performance Optimization**: EXPLAIN plan analysis and hypothetical index
-  simulation for performance validation
+  - **Query Performance Optimization**: EXPLAIN plan analysis and hypothetical index simulation for performance validation
 
-  - **Schema Intelligence**: Context-aware SQL generation based on detailed database
-  schema understanding
+  - **Schema Intelligence**: Context-aware SQL generation based on detailed database schema understanding
 
-  - **Safe SQL Execution**: Configurable access control with read-only mode and SQL
-  parsing for both development and production environments
+  - **Safe SQL Execution**: Configurable access control with read-only mode and SQL parsing for both development and production environments
 
-  - **Workload Analysis**: Identify resource-intensive queries and get targeted optimization
-  recommendations
+  - **Workload Analysis**: Identify resource-intensive queries and get targeted optimization recommendations
 
 
   ## What you''ll need to connect
@@ -51,8 +41,7 @@ description: '[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg
 
   - "Analyze my database workload and suggest indexes to improve performance"
 
-  - "Help me optimize this query: SELECT * FROM orders JOIN customers ON orders.customer_id
-  = customers.id WHERE orders.created_at > ''2023-01-01''"
+  - "Help me optimize this query: SELECT * FROM orders JOIN customers ON orders.customer_id = customers.id WHERE orders.created_at > ''2023-01-01''"
 
 
   ## Known Issues
@@ -79,27 +68,21 @@ toolPreview:
 - name: list_schemas
   description: Lists all database schemas available in the PostgreSQL instance
 - name: list_objects
-  description: Lists database objects (tables, views, sequences, extensions) within
-    a specified schema
+  description: Lists database objects (tables, views, sequences, extensions) within a specified schema
 - name: get_object_details
-  description: Provides detailed information about a specific database object including
-    columns, constraints, and indexes
+  description: Provides detailed information about a specific database object including columns, constraints, and indexes
 - name: execute_sql
   description: Executes SQL statements with read-only limitations in restricted mode
 - name: explain_query
-  description: Shows execution plan for SQL queries and can simulate hypothetical
-    indexes
+  description: Shows execution plan for SQL queries and can simulate hypothetical indexes
 - name: get_top_queries
   description: Reports slowest SQL queries based on execution statistics from pg_stat_statements
 - name: analyze_workload_indexes
-  description: Analyzes database workload to identify resource-intensive queries and
-    recommends optimal indexes
+  description: Analyzes database workload to identify resource-intensive queries and recommends optimal indexes
 - name: analyze_query_indexes
-  description: Analyzes specific SQL queries (up to 10) and recommends optimal indexes
-    for them
+  description: Analyzes specific SQL queries (up to 10) and recommends optimal indexes for them
 - name: analyze_db_health
-  description: Performs comprehensive health checks including cache hit rates, connections,
-    indexes, and vacuum status
+  description: Performs comprehensive health checks including cache hit rates, connections, indexes, and vacuum status
 runtime: containerized
 containerizedConfig:
   image: ghcr.io/obot-platform/mcp-images/postgresql:0.3.0
