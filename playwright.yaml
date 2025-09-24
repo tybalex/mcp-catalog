@@ -1,39 +1,28 @@
 name: Playwright
-description: 'A Model Context Protocol (MCP) server that provides browser automation
-  capabilities using Playwright. This server enables AI agents to interact with web
-  pages through structured accessibility snapshots, bypassing the need for screenshots
-  or visually-tuned models for fast, deterministic automation.
+description: 'A Model Context Protocol (MCP) server that provides browser automation capabilities using Playwright. This server enables AI agents to interact with web pages through structured accessibility snapshots, bypassing the need for screenshots or visually-tuned models for fast, deterministic automation.
 
 
   ## Features
 
-  - **Accessibility-Based Automation**: Uses Playwright''s accessibility tree instead
-  of pixel-based input for reliable automation
+  - **Accessibility-Based Automation**: Uses Playwright''s accessibility tree instead of pixel-based input for reliable automation
 
-  - **LLM-Friendly Interface**: Operates purely on structured data without requiring
-  vision models
+  - **LLM-Friendly Interface**: Operates purely on structured data without requiring vision models
 
-  - **Core Web Interactions**: Click, type, navigate, drag, hover, and form interactions
-  with precise element targeting
+  - **Core Web Interactions**: Click, type, navigate, drag, hover, and form interactions with precise element targeting
 
-  - **Advanced Capabilities**: JavaScript evaluation, file uploads, dialog handling,
-  and network monitoring
+  - **Advanced Capabilities**: JavaScript evaluation, file uploads, dialog handling, and network monitoring
 
-  - **Tab Management**: Multi-tab browser control with opening, closing, and switching
-  between tabs
+  - **Tab Management**: Multi-tab browser control with opening, closing, and switching between tabs
 
-  - **Screenshot & PDF Generation**: Visual capture and document generation capabilities
-  (with optional capabilities)
+  - **Screenshot & PDF Generation**: Visual capture and document generation capabilities (with optional capabilities)
 
-  - **Coordinate-Based Actions**: Precise mouse control with optional vision capabilities
-  for complex interactions
+  - **Coordinate-Based Actions**: Precise mouse control with optional vision capabilities for complex interactions
 
 
   ## What you''ll need to connect
 
 
-  **No Setup Required**: Playwright works out-of-the-box with no API keys or configuration
-  needed.
+  **No Setup Required**: Playwright works out-of-the-box with no API keys or configuration needed.
 
   '
 metadata:
@@ -48,21 +37,18 @@ toolPreview:
   params:
     url: The URL to navigate to
 - name: browser_snapshot
-  description: Capture accessibility snapshot of the current page, this is better
-    than screenshot (Read-only - true)
+  description: Capture accessibility snapshot of the current page, this is better than screenshot (Read-only - true)
 - name: browser_click
   description: Perform click on a web page (Read-only - false)
   params:
-    element: Human-readable element description used to obtain permission to interact
-      with the element
+    element: Human-readable element description used to obtain permission to interact with the element
     ref: Exact target element reference from the page snapshot
     doubleClick: Whether to perform a double click instead of a single click
     button: Button to click, defaults to left
 - name: browser_type
   description: Type text into editable element (Read-only -  false)
   params:
-    element: Human-readable element description used to obtain permission to interact
-      with the element
+    element: Human-readable element description used to obtain permission to interact with the element
     ref: Exact target element reference from the page snapshot
     text: Text to type into the element
     submit: Whether to submit entered text (press Enter after)
@@ -82,8 +68,7 @@ toolPreview:
     element: Human-readable element description (optional)
     ref: Exact target element reference (optional)
 - name: browser_wait_for
-  description: Wait for text to appear or disappear or a specified time to pass (Read-only
-    -  true)
+  description: Wait for text to appear or disappear or a specified time to pass (Read-only -  true)
   params:
     time: The time to wait in seconds
     text: The text to wait for
