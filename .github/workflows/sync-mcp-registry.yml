@@ -29,7 +29,7 @@ jobs:
       
       - name: Run MCP Registry Sync
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPSTREAM_SYNC_WORKFLOW_PAT: ${{ secrets.UPSTREAM_SYNC_WORKFLOW_PAT }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           REGISTRY_URL: "https://registry.modelcontextprotocol.io/v0/servers"
           GITHUB_REPOSITORY: ${{ github.repository }}
