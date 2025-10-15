@@ -32,7 +32,7 @@ CATALOG_OWNER = os.getenv("CATALOG_OWNER", "obot-platform")
 CATALOG_REPO = os.getenv("CATALOG_REPO", "mcp-catalog")
 
 # Authentication tokens
-GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+GITHUB_TOKEN = os.environ["UPSTREAM_SYNC_WORKFLOW_PAT"]
 
 # Runtime configuration
 ISSUE_LABELS = [s.strip() for s in os.getenv("ISSUE_LABELS", "VerifiedMCPServer").split(",") if s.strip()]
