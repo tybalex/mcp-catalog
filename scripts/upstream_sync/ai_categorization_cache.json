@@ -3238,5 +3238,21 @@
     "cached_at": "2025-10-15 21:14:01 UTC",
     "repository_url": "https://github.com/prisma/mcp",
     "server_name": "io.prisma/mcp"
+  },
+  "io.github.Defozo/ddc-ci-control-bridge:https://github.com/Defozo/ddc-ci-control-bridge": {
+    "ai_decision": "community",
+    "ai_confidence": 0.8,
+    "ai_reason": "The GitHub owner Defozo is a personal user, not a monitor manufacturer or official DDC/CI standards body.",
+    "cached_at": "2025-10-16 02:31:42 UTC",
+    "repository_url": "https://github.com/Defozo/ddc-ci-control-bridge",
+    "server_name": "io.github.Defozo/ddc-ci-control-bridge"
+  },
+  "io.github.IvanRublev/keyphrases-mcp:https://github.com/IvanRublev/keyphrases-mcp": {
+    "ai_decision": "community",
+    "ai_confidence": 1.0,
+    "ai_reason": "The repository is owned by a personal user (IvanRublev) and not by an official brand or organization related to a product/service.",
+    "cached_at": "2025-10-16 02:31:46 UTC",
+    "repository_url": "https://github.com/IvanRublev/keyphrases-mcp",
+    "server_name": "io.github.IvanRublev/keyphrases-mcp"
   }
 }
