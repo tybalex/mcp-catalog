@@ -3254,5 +3254,53 @@
     "cached_at": "2025-10-16 02:31:46 UTC",
     "repository_url": "https://github.com/IvanRublev/keyphrases-mcp",
     "server_name": "io.github.IvanRublev/keyphrases-mcp"
+  },
+  "com.figma.mcp/mcp:https://github.com/figma/mcp-server-guide": {
+    "ai_decision": "official",
+    "ai_confidence": 0.98,
+    "ai_reason": "Figma-branded GitHub org and domain in remotes match product; repository is not a fork or archived.",
+    "cached_at": "2025-10-17 02:31:07 UTC",
+    "repository_url": "https://github.com/figma/mcp-server-guide",
+    "server_name": "com.figma.mcp/mcp"
+  },
+  "com.generect/generect-mcp:https://github.com/generect/generect_mcp.git": {
+    "ai_decision": "official",
+    "ai_confidence": 0.95,
+    "ai_reason": "The GitHub org 'generect' matches the product 'Generect', remote uses 'generect.com', and the repo is not a fork or archived.",
+    "cached_at": "2025-10-17 02:31:11 UTC",
+    "repository_url": "https://github.com/generect/generect_mcp.git",
+    "server_name": "com.generect/generect-mcp"
+  },
+  "io.github.Abraxas1010/agent-payment-mcp:https://github.com/Abraxas1010/agent-payment-mcp": {
+    "ai_decision": "community",
+    "ai_confidence": 0.8,
+    "ai_reason": "The repo is under the user Abraxas1010 and package releases are from Apoth3osis-ai, with no clear signal these are the official Base blockchain organizations.",
+    "cached_at": "2025-10-17 02:31:18 UTC",
+    "repository_url": "https://github.com/Abraxas1010/agent-payment-mcp",
+    "server_name": "io.github.Abraxas1010/agent-payment-mcp"
+  },
+  "io.github.Wolfe-Jam/claude-faf-mcp:https://github.com/Wolfe-Jam/claude-faf-mcp": {
+    "ai_decision": "community",
+    "ai_confidence": 0.95,
+    "ai_reason": "Published under an individual GitHub user (Wolfe-Jam) rather than an org matching 'faf' or 'Claude', with no strong signals of official brand ownership.",
+    "cached_at": "2025-10-17 02:31:28 UTC",
+    "repository_url": "https://github.com/Wolfe-Jam/claude-faf-mcp",
+    "server_name": "io.github.Wolfe-Jam/claude-faf-mcp"
+  },
+  "io.github.colabfit/colabfit-mcp:https://github.com/colabfit/colabfit-mcp": {
+    "ai_decision": "official",
+    "ai_confidence": 0.9,
+    "ai_reason": "Repository is under the colabfit GitHub organization which matches the server and product name; no third-party or generic service indicators.",
+    "cached_at": "2025-10-17 02:31:33 UTC",
+    "repository_url": "https://github.com/colabfit/colabfit-mcp",
+    "server_name": "io.github.colabfit/colabfit-mcp"
+  },
+  "io.github.vulnersCom/vulners-mcp:https://github.com/vulnersCom/vulners-mcp": {
+    "ai_decision": "official",
+    "ai_confidence": 0.95,
+    "ai_reason": "GitHub organization vulnersCom matches the Vulners.com product in both name and remote, indicating official ownership.",
+    "cached_at": "2025-10-17 02:32:01 UTC",
+    "repository_url": "https://github.com/vulnersCom/vulners-mcp",
+    "server_name": "io.github.vulnersCom/vulners-mcp"
   }
 }
