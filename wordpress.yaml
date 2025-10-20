@@ -1,4 +1,4 @@
-name: WordPress1
+name: WordPress
 description: |
   A Model Context Protocol (MCP) server that integrates with a self-hosted WordPress site (wordpress.com not supported).
   
