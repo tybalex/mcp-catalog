@@ -1,4 +1,4 @@
-name: Notify Automation Workflow on PR creation
+name: Notify Automation Workflow on PR Creation
 
 on:
   pull_request:
@@ -9,10 +9,10 @@ jobs:
   notify-automation:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Automation repo
-        run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: token ${{ secrets.AUTOMATION_PAT }}" \
-            https://api.github.com/repos/obot-platform/mcp-server-validation-automation/dispatches \
-            -d '{"event_type":"pr-created", "client_payload": {"pr_number": "${{ github.event.pull_request.number }}"}}'
+      - name: Trigger Automation Repository
+        uses: peter-evans/repository-dispatch@v4
+        with:
+          token: ${{ secrets.AUTOMATION_PAT }}
+          repository: obot-platform/mcp-server-validation-automation
+          event-type: pr-created
+          client-payload: '{"pr_number": "${{ github.event.pull_request.number }}"}'
