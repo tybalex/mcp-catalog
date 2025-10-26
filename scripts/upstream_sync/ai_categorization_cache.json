@@ -3838,5 +3838,93 @@
     "cached_at": "2025-10-23 23:23:17 UTC",
     "repository_url": "https://github.com/box/mcp-server-box-remote",
     "server_name": "box/mcp-server-box-remote"
+  },
+  "ai.smithery/ScrapeGraphAI-scrapegraph-mcp:https://github.com/ScrapeGraphAI/scrapegraph-mcp": {
+    "ai_decision": "official",
+    "ai_confidence": 0.9,
+    "ai_reason": "GitHub org ScrapeGraphAI matches the product ScrapeGraphAI, remote is on smithery.ai referencing org, and repo is not a fork or archived.",
+    "cached_at": "2025-10-26 02:30:19 UTC",
+    "repository_url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp",
+    "server_name": "ai.smithery/ScrapeGraphAI-scrapegraph-mcp"
+  },
+  "io.github.JustinBeckwith/linkinator-mcp:https://github.com/JustinBeckwith/linkinator-mcp": {
+    "ai_decision": "community",
+    "ai_confidence": 1.0,
+    "ai_reason": "The repository is owned by a personal user (JustinBeckwith) rather than an organization, so it cannot be considered official.",
+    "cached_at": "2025-10-26 02:30:54 UTC",
+    "repository_url": "https://github.com/JustinBeckwith/linkinator-mcp",
+    "server_name": "io.github.JustinBeckwith/linkinator-mcp"
+  },
+  "io.github.aahl/mcp-notify:https://github.com/aahl/mcp-notify": {
+    "ai_decision": "community",
+    "ai_confidence": 0.9,
+    "ai_reason": "Owner 'aahl' is a personal account, not a verified org, and there is no evidence it is the publisher of a product called 'notify'.",
+    "cached_at": "2025-10-26 02:30:59 UTC",
+    "repository_url": "https://github.com/aahl/mcp-notify",
+    "server_name": "io.github.aahl/mcp-notify"
+  },
+  "io.github.gattjoe/ACMS:https://github.com/gattjoe/ACMS": {
+    "ai_decision": "community",
+    "ai_confidence": 0.95,
+    "ai_reason": "The GitHub user 'gattjoe' is not affiliated with Apple and there is no evidence of brand ownership for Apple Container CLI.",
+    "cached_at": "2025-10-26 02:31:07 UTC",
+    "repository_url": "https://github.com/gattjoe/ACMS",
+    "server_name": "io.github.gattjoe/ACMS"
+  },
+  "io.github.meloncafe/chromadb-remote-mcp:https://github.com/meloncafe/chromadb-remote-mcp": {
+    "ai_decision": "community",
+    "ai_confidence": 0.95,
+    "ai_reason": "Github org 'meloncafe' does not match 'ChromaDB' brand; all endpoints are under meloncafe's control, not ChromaDB's.",
+    "cached_at": "2025-10-26 02:31:19 UTC",
+    "repository_url": "https://github.com/meloncafe/chromadb-remote-mcp",
+    "server_name": "io.github.meloncafe/chromadb-remote-mcp"
+  },
+  "io.github.srprasanna/mcp-skill-hub:https://github.com/srprasanna/mcp-skill-hub": {
+    "ai_decision": "community",
+    "ai_confidence": 1.0,
+    "ai_reason": "GitHub owner is a personal user (srprasanna) not an organization; no product/brand affiliation evident.",
+    "cached_at": "2025-10-26 02:31:30 UTC",
+    "repository_url": "https://github.com/srprasanna/mcp-skill-hub",
+    "server_name": "io.github.srprasanna/mcp-skill-hub"
+  },
+  "io.github.srprasanna/mcp-skills-server:https://github.com/srprasanna/mcp-skill-hub": {
+    "ai_decision": "community",
+    "ai_confidence": 1.0,
+    "ai_reason": "Published by user srprasanna, not a recognized skills product owner or org; all signals indicate community ownership.",
+    "cached_at": "2025-10-26 02:31:32 UTC",
+    "repository_url": "https://github.com/srprasanna/mcp-skill-hub",
+    "server_name": "io.github.srprasanna/mcp-skills-server"
+  },
+  "io.github.taylorleese/mcp-toolz:https://github.com/taylorleese/mcp-toolz": {
+    "ai_decision": "community",
+    "ai_confidence": 0.98,
+    "ai_reason": "Repository is under a personal user (taylorleese) and not an org matching any of the integrated services (OpenAI, Anthropic, Google, DeepSeek).",
+    "cached_at": "2025-10-26 02:31:35 UTC",
+    "repository_url": "https://github.com/taylorleese/mcp-toolz",
+    "server_name": "io.github.taylorleese/mcp-toolz"
+  },
+  "octopusdeploy/mcp-server:https://github.com/OctopusDeploy/mcp-server": {
+    "ai_decision": "official",
+    "ai_confidence": 0.98,
+    "ai_reason": "The repository is owned by the verified organization 'OctopusDeploy', matching the product brand in both org and repo name.",
+    "cached_at": "2025-10-26 02:31:42 UTC",
+    "repository_url": "https://github.com/OctopusDeploy/mcp-server",
+    "server_name": "octopusdeploy/mcp-server"
+  },
+  "amplitude/mcp-server-guide:https://github.com/amplitude/mcp-server-guide": {
+    "ai_decision": "official",
+    "ai_confidence": 0.95,
+    "ai_reason": "The server is published by the 'amplitude' GitHub organization, which matches the Amplitude product in both name and service description.",
+    "cached_at": "2025-10-26 02:31:45 UTC",
+    "repository_url": "https://github.com/amplitude/mcp-server-guide",
+    "server_name": "amplitude/mcp-server-guide"
+  },
+  "stackhawk/stackhawk-mcp:https://github.com/stackhawk/stackhawk-mcp": {
+    "ai_decision": "official",
+    "ai_confidence": 0.98,
+    "ai_reason": "The repo is published by the StackHawk organization and the server integrates with the StackHawk platform.",
+    "cached_at": "2025-10-26 02:31:48 UTC",
+    "repository_url": "https://github.com/stackhawk/stackhawk-mcp",
+    "server_name": "stackhawk/stackhawk-mcp"
   }
 }
