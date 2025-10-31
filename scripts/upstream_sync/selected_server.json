@@ -907,5 +907,425 @@
     "server_type": "official",
     "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/339",
     "processed_at": "2025-10-17 04:44:07 UTC"
+  },
+  "com.codescene/codescene-mcp-server": {
+    "name": "com.codescene/codescene-mcp-server",
+    "description": "An MCP server that provides CodeScene Code Health analysis tools.",
+    "version": "1.0.0",
+    "repository_url": "https://github.com/codescene-oss/codescene-mcp-server",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/369",
+    "processed_at": "2025-10-23 23:23:18 UTC"
+  },
+  "com.gitkraken/gk-cli": {
+    "name": "com.gitkraken/gk-cli",
+    "description": "The GitKraken MCP Server for managing repos, PRs, issues across GitHub, GitLab, Bitbucket and more.",
+    "version": "3.1.45",
+    "repository_url": "https://github.com/gitkraken/gk-cli",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/370",
+    "processed_at": "2025-10-23 23:23:20 UTC"
+  },
+  "com.infobip/mcp": {
+    "name": "com.infobip/mcp",
+    "description": "Infobip MCP server for omnichannel communication and messaging. SMS, RCS, WhatsApp, Viber and more.",
+    "version": "2.0.0",
+    "repository_url": "https://github.com/infobip/mcp",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/371",
+    "processed_at": "2025-10-23 23:23:21 UTC"
+  },
+  "com.picaos/mcp": {
+    "name": "com.picaos/mcp",
+    "description": "A Model Context Protocol Server for Pica",
+    "version": "2.0.3",
+    "repository_url": "https://github.com/picahq/mcp",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/372",
+    "processed_at": "2025-10-23 23:23:22 UTC"
+  },
+  "io.github.DollhouseMCP/mcp-server": {
+    "name": "io.github.DollhouseMCP/mcp-server",
+    "description": "OSS to create Personas, Skills, Templates, Agents, and Memories to customize your AI experience.",
+    "version": "1.9.20",
+    "repository_url": "https://github.com/DollhouseMCP/mcp-server",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/373",
+    "processed_at": "2025-10-23 23:23:24 UTC"
+  },
+  "io.github.cashfree/cashfree-mcp": {
+    "name": "io.github.cashfree/cashfree-mcp",
+    "description": "Cashfree MCP server for cashfree docs and APIs",
+    "version": "1.0.0",
+    "repository_url": "https://github.com/cashfree/cashfree-mcp",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/374",
+    "processed_at": "2025-10-23 23:23:25 UTC"
+  },
+  "io.github.configcat/mcp-server": {
+    "name": "io.github.configcat/mcp-server",
+    "description": "Enables AI agents to interact with ConfigCat, a feature flag service for teams.",
+    "version": "0.1.3",
+    "repository_url": "https://github.com/configcat/mcp-server",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/375",
+    "processed_at": "2025-10-23 23:23:27 UTC"
+  },
+  "io.github.firecrawl/firecrawl-mcp-server": {
+    "name": "io.github.firecrawl/firecrawl-mcp-server",
+    "description": "MCP server for Firecrawl web scraping, structured data extraction and web search integration.",
+    "version": "3.5.2",
+    "repository_url": "https://github.com/firecrawl/firecrawl-mcp-server.git",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/376",
+    "processed_at": "2025-10-23 23:23:28 UTC"
+  },
+  "io.github.kontent-ai/mcp-server": {
+    "name": "io.github.kontent-ai/mcp-server",
+    "description": "Connect to Kontent.ai to manage content, types, taxonomies, and workflows via natural language",
+    "version": "0.21.9",
+    "repository_url": "https://github.com/kontent-ai/mcp-server",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/377",
+    "processed_at": "2025-10-23 23:23:30 UTC"
+  },
+  "io.github.kubeshop/testkube-mcp": {
+    "name": "io.github.kubeshop/testkube-mcp",
+    "description": "MCP server for Testkube - Manage test workflows, executions, and artifacts via AI assistants",
+    "version": "1.0.1",
+    "repository_url": "https://github.com/kubeshop/testkube",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/378",
+    "processed_at": "2025-10-23 23:23:31 UTC"
+  },
+  "io.github.vercel/next-devtools-mcp": {
+    "name": "io.github.vercel/next-devtools-mcp",
+    "description": "Next.js development tools MCP server with stdio transport",
+    "version": "0.2.1",
+    "repository_url": "https://github.com/vercel/next-devtools-mcp",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/379",
+    "processed_at": "2025-10-23 23:23:32 UTC"
+  },
+  "io.trunk/mcp-server": {
+    "name": "io.trunk/mcp-server",
+    "description": "An MCP server that provides tools for Trunk CI Autopilot to apply fixes to failing tests.",
+    "version": "1.0.0",
+    "repository_url": "https://github.com/trunk-io/mcp-server",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/380",
+    "processed_at": "2025-10-23 23:23:34 UTC"
+  },
+  "org.io-aerospace/mcp-server": {
+    "name": "org.io-aerospace/mcp-server",
+    "description": "MCP server for aerospace calculations: orbital mechanics, ephemeris, DSN operations, ...",
+    "version": "1.0.0",
+    "repository_url": "https://github.com/IO-Aerospace-software-engineering/mcp-server",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/381",
+    "processed_at": "2025-10-23 23:23:35 UTC"
+  },
+  "oraios/serena": {
+    "name": "oraios/serena",
+    "description": "Semantic code retrieval & editing tools for coding agents.",
+    "version": "",
+    "repository_url": "https://github.com/oraios/serena",
+    "server_type": "community",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/382",
+    "processed_at": "2025-10-23 23:23:37 UTC"
+  },
+  "chromedevtools/chrome-devtools-mcp": {
+    "name": "chromedevtools/chrome-devtools-mcp",
+    "description": "Lets your coding agent (such as Gemini, Claude, Cursor or Copilot) control and inspect a live Chrome browser.",
+    "version": "",
+    "repository_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/383",
+    "processed_at": "2025-10-23 23:23:38 UTC"
+  },
+  "coplaydev/unity-mcp": {
+    "name": "coplaydev/unity-mcp",
+    "description": "Control the Unity Editor from MCP clients via a Unity bridge + local Python server.",
+    "version": "",
+    "repository_url": "https://github.com/CoplayDev/unity-mcp",
+    "server_type": "community",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/384",
+    "processed_at": "2025-10-23 23:23:40 UTC"
+  },
+  "microsoftdocs/mcp": {
+    "name": "microsoftdocs/mcp",
+    "description": "Enables clients like GitHub Copilot and other AI agents to bring trusted and up-to-date information directly from Microsoft's official documentation.",
+    "version": "",
+    "repository_url": "https://github.com/microsoftdocs/mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/385",
+    "processed_at": "2025-10-23 23:23:41 UTC"
+  },
+  "microsoft/azure-devops-mcp": {
+    "name": "microsoft/azure-devops-mcp",
+    "description": "Interact with Azure DevOps services like repositories, work items, builds, releases, test plans, and code search.",
+    "version": "",
+    "repository_url": "https://github.com/microsoft/azure-devops-mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/386",
+    "processed_at": "2025-10-23 23:23:42 UTC"
+  },
+  "antfu/nuxt-mcp": {
+    "name": "antfu/nuxt-mcp",
+    "description": "MCP server helping models understand your Vite/Nuxt app.",
+    "version": "",
+    "repository_url": "https://github.com/antfu/nuxt-mcp",
+    "server_type": "community",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/387",
+    "processed_at": "2025-10-23 23:23:44 UTC"
+  },
+  "neondatabase/mcp-server-neon": {
+    "name": "neondatabase/mcp-server-neon",
+    "description": "MCP server for interacting with Neon Management API and databases",
+    "version": "",
+    "repository_url": "https://github.com/neondatabase/mcp-server-neon",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/388",
+    "processed_at": "2025-10-23 23:23:45 UTC"
+  },
+  "apify/apify-mcp-server": {
+    "name": "apify/apify-mcp-server",
+    "description": "Extract data from any website with thousands of scrapers, crawlers, and automations on Apify Store ⚡",
+    "version": "",
+    "repository_url": "https://github.com/apify/apify-mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/389",
+    "processed_at": "2025-10-23 23:23:47 UTC"
+  },
+  "getsentry/sentry-mcp": {
+    "name": "getsentry/sentry-mcp",
+    "description": "Retrieve and analyze application errors and performance issues from Sentry projects.",
+    "version": "",
+    "repository_url": "https://github.com/getsentry/sentry-mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/390",
+    "processed_at": "2025-10-23 23:23:48 UTC"
+  },
+  "doist/todoist-ai": {
+    "name": "doist/todoist-ai",
+    "description": "A set of tools to connect to AI agents, to allow them to use Todoist on a user's behalf.",
+    "version": "",
+    "repository_url": "https://github.com/Doist/todoist-ai",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/391",
+    "processed_at": "2025-10-23 23:23:50 UTC"
+  },
+  "pydantic/logfire-mcp": {
+    "name": "pydantic/logfire-mcp",
+    "description": "Provides access to OpenTelemetry traces and metrics through Logfire.",
+    "version": "",
+    "repository_url": "https://github.com/pydantic/logfire-mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/392",
+    "processed_at": "2025-10-23 23:23:51 UTC"
+  },
+  "azure/aks-mcp": {
+    "name": "azure/aks-mcp",
+    "description": "Interact with Azure Kubernetes Service (AKS) from MCP clients.",
+    "version": "",
+    "repository_url": "https://github.com/Azure/aks-mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/393",
+    "processed_at": "2025-10-23 23:23:54 UTC"
+  },
+  "webflow/mcp-server": {
+    "name": "webflow/mcp-server",
+    "description": "Enable AI agents to interact with Webflow APIs.",
+    "version": "",
+    "repository_url": "https://github.com/webflow/mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/394",
+    "processed_at": "2025-10-23 23:23:55 UTC"
+  },
+  "postmanlabs/postman-mcp-server": {
+    "name": "postmanlabs/postman-mcp-server",
+    "description": "Postman's MCP server connects AI agents, assistants, and chatbots directly to your APIs on Postman. Use natural language to prompt AI to automate work across your Postman collections, environments, workspaces, and more.",
+    "version": "",
+    "repository_url": "https://github.com/postmanlabs/postman-mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/395",
+    "processed_at": "2025-10-23 23:23:56 UTC"
+  },
+  "microsoft/fabric-rti-mcp": {
+    "name": "microsoft/fabric-rti-mcp",
+    "description": "Query Eventhouse/ADX with KQL and manage Eventstreams.",
+    "version": "",
+    "repository_url": "https://github.com/microsoft/fabric-rti-mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/396",
+    "processed_at": "2025-10-23 23:23:58 UTC"
+  },
+  "codacy/codacy-mcp-server": {
+    "name": "codacy/codacy-mcp-server",
+    "description": "MCP Server for the Codacy API, enabling access to repositories, files, quality, coverage, security and more.",
+    "version": "",
+    "repository_url": "https://github.com/codacy/codacy-mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/397",
+    "processed_at": "2025-10-23 23:23:59 UTC"
+  },
+  "microsoft/clarity-mcp-server": {
+    "name": "microsoft/clarity-mcp-server",
+    "description": "Fetch Clarity analytics via MCP clients.",
+    "version": "",
+    "repository_url": "https://github.com/microsoft/clarity-mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/398",
+    "processed_at": "2025-10-23 23:24:01 UTC"
+  },
+  "cognitionai/deepwiki": {
+    "name": "cognitionai/deepwiki",
+    "description": "Devin-generated docs for any public repo",
+    "version": "",
+    "repository_url": "https://github.com/CognitionAI/deepwiki",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/399",
+    "processed_at": "2025-10-23 23:24:02 UTC"
+  },
+  "figma/mcp-server-guide": {
+    "name": "figma/mcp-server-guide",
+    "description": "Bring in Figma context to generate better code, and turn ideas into production apps.",
+    "version": "",
+    "repository_url": "https://github.com/figma/mcp-server-guide",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/400",
+    "processed_at": "2025-10-23 23:24:04 UTC"
+  },
+  "launchdarkly/mcp-server": {
+    "name": "launchdarkly/mcp-server",
+    "description": "Official LaunchDarkly MCP Server for feature flag management and experimentation. Enables AI agents to interact with LaunchDarkly APIs for managing feature flags, AI configs, targeting rules, and gradual rollouts across multiple environments.",
+    "version": "",
+    "repository_url": "https://github.com/launchdarkly/mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/401",
+    "processed_at": "2025-10-23 23:24:06 UTC"
+  },
+  "microsoft/devbox-mcp-server": {
+    "name": "microsoft/devbox-mcp-server",
+    "description": "This server enables natural language interactions for developer-focused operations like managing Dev Boxes, configurations, and pools.",
+    "version": "",
+    "repository_url": "https://github.com/microsoft/devbox-mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/402",
+    "processed_at": "2025-10-23 23:24:08 UTC"
+  },
+  "axiomhq/mcp": {
+    "name": "axiomhq/mcp",
+    "description": "List datasets, schemas, run APL queries, and use prompts for exploration, anomalies, and monitoring.",
+    "version": "",
+    "repository_url": "https://github.com/axiomhq/mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/403",
+    "processed_at": "2025-10-23 23:24:10 UTC"
+  },
+  "intercom/intercom-mcp-server": {
+    "name": "intercom/intercom-mcp-server",
+    "description": "Enable AI agents to securely access and interact with your Intercom data whenever helpful.",
+    "version": "",
+    "repository_url": "https://github.com/intercom/intercom-mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/404",
+    "processed_at": "2025-10-23 23:24:11 UTC"
+  },
+  "jfrog/jfrog-mcp-server": {
+    "name": "jfrog/jfrog-mcp-server",
+    "description": "JFrog MCP Server: providing your agents with direct access to JFrog Platform services.",
+    "version": "",
+    "repository_url": "https://github.com/jfrog/jfrog-mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/405",
+    "processed_at": "2025-10-23 23:24:13 UTC"
+  },
+  "box/mcp-server-box-remote": {
+    "name": "box/mcp-server-box-remote",
+    "description": "Securely connect AI agents to your enterprise content in Box",
+    "version": "",
+    "repository_url": "https://github.com/box/mcp-server-box-remote",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/406",
+    "processed_at": "2025-10-23 23:24:14 UTC"
+  },
+  "ai.smithery/ScrapeGraphAI-scrapegraph-mcp": {
+    "name": "ai.smithery/ScrapeGraphAI-scrapegraph-mcp",
+    "description": "Enable language models to perform advanced AI-powered web scraping with enterprise-grade reliabili…",
+    "version": "1.16.0",
+    "repository_url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp",
+    "server_type": "official",
+    "upstream_source": "modelcontextprotocol.io",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/413",
+    "processed_at": "2025-10-26 02:31:49 UTC"
+  },
+  "octopusdeploy/mcp-server": {
+    "name": "octopusdeploy/mcp-server",
+    "description": "Deliver software to Kubernetes, multi-cloud, on-prem infrastructure, and anywhere else",
+    "version": "",
+    "repository_url": "https://github.com/OctopusDeploy/mcp-server",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/414",
+    "processed_at": "2025-10-26 02:31:50 UTC"
+  },
+  "amplitude/mcp-server-guide": {
+    "name": "amplitude/mcp-server-guide",
+    "description": "Search, access, and get insights on your Amplitude data",
+    "version": "",
+    "repository_url": "https://github.com/amplitude/mcp-server-guide",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/415",
+    "processed_at": "2025-10-26 02:31:51 UTC"
+  },
+  "stackhawk/stackhawk-mcp": {
+    "name": "stackhawk/stackhawk-mcp",
+    "description": "An MCP server that provides interaction with StackHawk's security scanning platform.",
+    "version": "",
+    "repository_url": "https://github.com/stackhawk/stackhawk-mcp",
+    "server_type": "official",
+    "upstream_source": "github.com/mcp",
+    "issue_url": "https://github.com/obot-platform/mcp-catalog/issues/416",
+    "processed_at": "2025-10-26 02:31:52 UTC"
   }
 }
